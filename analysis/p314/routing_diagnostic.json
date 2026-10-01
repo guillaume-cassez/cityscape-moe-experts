@@ -1,0 +1,104 @@
+{
+  "runs": {
+    "moe_v3cs_Binit_seed123": {
+      "n_epochs_logged": 80,
+      "is_smoke": false,
+      "last_epoch": 79,
+      "part_max_last": 0.5018680491500359,
+      "entropy_norm_last": 0.99770705565239,
+      "entropy_token_last": 0.9874530974938394,
+      "gamma_absmean_last": 0.01911584452977097,
+      "noise_std_last": 0.0,
+      "frac_last": [
+        0.4979451619284058,
+        0.5007472239088996,
+        0.5018680491500359,
+        0.4994395939331369
+      ],
+      "dead_experts_last": 0,
+      "part_max_mean_postanneal": 0.501247859367864,
+      "entropy_norm_mean_postanneal": 0.9995137453490083
+    },
+    "moe_v3cs_Binit_seed42": {
+      "n_epochs_logged": 80,
+      "is_smoke": false,
+      "last_epoch": 79,
+      "part_max_last": 0.5030262352398922,
+      "entropy_norm_last": 0.9999980948158936,
+      "entropy_token_last": 0.9999582975521614,
+      "gamma_absmean_last": 0.020260640731295566,
+      "noise_std_last": 0.0,
+      "frac_last": [
+        0.49850557408801005,
+        0.4986923783115677,
+        0.5030262352398922,
+        0.4997758419123286
+      ],
+      "dead_experts_last": 0,
+      "part_max_mean_postanneal": 0.5009648507528593,
+      "entropy_norm_mean_postanneal": 0.9999995065931913
+    },
+    "moe_v3cs_Binit_seed456": {
+      "n_epochs_logged": 80,
+      "is_smoke": false,
+      "last_epoch": 79,
+      "part_max_last": 0.5018680491099521,
+      "entropy_norm_last": 0.999966414165561,
+      "entropy_token_last": 0.9998210438883537,
+      "gamma_absmean_last": 0.018153079823611484,
+      "noise_std_last": 0.0,
+      "frac_last": [
+        0.49940223331489897,
+        0.49973848113375535,
+        0.4989912650712641,
+        0.5018680491099521
+      ],
+      "dead_experts_last": 0,
+      "part_max_mean_postanneal": 0.5008079350852077,
+      "entropy_norm_mean_postanneal": 0.9999940255983771
+    },
+    "moe_v3cs_SMOKE_seed42": {
+      "n_epochs_logged": 1,
+      "is_smoke": true,
+      "last_epoch": 0,
+      "part_max_last": 0.6666666865348816,
+      "entropy_norm_last": 0.9922321736812592,
+      "entropy_token_last": 0.9840835630893707,
+      "gamma_absmean_last": 2.947006760223303e-05,
+      "noise_std_last": 1.0,
+      "frac_last": [
+        0.5555555522441864,
+        0.3611111082136631,
+        0.4166666716337204,
+        0.6666666865348816
+      ],
+      "dead_experts_last": 0,
+      "part_max_mean_postanneal": 0.6666666865348816,
+      "entropy_norm_mean_postanneal": 0.9922321736812592
+    }
+  },
+  "verdict_these": {
+    "part_max_mean": 0.5010068817353103,
+    "part_max_floor_1_over_E": 0.25,
+    "entropy_norm_mean": 0.9998357591801922,
+    "dead_experts_total": 0,
+    "these_gate_does_not_choose": true,
+    "note": "th\u00e8se BRATS V3 = le gain vient de l'INIT experts, pas du routage ; CS : part_max proche de 1/E + entropie haute + 0 expert mort \u2192 confirme"
+  },
+  "ref_brats_v3": {
+    "part_max": [
+      0.507,
+      0.583
+    ],
+    "entropy_norm": [
+      0.892,
+      0.995
+    ],
+    "dead_experts": 0
+  },
+  "runs_plotted": [
+    "moe_v3cs_Binit_seed123",
+    "moe_v3cs_Binit_seed42",
+    "moe_v3cs_Binit_seed456"
+  ]
+}

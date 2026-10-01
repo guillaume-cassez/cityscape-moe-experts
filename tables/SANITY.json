@@ -1,0 +1,1287 @@
+[
+ {
+  "check": "famille 1 paire (P3.10) : taille calculée == 1",
+  "ok": true,
+  "detail": "len = 1"
+ },
+ {
+  "check": "famille 1 paire : Holm == p (recomputé)",
+  "ok": true,
+  "detail": "holm=0.0066 p=0.0066"
+ },
+ {
+  "check": "famille 1 paire : Holm recomputé == stocké",
+  "ok": true,
+  "detail": "0.0066 vs 0.0066"
+ },
+ {
+  "check": "famille P3.14 : taille calculée == 12",
+  "ok": true,
+  "detail": "len(pairwise) = 12"
+ },
+ {
+  "check": "famille P3.14 : Holm recomputé == stocké (12 paires)",
+  "ok": true,
+  "detail": "écart max 0"
+ },
+ {
+  "check": "famille P3.16 : taille calculée == len(pairs) déclaré",
+  "ok": true,
+  "detail": "15 vs 15"
+ },
+ {
+  "check": "famille P3.16 : Holm recomputé == stocké",
+  "ok": true,
+  "detail": "écart max 0"
+ },
+ {
+  "check": "P3.17 cite la famille 15 paires (pas une autre)",
+  "ok": true,
+  "detail": "11 bras comparés, écart max 0"
+ },
+ {
+  "check": "les 3 familles sont DISTINCTES (Holm moe différent partout)",
+  "ok": true,
+  "detail": "1 paire 0.0066 / 12 paires 0.0726 / 15 paires 0.0924"
+ },
+ {
+  "check": "famille P3.16 : bras vs contrôle == paires déclarées vs contrôle",
+  "ok": true,
+  "detail": "11 bras vs contrôle + 4 paires fusion-vs-expert = 15 paires"
+ },
+ {
+  "check": "le MoE est parmi les bras comparés au contrôle",
+  "ok": true,
+  "detail": "11 bras : ['B', 'C', 'Cp', 'D', 'Dp', 'G', 'fused_CpvetoB', 'fused_CvetoB', 'fused_DpvetoB', 'fused_DvetoB', 'moe_v3cs']"
+ },
+ {
+  "check": "log moe_v3cs_Binit seed42 : 80 époques lues",
+  "ok": true,
+  "detail": "80 lignes de temps, 80 de VRAM"
+ },
+ {
+  "check": "log moe_v3cs_Binit seed123 : 80 époques lues",
+  "ok": true,
+  "detail": "80 lignes de temps, 80 de VRAM"
+ },
+ {
+  "check": "log moe_v3cs_Binit seed456 : 80 époques lues",
+  "ok": true,
+  "detail": "80 lignes de temps, 80 de VRAM"
+ },
+ {
+  "check": "log control_nomoe_Binit seed42 : 80 époques lues",
+  "ok": true,
+  "detail": "80 lignes de temps, 80 de VRAM"
+ },
+ {
+  "check": "log control_nomoe_Binit seed123 : 80 époques lues",
+  "ok": true,
+  "detail": "80 lignes de temps, 80 de VRAM"
+ },
+ {
+  "check": "log control_nomoe_Binit seed456 : 80 époques lues",
+  "ok": true,
+  "detail": "80 lignes de temps, 80 de VRAM"
+ },
+ {
+  "check": "experts initialisés bit-à-bit (max_ecart = 0 partout)",
+  "ok": true,
+  "detail": "12 copies, max_ecart 0.0"
+ },
+ {
+  "check": "nombre de copies d'experts = n_experts × n_seeds",
+  "ok": true,
+  "detail": "12 vs 4×3"
+ },
+ {
+  "check": "chaque expert apparié au MÊME seed que le run",
+  "ok": true,
+  "detail": "12 couples (seed run, seed expert) tous égaux"
+ },
+ {
+  "check": "4 méthodes distinctes en experts",
+  "ok": true,
+  "detail": "['B', 'D', 'Dp', 'G']"
+ },
+ {
+  "check": "source_block = head.fpn_convs.0",
+  "ok": true,
+  "detail": "head.fpn_convs.0"
+ },
+ {
+  "check": "gate aléatoire (aucun pré-appariement)",
+  "ok": true,
+  "detail": "random"
+ },
+ {
+  "check": "époques = 80 pour les 3 seeds",
+  "ok": true,
+  "detail": "[80, 80, 80]"
+ },
+ {
+  "check": "équirépartition part_max = top_k/n_experts",
+  "ok": true,
+  "detail": "2/4 = 0.5"
+ },
+ {
+  "check": "residual_scale initial = 0 (époque 0 bit-exacte au contrôle)",
+  "ok": true,
+  "detail": "0.0"
+ },
+ {
+  "check": "surcoût temporel MoE vs contrôle > 0",
+  "ok": true,
+  "detail": "+24.7 %"
+ },
+ {
+  "check": "surcoût VRAM MoE vs contrôle > 0",
+  "ok": true,
+  "detail": "35.2 vs 31.5 Go"
+ },
+ {
+  "check": "γ croît strictement de l'époque 0 à la finale (3 seeds)",
+  "ok": true,
+  "detail": "s42 0.00024→0.02026 · s123 0.00023→0.01912 · s456 0.00023→0.01815"
+ },
+ {
+  "check": "γ final strictement positif (le MoE sert)",
+  "ok": true,
+  "detail": "min 0.01815"
+ },
+ {
+  "check": "primaire : Δ(moe − contrôle) positif",
+  "ok": true,
+  "detail": "+0.4494 pt"
+ },
+ {
+  "check": "primaire : IC95 exclut 0 (significatif au sens IC)",
+  "ok": true,
+  "detail": "[+0.1086 ; +0.8195]"
+ },
+ {
+  "check": "primaire : p < 0,05",
+  "ok": true,
+  "detail": "0.0066"
+ },
+ {
+  "check": "primaire : le harnais annonce la paire pré-enregistrée moe/contrôle",
+  "ok": true,
+  "detail": "controle_vs_moe_v3cs"
+ },
+ {
+  "check": "3 seeds par bras dans le harnais",
+  "ok": true,
+  "detail": "3 / 3"
+ },
+ {
+  "check": "primaire : moyenne des mIoU par seed == point bootstrap (moe_v3cs)",
+  "ok": true,
+  "detail": "81.617575 vs 81.617575"
+ },
+ {
+  "check": "primaire : moyenne des mIoU par seed == point bootstrap (controle)",
+  "ok": true,
+  "detail": "81.168215 vs 81.168215"
+ },
+ {
+  "check": "écart harness ↔ métiers P3.16 (2ᵉ forward) < 0,01 pt",
+  "ok": true,
+  "detail": "moe 6.07e-04 pt, contrôle 2.51e-04 pt"
+ },
+ {
+  "check": "verdict identique dans les deux forwards (significatif partout)",
+  "ok": true,
+  "detail": "harness +0.4494 pt p=0.0066 · métiers +0.4502 pt"
+ },
+ {
+  "check": "Δ primaire cohérent entre 5 artefacts (< 0,01 pt)",
+  "ok": true,
+  "detail": "amplitude 8.58e-04 pt sur 5 sources"
+ },
+ {
+  "check": "master P3.14 : 13 bras dont le contrôle",
+  "ok": true,
+  "detail": "13 bras, 12 hors contrôle"
+ },
+ {
+  "check": "classement trié par Δ décroissant",
+  "ok": true,
+  "detail": "13 bras"
+ },
+ {
+  "check": "rang du MoE cohérent avec la position du contrôle",
+  "ok": true,
+  "detail": "rang 5/12, rang13 5/13, contrôle 10/13"
+ },
+ {
+  "check": "aucun bras significatif après Holm (les deux familles)",
+  "ok": true,
+  "detail": "5 bras à p brut < 0,05 ; 0 après Holm 12 ; 0 après Holm 15"
+ },
+ {
+  "check": "routing seed42 : 80 époques, epochs 0..79 sans trou",
+  "ok": true,
+  "detail": "80 entrées"
+ },
+ {
+  "check": "routing seed42 : n_experts cohérent avec moe_kwargs",
+  "ok": true,
+  "detail": "4"
+ },
+ {
+  "check": "routing seed42 ep0 : somme des frac == top_k",
+  "ok": true,
+  "detail": "2.000000028 pour top_k = 2"
+ },
+ {
+  "check": "routing seed42 ep0 : part_max == max(frac)",
+  "ok": true,
+  "detail": "0.500560420"
+ },
+ {
+  "check": "routing seed42 ep0 : top_expert_share ≥ part_max (Jensen)",
+  "ok": true,
+  "detail": "moyenne des maxima 0.667003 ≥ maximum des moyennes 0.500560"
+ },
+ {
+  "check": "routing seed42 ep79 : somme des frac == top_k",
+  "ok": true,
+  "detail": "2.000000030 pour top_k = 2"
+ },
+ {
+  "check": "routing seed42 ep79 : part_max == max(frac)",
+  "ok": true,
+  "detail": "0.503026235"
+ },
+ {
+  "check": "routing seed42 ep79 : top_expert_share ≥ part_max (Jensen)",
+  "ok": true,
+  "detail": "moyenne des maxima 0.597549 ≥ maximum des moyennes 0.503026"
+ },
+ {
+  "check": "routing seed42 : entropies dans [0,1] (normalisées)",
+  "ok": true,
+  "detail": "entropy_norm / entropy_token / entropy_token_clean"
+ },
+ {
+  "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (entropy_norm)",
+  "ok": true,
+  "detail": "0.999998095 vs 0.999998095"
+ },
+ {
+  "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (entropy_token)",
+  "ok": true,
+  "detail": "0.999958298 vs 0.999958298"
+ },
+ {
+  "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (entropy_token_clean)",
+  "ok": true,
+  "detail": "0.999958298 vs 0.999958298"
+ },
+ {
+  "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (gamma_absmean)",
+  "ok": true,
+  "detail": "0.0202606407 vs 0.0202606407"
+ },
+ {
+  "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (part_max)",
+  "ok": true,
+  "detail": "0.503026235 vs 0.503026235"
+ },
+ {
+  "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (top_expert_share)",
+  "ok": true,
+  "detail": "0.59754914 vs 0.59754914"
+ },
+ {
+  "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (aux_loss_weighted)",
+  "ok": true,
+  "detail": "0.0020000299 vs 0.0020000299"
+ },
+ {
+  "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (noise_std)",
+  "ok": true,
+  "detail": "0 vs 0"
+ },
+ {
+  "check": "routing seed42 : bruit recuit sur 40 époques puis nul",
+  "ok": true,
+  "detail": "noise_std 1.00 → 0.025 → 0.00"
+ },
+ {
+  "check": "routing seed123 : 80 époques, epochs 0..79 sans trou",
+  "ok": true,
+  "detail": "80 entrées"
+ },
+ {
+  "check": "routing seed123 : n_experts cohérent avec moe_kwargs",
+  "ok": true,
+  "detail": "4"
+ },
+ {
+  "check": "routing seed123 ep0 : somme des frac == top_k",
+  "ok": true,
+  "detail": "2.000000027 pour top_k = 2"
+ },
+ {
+  "check": "routing seed123 ep0 : part_max == max(frac)",
+  "ok": true,
+  "detail": "0.501494440"
+ },
+ {
+  "check": "routing seed123 ep0 : top_expert_share ≥ part_max (Jensen)",
+  "ok": true,
+  "detail": "moyenne des maxima 0.668983 ≥ maximum des moyennes 0.501494"
+ },
+ {
+  "check": "routing seed123 ep79 : somme des frac == top_k",
+  "ok": true,
+  "detail": "2.000000029 pour top_k = 2"
+ },
+ {
+  "check": "routing seed123 ep79 : part_max == max(frac)",
+  "ok": true,
+  "detail": "0.501868049"
+ },
+ {
+  "check": "routing seed123 ep79 : top_expert_share ≥ part_max (Jensen)",
+  "ok": true,
+  "detail": "moyenne des maxima 0.595457 ≥ maximum des moyennes 0.501868"
+ },
+ {
+  "check": "routing seed123 : entropies dans [0,1] (normalisées)",
+  "ok": true,
+  "detail": "entropy_norm / entropy_token / entropy_token_clean"
+ },
+ {
+  "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (entropy_norm)",
+  "ok": true,
+  "detail": "0.997707056 vs 0.997707056"
+ },
+ {
+  "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (entropy_token)",
+  "ok": true,
+  "detail": "0.987453097 vs 0.987453097"
+ },
+ {
+  "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (entropy_token_clean)",
+  "ok": true,
+  "detail": "0.987453097 vs 0.987453097"
+ },
+ {
+  "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (gamma_absmean)",
+  "ok": true,
+  "detail": "0.0191158445 vs 0.0191158445"
+ },
+ {
+  "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (part_max)",
+  "ok": true,
+  "detail": "0.501868049 vs 0.501868049"
+ },
+ {
+  "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (top_expert_share)",
+  "ok": true,
+  "detail": "0.595456934 vs 0.595456934"
+ },
+ {
+  "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (aux_loss_weighted)",
+  "ok": true,
+  "detail": "0.00199941921 vs 0.00199941921"
+ },
+ {
+  "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (noise_std)",
+  "ok": true,
+  "detail": "0 vs 0"
+ },
+ {
+  "check": "routing seed123 : bruit recuit sur 40 époques puis nul",
+  "ok": true,
+  "detail": "noise_std 1.00 → 0.025 → 0.00"
+ },
+ {
+  "check": "routing seed456 : 80 époques, epochs 0..79 sans trou",
+  "ok": true,
+  "detail": "80 entrées"
+ },
+ {
+  "check": "routing seed456 : n_experts cohérent avec moe_kwargs",
+  "ok": true,
+  "detail": "4"
+ },
+ {
+  "check": "routing seed456 ep0 : somme des frac == top_k",
+  "ok": true,
+  "detail": "2.000000029 pour top_k = 2"
+ },
+ {
+  "check": "routing seed456 ep0 : part_max == max(frac)",
+  "ok": true,
+  "detail": "0.501494440"
+ },
+ {
+  "check": "routing seed456 ep0 : top_expert_share ≥ part_max (Jensen)",
+  "ok": true,
+  "detail": "moyenne des maxima 0.659568 ≥ maximum des moyennes 0.501494"
+ },
+ {
+  "check": "routing seed456 ep79 : somme des frac == top_k",
+  "ok": true,
+  "detail": "2.000000029 pour top_k = 2"
+ },
+ {
+  "check": "routing seed456 ep79 : part_max == max(frac)",
+  "ok": true,
+  "detail": "0.501868049"
+ },
+ {
+  "check": "routing seed456 ep79 : top_expert_share ≥ part_max (Jensen)",
+  "ok": true,
+  "detail": "moyenne des maxima 0.596951 ≥ maximum des moyennes 0.501868"
+ },
+ {
+  "check": "routing seed456 : entropies dans [0,1] (normalisées)",
+  "ok": true,
+  "detail": "entropy_norm / entropy_token / entropy_token_clean"
+ },
+ {
+  "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (entropy_norm)",
+  "ok": true,
+  "detail": "0.999966414 vs 0.999966414"
+ },
+ {
+  "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (entropy_token)",
+  "ok": true,
+  "detail": "0.999821044 vs 0.999821044"
+ },
+ {
+  "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (entropy_token_clean)",
+  "ok": true,
+  "detail": "0.999821044 vs 0.999821044"
+ },
+ {
+  "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (gamma_absmean)",
+  "ok": true,
+  "detail": "0.0181530798 vs 0.0181530798"
+ },
+ {
+  "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (part_max)",
+  "ok": true,
+  "detail": "0.501868049 vs 0.501868049"
+ },
+ {
+  "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (top_expert_share)",
+  "ok": true,
+  "detail": "0.596951367 vs 0.596951367"
+ },
+ {
+  "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (aux_loss_weighted)",
+  "ok": true,
+  "detail": "0.00199997181 vs 0.00199997181"
+ },
+ {
+  "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (noise_std)",
+  "ok": true,
+  "detail": "0 vs 0"
+ },
+ {
+  "check": "routing seed456 : bruit recuit sur 40 époques puis nul",
+  "ok": true,
+  "detail": "noise_std 1.00 → 0.025 → 0.00"
+ },
+ {
+  "check": "aucun expert mort à l'époque finale (3 seeds)",
+  "ok": true,
+  "detail": "{42: 0, 123: 0, 456: 0}"
+ },
+ {
+  "check": "part_max final dans un voisinage de l'équirépartition 0.5000",
+  "ok": true,
+  "detail": "s42 0.5030 · s123 0.5019 · s456 0.5019"
+ },
+ {
+  "check": "frac des 4 experts ∈ [0.4979 ; 0.5030] autour de 0.5000",
+  "ok": true,
+  "detail": "étendue 0.0051 pt"
+ },
+ {
+  "check": "entropy_norm ≥ 0,98 partout (porte quasi uniforme)",
+  "ok": true,
+  "detail": "min 0.99771"
+ },
+ {
+  "check": "seed42 : le bruit est actif sur exactement noise_anneal époques",
+  "ok": true,
+  "detail": "40 époques à noise_std > 0 (0..39)"
+ },
+ {
+  "check": "seed42 : après recuit, token == clean par construction (tautologie, non preuve)",
+  "ok": true,
+  "detail": "40 époques à bruit nul"
+ },
+ {
+  "check": "seed123 : le bruit est actif sur exactement noise_anneal époques",
+  "ok": true,
+  "detail": "40 époques à noise_std > 0 (0..39)"
+ },
+ {
+  "check": "seed123 : après recuit, token == clean par construction (tautologie, non preuve)",
+  "ok": true,
+  "detail": "40 époques à bruit nul"
+ },
+ {
+  "check": "seed456 : le bruit est actif sur exactement noise_anneal époques",
+  "ok": true,
+  "detail": "40 époques à noise_std > 0 (0..39)"
+ },
+ {
+  "check": "seed456 : après recuit, token == clean par construction (tautologie, non preuve)",
+  "ok": true,
+  "detail": "40 époques à bruit nul"
+ },
+ {
+  "check": "phase à bruit ACTIF : l'écart token↔clean reste négligeable devant la platitude",
+  "ok": true,
+  "detail": "écart max 1.45e-03 sur 40 époques × 3 seeds"
+ },
+ {
+  "check": "phase à bruit ACTIF : la distribution SANS bruit est déjà plate (clean ≥ 0,99)",
+  "ok": true,
+  "detail": "min 0.99821"
+ },
+ {
+  "check": "phase à bruit ACTIF : part_max reste collé à l'équirépartition",
+  "ok": true,
+  "detail": "bornes 0.50011–0.50217 pour 0.5000"
+ },
+ {
+  "check": "γ final ≫ γ époque 0 (le MoE sert, mais comme moyenne)",
+  "ok": true,
+  "detail": "s42 ×83 · s123 ×84 · s456 ×77"
+ },
+ {
+  "check": "métiers P3.16 : 20 métriques",
+  "ok": true,
+  "detail": "20 tables"
+ },
+ {
+  "check": "métiers P3.16 : 15 paires",
+  "ok": true,
+  "detail": "15 paires"
+ },
+ {
+  "check": "métiers P3.16 : 12 bras (couverture complète, A exclu)",
+  "ok": true,
+  "detail": "12 bras : ['controle', 'B', 'C', 'Cp', 'D', 'Dp', 'G', 'fused_CvetoB', 'fused_DvetoB', 'fused_CpvetoB', 'fused_DpvetoB', 'moe_v3cs']"
+ },
+ {
+  "check": "le MoE et le contrôle sont dans les 12 bras",
+  "ok": true,
+  "detail": "moe_v3cs, controle"
+ },
+ {
+  "check": "bras de contexte présents dans la table métier",
+  "ok": true,
+  "detail": "['D', 'Dp', 'G', 'B']"
+ },
+ {
+  "check": "ordre d'affichage == ensemble des métriques de l'artefact",
+  "ok": true,
+  "detail": "0 différence(s)"
+ },
+ {
+  "check": "unité de « mIoU » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.808888, max 0.816834"
+ },
+ {
+  "check": "unité de « boundary_f1_3px » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.763734, max 0.773043"
+ },
+ {
+  "check": "unité de « boundary_f1_3px_pieds » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.666386, max 0.677327"
+ },
+ {
+  "check": "unité de « rappel_strict_instances » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.728367, max 0.784363"
+ },
+ {
+  "check": "unité de « precision_ped_pixels » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.478331, max 0.700283"
+ },
+ {
+  "check": "unité de « instances_toutes_rappel » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.765520, max 0.822974"
+ },
+ {
+  "check": "unité de « instances_toutes_det05 » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.851170, max 0.884189"
+ },
+ {
+  "check": "unité de « instances_individuelles_rappel » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.767350, max 0.824072"
+ },
+ {
+  "check": "unité de « instances_individuelles_det05 » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.851735, max 0.884265"
+ },
+ {
+  "check": "unité de « instances_foule_rappel » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.699721, max 0.764346"
+ },
+ {
+  "check": "unité de « instances_foule_det05 » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.820106, max 0.867725"
+ },
+ {
+  "check": "unité de « instances_taille_T1_rappel » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.609137, max 0.678103"
+ },
+ {
+  "check": "unité de « instances_taille_T1_det05 » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.682616, max 0.738569"
+ },
+ {
+  "check": "unité de « instances_taille_T2_rappel » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.808776, max 0.862793"
+ },
+ {
+  "check": "unité de « instances_taille_T2_det05 » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.910834, max 0.937787"
+ },
+ {
+  "check": "unité de « instances_taille_T3_rappel » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.916760, max 0.943435"
+ },
+ {
+  "check": "unité de « instances_taille_T3_det05 » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.987827, max 0.991156"
+ },
+ {
+  "check": "unité de « IoU_person » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.848751, max 0.852193"
+ },
+ {
+  "check": "unité de « IoU_rider » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.675814, max 0.692278"
+ },
+ {
+  "check": "unité de « fragments » = composantes/image (valeurs > 1)",
+  "ok": true,
+  "detail": "min 488.0, max 519.3"
+ },
+ {
+  "check": "comptes de significativité métier cohérents",
+  "ok": true,
+  "detail": "2 Holm-significatifs, 5 IC excluant 0 (Holm ⊆ IC)"
+ },
+ {
+  "check": "fragments : artefact à 2 bras (contrôle + MoE seulement)",
+  "ok": true,
+  "detail": "2 bras : ['controle', 'moe_v3cs']"
+ },
+ {
+  "check": "fragments : points de la table == fragments_point de l'artefact",
+  "ok": true,
+  "detail": "519.264 → 488.047"
+ },
+ {
+  "check": "fragments : baisse mesurée",
+  "ok": true,
+  "detail": "-31.217 composantes/image (0.9399×)"
+ },
+ {
+  "check": "compte des survivantes au Holm == n_holm calculé plus haut",
+  "ok": true,
+  "detail": "2 vs 2"
+ },
+ {
+  "check": "les fragments sont parmi les survivantes au Holm",
+  "ok": true,
+  "detail": "['instances_taille_T3_rappel', 'fragments']"
+ },
+ {
+  "check": "il y a PLUS d'une survivante (ne pas écrire « la seule »)",
+  "ok": true,
+  "detail": "instances_taille_T3_rappel (Holm 0) · fragments (Holm 0)"
+ },
+ {
+  "check": "unité de « instances_taille_T1_rappel » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.609137, max 0.678103"
+ },
+ {
+  "check": "unité de « rappel_strict_instances » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.728367, max 0.784363"
+ },
+ {
+  "check": "unité de « instances_toutes_rappel » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.765520, max 0.822974"
+ },
+ {
+  "check": "unité de « boundary_f1_3px » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.763734, max 0.773043"
+ },
+ {
+  "check": "unité de « precision_ped_pixels » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.478331, max 0.700283"
+ },
+ {
+  "check": "unité de « instances_foule_rappel » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.699721, max 0.764346"
+ },
+ {
+  "check": "unité de « IoU_person » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.848751, max 0.852193"
+ },
+ {
+  "check": "unité de « instances_taille_T1_rappel » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.609137, max 0.678103"
+ },
+ {
+  "check": "le MoE capte une partie du gain T1 de D/Dp, sans l'ampleur de la perte de G",
+  "ok": true,
+  "detail": "MoE +0.80 · D +2.82 · Dp +2.02 · G -4.08"
+ },
+ {
+  "check": "unité de « rappel_strict_instances » = fraction dans [0,1] -> points",
+  "ok": true,
+  "detail": "min 0.728367, max 0.784363"
+ },
+ {
+  "check": "rappel piéton strict : le MoE ne hérite PAS de la perte de G",
+  "ok": true,
+  "detail": "MoE +0.47 vs G -3.42"
+ },
+ {
+  "check": "traffic light : le MoE n'hérite pas de la perte des bras boundary/distmap",
+  "ok": true,
+  "detail": "MoE -0.08 · D -2.60 · Dp -2.34"
+ },
+ {
+  "check": "attribution P3.16 : référence = contrôle",
+  "ok": true,
+  "detail": "controle"
+ },
+ {
+  "check": "attribution P3.16 : 12 bras",
+  "ok": true,
+  "detail": "12 bras"
+ },
+ {
+  "check": "attribution P3.16 : 19 classes Cityscapes",
+  "ok": true,
+  "detail": "19"
+ },
+ {
+  "check": "classes toutes distinctes",
+  "ok": true,
+  "detail": "19"
+ },
+ {
+  "check": "mIoU == moyenne des 19 IoU par classe (moe_v3cs)",
+  "ok": true,
+  "detail": "81.617575 vs 81.617575"
+ },
+ {
+  "check": "mIoU == moyenne des 19 IoU par classe (D)",
+  "ok": true,
+  "detail": "81.685781 vs 81.685781"
+ },
+ {
+  "check": "mIoU == moyenne des 19 IoU par classe (G)",
+  "ok": true,
+  "detail": "81.263264 vs 81.263264"
+ },
+ {
+  "check": "IoU de référence (contrôle) : moyenne des 19 == point du harnais",
+  "ok": true,
+  "detail": "81.168215 vs 81.168215"
+ },
+ {
+  "check": "Δ mIoU de l'attribution == somme des Δ par classe / 19",
+  "ok": true,
+  "detail": "+0.449360 vs +0.449360"
+ },
+ {
+  "check": "Holm 19 classes recomputé == p_holm_arm stocké",
+  "ok": true,
+  "detail": "écart max 0"
+ },
+ {
+  "check": "gains + pertes + classes nulles == 19",
+  "ok": true,
+  "detail": "11 gains, 8 pertes"
+ },
+ {
+  "check": "critère AMPLITUDE : les 4 plus fortes hausses sont truck, wall, train, fence",
+  "ok": true,
+  "detail": "['truck', 'wall', 'train', 'fence']"
+ },
+ {
+  "check": "critère IC-excluant-0 : hausses = truck, train, sidewalk, road",
+  "ok": true,
+  "detail": "['truck', 'train', 'sidewalk', 'road']"
+ },
+ {
+  "check": "critère IC-excluant-0 : baisses = person, bicycle",
+  "ok": true,
+  "detail": "['person', 'bicycle']"
+ },
+ {
+  "check": "critère HOLM(19) : aucune HAUSSE ne survit",
+  "ok": true,
+  "detail": "0 hausse(s) Holm-significative(s) : []"
+ },
+ {
+  "check": "critère HOLM(19) : la seule classe survivante est une BAISSE",
+  "ok": true,
+  "detail": "['bicycle']"
+ },
+ {
+  "check": "les deux critères ne sont PAS réductibles l'un à l'autre",
+  "ok": true,
+  "detail": "amplitude ['truck', 'wall', 'train', 'fence'] vs IC ['truck', 'train', 'sidewalk', 'road']"
+ },
+ {
+  "check": "truck : le MoE retrouve une part majoritaire du MEILLEUR des 4 experts",
+  "ok": true,
+  "detail": "81.7 % (+4.24 vs meilleur expert +5.19 = Dp)"
+ },
+ {
+  "check": "train : le meilleur expert est bien B, pas D ni Dp (le dénominateur D/Dp mentait)",
+  "ok": true,
+  "detail": "B +1.50 · D +0.40 · Dp +0.66 · G -1.04"
+ },
+ {
+  "check": "coût piéton faible et non Holm-significatif",
+  "ok": true,
+  "detail": "-0.244 pt, Holm 0.1326, IC [-0.433 ; -0.062]"
+ },
+ {
+  "check": "polyvalence : 36 endpoints",
+  "ok": true,
+  "detail": "36"
+ },
+ {
+  "check": "polyvalence : 13 bras",
+  "ok": true,
+  "detail": "13"
+ },
+ {
+  "check": "polyvalence : 12 bras à couverture complète (A en partielle)",
+  "ok": true,
+  "detail": "12 ; annexe = ['A']"
+ },
+ {
+  "check": "familles : somme des effectifs == 36",
+  "ok": true,
+  "detail": "36 affectations"
+ },
+ {
+  "check": "19 endpoints « IoU par classe »",
+  "ok": true,
+  "detail": "19"
+ },
+ {
+  "check": "chaque bras complet a ses 36 deltas",
+  "ok": true,
+  "detail": "12 bras × 36 endpoints"
+ },
+ {
+  "check": "sd inter-bras présent pour les 36 endpoints (B)",
+  "ok": true,
+  "detail": "36"
+ },
+ {
+  "check": "dommage max recalculé == stocké (B)",
+  "ok": true,
+  "detail": "-4.0638 (precision_ped_pixels) vs ['B', -4.06, 'precision_ped_pixels']"
+ },
+ {
+  "check": "dommage max recalculé == stocké (C)",
+  "ok": true,
+  "detail": "-3.2060 (precision_ped_pixels) vs ['C', -3.21, 'precision_ped_pixels']"
+ },
+ {
+  "check": "dommage max recalculé == stocké (Cp)",
+  "ok": true,
+  "detail": "-6.0509 (precision_ped_pixels) vs ['Cp', -6.05, 'precision_ped_pixels']"
+ },
+ {
+  "check": "dommage max recalculé == stocké (D)",
+  "ok": true,
+  "detail": "-22.1952 (precision_ped_pixels) vs ['D', -22.2, 'precision_ped_pixels']"
+ },
+ {
+  "check": "dommage max recalculé == stocké (Dp)",
+  "ok": true,
+  "detail": "-15.0202 (precision_ped_pixels) vs ['Dp', -15.02, 'precision_ped_pixels']"
+ },
+ {
+  "check": "dommage max recalculé == stocké (G)",
+  "ok": true,
+  "detail": "-6.7626 (precision_ped_pixels) vs ['G', -6.76, 'precision_ped_pixels']"
+ },
+ {
+  "check": "dommage max recalculé == stocké (fused_CvetoB)",
+  "ok": true,
+  "detail": "-1.8952 (IoU_bus) vs ['fused_CvetoB', -1.9, 'IoU_bus']"
+ },
+ {
+  "check": "dommage max recalculé == stocké (fused_CpvetoB)",
+  "ok": true,
+  "detail": "-2.7797 (IoU_bus) vs ['fused_CpvetoB', -2.78, 'IoU_bus']"
+ },
+ {
+  "check": "dommage max recalculé == stocké (fused_DvetoB)",
+  "ok": true,
+  "detail": "-8.7018 (precision_ped_pixels) vs ['fused_DvetoB', -8.7, 'precision_ped_pixels']"
+ },
+ {
+  "check": "dommage max recalculé == stocké (fused_DpvetoB)",
+  "ok": true,
+  "detail": "-4.7678 (precision_ped_pixels) vs ['fused_DpvetoB', -4.77, 'precision_ped_pixels']"
+ },
+ {
+  "check": "dommage max recalculé == stocké (moe_v3cs)",
+  "ok": true,
+  "detail": "-0.5291 (instances_foule_det05) vs ['moe_v3cs', -0.53, 'instances_foule_det05']"
+ },
+ {
+  "check": "classement par dommage recalculé == classement stocké",
+  "ok": true,
+  "detail": "['moe_v3cs', 'fused_CvetoB', 'fused_CpvetoB']… == ['moe_v3cs', 'fused_CvetoB', 'fused_CpvetoB']…"
+ },
+ {
+  "check": "le MoE est premier en dommage maximal",
+  "ok": true,
+  "detail": "moe_v3cs"
+ },
+ {
+  "check": "marge du MoE sur le suivant == stockée",
+  "ok": true,
+  "detail": "1.366 vs 1.366"
+ },
+ {
+  "check": "marge positive (le MoE est bien le moins abîmé)",
+  "ok": true,
+  "detail": "+1.366 pt"
+ },
+ {
+  "check": "couverture de rang_entier : bras complets + bras partiels == n_bras",
+  "ok": true,
+  "detail": "13 bras dont 12 à couverture complète sur 36 endpoints ; partiels : {'A': 20}"
+ },
+ {
+  "check": "le MoE est à couverture complète sur les 36 endpoints",
+  "ok": true,
+  "detail": "36/36"
+ },
+ {
+  "check": "n_rang1 recalculé == profil stocké (B)",
+  "ok": true,
+  "detail": "2 vs 2"
+ },
+ {
+  "check": "n_rang1 recalculé == profil stocké (C)",
+  "ok": true,
+  "detail": "0 vs 0"
+ },
+ {
+  "check": "n_rang1 recalculé == profil stocké (Cp)",
+  "ok": true,
+  "detail": "0 vs 0"
+ },
+ {
+  "check": "n_rang1 recalculé == profil stocké (D)",
+  "ok": true,
+  "detail": "16 vs 16"
+ },
+ {
+  "check": "n_rang1 recalculé == profil stocké (Dp)",
+  "ok": true,
+  "detail": "3 vs 3"
+ },
+ {
+  "check": "n_rang1 recalculé == profil stocké (G)",
+  "ok": true,
+  "detail": "7 vs 7"
+ },
+ {
+  "check": "n_rang1 recalculé == profil stocké (fused_CvetoB)",
+  "ok": true,
+  "detail": "0 vs 0"
+ },
+ {
+  "check": "n_rang1 recalculé == profil stocké (fused_CpvetoB)",
+  "ok": true,
+  "detail": "0 vs 0"
+ },
+ {
+  "check": "n_rang1 recalculé == profil stocké (fused_DvetoB)",
+  "ok": true,
+  "detail": "3 vs 3"
+ },
+ {
+  "check": "n_rang1 recalculé == profil stocké (fused_DpvetoB)",
+  "ok": true,
+  "detail": "4 vs 4"
+ },
+ {
+  "check": "n_rang1 recalculé == profil stocké (moe_v3cs)",
+  "ok": true,
+  "detail": "0 vs 0"
+ },
+ {
+  "check": "le MoE n'est premier sur AUCUN endpoint",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "check": "D est premier sur le plus grand nombre d'endpoints",
+  "ok": true,
+  "detail": "D 16"
+ },
+ {
+  "check": "le MoE n'est jamais dernier",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "check": "le dénominateur des rangs varie selon les endpoints (A en couverture partielle)",
+  "ok": true,
+  "detail": "tailles observées [12, 13]"
+ },
+ {
+  "check": "pire rang du MoE recalculé == profil",
+  "ok": true,
+  "detail": "11 vs 11"
+ },
+ {
+  "check": "le pire rang du MoE n'est PAS une dernière place",
+  "ok": true,
+  "detail": "11/12 sur `instances_foule_rappel` (dernière place = 12)"
+ },
+ {
+  "check": "pire rang + son dénominateur cohérents avec le profil (MoE)",
+  "ok": true,
+  "detail": "11/12 sur `instances_foule_rappel` — jamais dernier"
+ },
+ {
+  "check": "le dénominateur du pire rang n'est PAS toujours 13 (A en couverture partielle)",
+  "ok": true,
+  "detail": "dénominateurs observés : [12, 13]"
+ },
+ {
+  "check": "moyenne des 19 Δ par classe ≈ ΔmIoU (identité exacte within-artefact, la polyvalence mélange 2 forwards)",
+  "ok": true,
+  "detail": "+0.449360 vs +0.450218 — écart 8.58e-04 pt = l'écart inter-forwards mesuré en T2"
+ },
+ {
+  "check": "l'écart d'identité de la polyvalence est du même ordre que son écart inter-forwards",
+  "ok": true,
+  "detail": "8.58e-04 pt vs sanity déclarée 4.13e-03 pt"
+ },
+ {
+  "check": "percentile moyen du MoE recalculé == profil",
+  "ok": true,
+  "detail": "0.604345 vs 0.604345"
+ },
+ {
+  "check": "T0 détail recalculé == stocké (D)",
+  "ok": true,
+  "detail": "dommage -22.195 vs -22.2, end>1pt 3 vs 3, classes 4 vs 4"
+ },
+ {
+  "check": "T0 détail recalculé == stocké (Dp)",
+  "ok": true,
+  "detail": "dommage -15.020 vs -15.02, end>1pt 3 vs 3, classes 3 vs 3"
+ },
+ {
+  "check": "T0 détail recalculé == stocké (fused_DvetoB)",
+  "ok": true,
+  "detail": "dommage -8.702 vs -8.7, end>1pt 3 vs 3, classes 3 vs 3"
+ },
+ {
+  "check": "T0 détail recalculé == stocké (fused_DpvetoB)",
+  "ok": true,
+  "detail": "dommage -4.768 vs -4.77, end>1pt 2 vs 2, classes 2 vs 2"
+ },
+ {
+  "check": "T0 détail recalculé == stocké (moe_v3cs)",
+  "ok": true,
+  "detail": "dommage -0.529 vs -0.53, end>1pt 0 vs 0, classes 0 vs 0"
+ },
+ {
+  "check": "T0 recalculé : le MoE est le SEUL bras à cocher les trois critères",
+  "ok": true,
+  "detail": "recalculé ['moe_v3cs'], stocké ['moe_v3cs']"
+ },
+ {
+  "check": "bras à mIoU significative recalculés == stockés",
+  "ok": true,
+  "detail": "['D', 'Dp', 'fused_DpvetoB', 'fused_DvetoB', 'moe_v3cs']"
+ },
+ {
+  "check": "prix par point de mIoU recalculé == stocké (D)",
+  "ok": true,
+  "detail": "-43.06 vs -43.1"
+ },
+ {
+  "check": "prix par point de mIoU recalculé == stocké (Dp)",
+  "ok": true,
+  "detail": "-31.86 vs -31.9"
+ },
+ {
+  "check": "prix par point de mIoU recalculé == stocké (fused_DvetoB)",
+  "ok": true,
+  "detail": "-17.93 vs -17.9"
+ },
+ {
+  "check": "prix par point de mIoU recalculé == stocké (fused_DpvetoB)",
+  "ok": true,
+  "detail": "-9.90 vs -9.9"
+ },
+ {
+  "check": "prix par point de mIoU recalculé == stocké (moe_v3cs)",
+  "ok": true,
+  "detail": "-1.18 vs -1.2"
+ },
+ {
+  "check": "le MoE paie le prix le plus faible par point de mIoU",
+  "ok": true,
+  "detail": "moe_v3cs -1.2 · fused_DpvetoB -9.9 · fused_DvetoB -17.9 · Dp -31.9 · D -43.1"
+ },
+ {
+  "check": "z du dommage maximal recalculé == stocké (MoE)",
+  "ok": true,
+  "detail": "-0.354 vs -0.354"
+ },
+ {
+  "check": "z du MoE ≫ meilleur z des spécialistes en dommage",
+  "ok": true,
+  "detail": "MoE -0.35 vs D -3.44"
+ },
+ {
+  "check": "pic maximal du MoE recalculé == profil",
+  "ok": true,
+  "detail": "+4.241 vs +4.241"
+ },
+ {
+  "check": "sanity P3.17 : mIoU consolidé == P3.14 à < 0,01 pt",
+  "ok": true,
+  "detail": "4.13e-03 pt"
+ },
+ {
+  "check": "sanity P3.17 : IoU par classe recomputées depuis npz à < 0,1 pt",
+  "ok": true,
+  "detail": "6.33e-02 pt"
+ },
+ {
+  "check": "verdicts stockés T0-T3 vrais, T4 partiel (2 seeds sur 3)",
+  "ok": true,
+  "detail": "{\"T0\": true, \"T1\": true, \"T2\": true, \"T3\": true, \"T4\": false, \"T4_moe_premier_sur_n_seeds\": 2}"
+ },
+ {
+  "check": "T4 recalculé depuis par_seed : le MoE est 1er en dommage sur 2 seeds sur 3",
+  "ok": true,
+  "detail": "2/3"
+ },
+ {
+  "check": "le MoE n'est PAS premier en niveau moyen (ne pas survendre)",
+  "ok": true,
+  "detail": "1er = D (77.3 %), MoE 5ᵉ (60.4 %)"
+ },
+ {
+  "check": "Δ > 0 et Δ < 0 partitionnent les 36 endpoints (aucun Δ nul)",
+  "ok": true,
+  "detail": "22 positifs + 14 négatifs = 36"
+ },
+ {
+  "check": "endpoints au-dessus du contrôle == 22 (valeur citée par le cadrage)",
+  "ok": true,
+  "detail": "22/36"
+ },
+ {
+  "check": "les deux compteurs ne sont PAS égaux (sinon l'ambiguïté serait sans objet)",
+  "ok": true,
+  "detail": "Δ > 0 : 22 · moitié haute du classement : 28"
+ },
+ {
+  "check": "par_seed 42 : le MoE est classé et son dommage est du bon ordre",
+  "ok": true,
+  "detail": "rang 1, dommage seed -2.98 (moyenne 3 seeds -0.53)"
+ },
+ {
+  "check": "par_seed 123 : le MoE est classé et son dommage est du bon ordre",
+  "ok": true,
+  "detail": "rang 3, dommage seed -3.17 (moyenne 3 seeds -0.53)"
+ },
+ {
+  "check": "par_seed 456 : le MoE est classé et son dommage est du bon ordre",
+  "ok": true,
+  "detail": "rang 1, dommage seed -2.76 (moyenne 3 seeds -0.53)"
+ },
+ {
+  "check": "une seule famille négative pour le MoE",
+  "ok": true,
+  "detail": "1 : contours"
+ },
+ {
+  "check": "BRATS paper3 : champ zenodo_doi lu dans le dépôt voisin",
+  "ok": true,
+  "detail": "10.5281/zenodo.22903668"
+ },
+ {
+  "check": "BRATS paper3 : champ zenodo_concept_doi lu dans le dépôt voisin",
+  "ok": true,
+  "detail": "10.5281/zenodo.22776410"
+ },
+ {
+  "check": "BRATS paper3 : champ zenodo_record_id lu dans le dépôt voisin",
+  "ok": true,
+  "detail": "22903668"
+ },
+ {
+  "check": "BRATS paper3 : champ zenodo_published lu dans le dépôt voisin",
+  "ok": true,
+  "detail": "2026-09-22"
+ },
+ {
+  "check": "BRATS paper3 publié",
+  "ok": true,
+  "detail": "published"
+ },
+ {
+  "check": "le DOI BRATS diffère de celui du paper4 Cityscapes (pas de confusion)",
+  "ok": true,
+  "detail": "10.5281/zenodo.22903668"
+ }
+]

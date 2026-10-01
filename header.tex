@@ -1,0 +1,41 @@
+% Float placement (App. A uses \begin{table}[H]) and pretty rules — kept here
+% because pandoc applies either YAML header-includes OR -H, not both.
+\usepackage{float}
+\floatplacement{figure}{H}
+\usepackage{booktabs}
+
+% Robust rendering of the inline Unicode superscripts used in the Markdown
+% (e.g. "6×10⁻⁵"): map them to LaTeX so the build does not depend on the main
+% font carrying every glyph (XeLaTeX + Liberation Serif drops U+207B etc.).
+% The math symbols actually used inline (± × − ≈ ≤ ≥ α β ε σ Δ →) ARE in
+% Liberation Serif, so only the super/subscripts and two arrows need mapping.
+\usepackage{newunicodechar}
+\newunicodechar{⁻}{\textsuperscript{\textminus}}
+\newunicodechar{⁰}{\textsuperscript{0}}
+\newunicodechar{¹}{\textsuperscript{1}}
+\newunicodechar{²}{\textsuperscript{2}}
+\newunicodechar{³}{\textsuperscript{3}}
+\newunicodechar{⁴}{\textsuperscript{4}}
+\newunicodechar{⁵}{\textsuperscript{5}}
+\newunicodechar{⁶}{\textsuperscript{6}}
+\newunicodechar{⁷}{\textsuperscript{7}}
+\newunicodechar{⁸}{\textsuperscript{8}}
+\newunicodechar{⁹}{\textsuperscript{9}}
+% Consensus veto notation "C⊘B" uses U+2298 (CIRCLED DIVISION SLASH), which
+% Liberation Serif lacks — map it to the standard LaTeX math symbol \oslash.
+\newunicodechar{⊘}{\ensuremath{\oslash}}
+% Parity notation "naive↔precomputed" uses U+2194 (LEFT RIGHT ARROW), absent
+% from Liberation Serif — map it to the math \leftrightarrow.
+\newunicodechar{↔}{\ensuremath{\leftrightarrow}}
+
+% --- Glyphes propres au paper3 (absents de Liberation Serif OU du lmmono des
+% code-spans) — mappés vers des symboles LaTeX pour un build à 0 glyphe manquant.
+\usepackage{amssymb}   % \checkmark
+% U+2265 ≥ : présent dans Liberation Serif mais ABSENT de lmmono10-regular, la
+% police des code-spans (`top_expert_share ≥ part_max`) — d'où le mapping global.
+\newunicodechar{≥}{\ensuremath{\geq}}
+% U+226A ≪ (« 0.00 ≪ −22.20 ») : absent de Liberation Serif.
+\newunicodechar{≪}{\ensuremath{\ll}}
+% U+2705 ✅ / U+274C ❌ : verdicts des tables T0-T4 (emoji, absents de la police).
+\newunicodechar{✅}{\ensuremath{\checkmark}}
+\newunicodechar{❌}{\ensuremath{\times}}

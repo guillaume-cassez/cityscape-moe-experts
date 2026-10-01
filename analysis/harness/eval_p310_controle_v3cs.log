@@ -1,0 +1,29 @@
+[harness] holdout first:500 (n=500) — bornes : ['max_images=500']
+Cityscapes train (fine): 2975 images
+Cityscapes val (fine): 500 images
+  [controle] seed 42 : 500 images, 38s (mIoU=0.8156)
+Cityscapes train (fine): 2975 images
+Cityscapes val (fine): 500 images
+  [controle] seed 123 : 500 images, 32s (mIoU=0.8056)
+Cityscapes train (fine): 2975 images
+Cityscapes val (fine): 500 images
+  [controle] seed 456 : 500 images, 32s (mIoU=0.8139)
+[harness] bras controle (dense) : seeds [42, 123, 456], 279s
+Cityscapes train (fine): 2975 images
+Cityscapes val (fine): 500 images
+  [moe_v3cs] seed 42 : 500 images, 48s (mIoU=0.8181)
+Cityscapes train (fine): 2975 images
+Cityscapes val (fine): 500 images
+  [moe_v3cs] seed 123 : 500 images, 45s (mIoU=0.8134)
+Cityscapes train (fine): 2975 images
+Cityscapes val (fine): 500 images
+  [moe_v3cs] seed 456 : 500 images, 44s (mIoU=0.8170)
+[harness] bras moe_v3cs (moe) : seeds [42, 123, 456], 318s
+
+=== Table mIoU (bootstrap apparié, n=500, B=10000) ===
+n_images=500 B=10000 bras=['controle', 'moe_v3cs']
+  controle: mIoU=81.17  CI95=[79.80, 82.25]
+  moe_v3cs: mIoU=81.62  CI95=[80.26, 82.71]
+  controle_vs_moe_v3cs: Δ=-0.45  CI95=[-0.82, -0.11]  p=0.007  Holm=0.007 *
+
+-> results/moe_v3_cs/harness/table_controle_v3cs_P310.json

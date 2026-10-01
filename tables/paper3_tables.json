@@ -1,0 +1,3228 @@
+{
+ "date": "2026-10-01T20:30:06",
+ "script": "scripts/p3_moe_tables.py",
+ "gpu_requis": false,
+ "B": 10000,
+ "bootstrap_seed": 20260618,
+ "holdout": {
+  "description": "first:500",
+  "n": 500,
+  "bornes": [
+   "max_images=500"
+  ]
+ },
+ "seeds": [
+  42,
+  123,
+  456
+ ],
+ "bras": "moe_v3cs",
+ "reference": "controle",
+ "provenance": {
+  "harness_P310": "results/moe_v3_cs/harness/table_controle_v3cs_P310.json",
+  "master_P314": "results/moe_v3_cs/p314/master_table.json",
+  "metiers_P316": "results/moe_v3_cs/metiers_experts/table_metiers_experts.json",
+  "attribution_P316": "results/moe_v3_cs/p316/attribution_perclass_vs_controle.json",
+  "polyvalence_P317": "results/moe_v3_cs/p317_polyvalence/table_polyvalence.json"
+ },
+ "T1": {
+  "moe_kwargs": {
+   "n_experts": 4,
+   "top_k": 2,
+   "grid": [
+    3,
+    3
+   ],
+   "kernel_size": 3,
+   "balance": "switch",
+   "balance_weight": 0.001,
+   "noise_std": 1.0,
+   "noise_anneal": 40,
+   "residual_scale": 0.0
+  },
+  "n_experts": 4,
+  "top_k": 2,
+  "grille": [
+   3,
+   3
+  ],
+  "equirepartition_part_max": 0.5,
+  "source_block": "head.fpn_convs.0",
+  "gate": "random",
+  "max_ecart_experts": 0.0,
+  "n_copies_experts": 12,
+  "gamma_final": {
+   "42": 0.020260640731295566,
+   "123": 0.01911584452977097,
+   "456": 0.018153079823611484
+  },
+  "gamma_ep0": {
+   "42": 0.00024294381986748585,
+   "123": 0.00022731325581291516,
+   "456": 0.0002342466520849821
+  },
+  "s_epoch_moe": 762.3541666666666,
+  "s_epoch_controle": 611.3166666666667,
+  "surcout_pct": 24.706916764361054,
+  "vram_moe": 35.2,
+  "vram_controle": 31.5,
+  "h_par_seed": 17.0027407001566,
+  "elapsed_s": {
+   "42": 61227.0366230011,
+   "123": 61173.81533026695,
+   "456": 61228.74760842323
+  }
+ },
+ "T2": {
+  "point_moe": 0.8161757521422855,
+  "point_controle": 0.8116821485763391,
+  "ci_moe": [
+   0.8026438080748718,
+   0.8270908005076589
+  ],
+  "ci_controle": [
+   0.7980203007454423,
+   0.8225076699891491
+  ],
+  "delta_pt": 0.44936035659464135,
+  "ci_lo_pt": 0.10857264271771046,
+  "ci_hi_pt": 0.8195330474257972,
+  "p": 0.0066,
+  "holm_famille_1": 0.0066,
+  "holm_famille_12": 0.0726,
+  "holm_famille_15": 0.0924,
+  "n_famille_1": 1,
+  "n_famille_12": 12,
+  "n_famille_15": 15,
+  "meilleur_holm_15": 0.075,
+  "per_seed_moe": {
+   "42": 0.8181361508241668,
+   "123": 0.8133857303329101,
+   "456": 0.8170053752697796
+  },
+  "per_seed_controle": {
+   "42": 0.815605002966323,
+   "123": 0.8055603266325183,
+   "456": 0.8138811161301761
+  },
+  "second_forward": {
+   "moe": 0.8161818246594867,
+   "controle": 0.8116796431196492,
+   "delta_pt": 0.4502181539837502,
+   "ecart_moe_pt": 0.0006072517201194394,
+   "ecart_controle_pt": 0.00025054566898941033
+  },
+  "delta_par_source": {
+   "harness P3.10": 0.44936035659464135,
+   "master P3.14": 0.44936035659464135,
+   "métiers P3.16": 0.4502181539837502,
+   "attribution P3.16": 0.44936035659465245,
+   "polyvalence P3.17": 0.4502181539837502
+  },
+  "amplitude_delta_pt": 0.0008577973891088497,
+  "B_boot": 10000,
+  "bootstrap_seed": 20260618,
+  "n_images": 500,
+  "holdout": "first:500"
+ },
+ "T3": {
+  "classement": [
+   {
+    "rang": 1,
+    "bras": "D",
+    "label": "D · CE+Kervadec EDT",
+    "miou_pct": 81.68578082293016,
+    "delta_pt": 0.5175659652962405,
+    "ci_lo_pt": 0.142485095664997,
+    "ci_hi_pt": 0.9095479468142021,
+    "p": 0.0048,
+    "holm_12": 0.0576,
+    "holm_15": 0.075,
+    "significatif_brut": true
+   },
+   {
+    "rang": 2,
+    "bras": "fused_DvetoB",
+    "label": "consensus D⊘B",
+    "miou_pct": 81.65231923756028,
+    "delta_pt": 0.48410437992636446,
+    "ci_lo_pt": 0.11122169203099219,
+    "ci_hi_pt": 0.8705161547977119,
+    "p": 0.0082,
+    "holm_12": 0.082,
+    "holm_15": 0.10660000000000001,
+    "significatif_brut": true
+   },
+   {
+    "rang": 3,
+    "bras": "fused_DpvetoB",
+    "label": "consensus Dp⊘B",
+    "miou_pct": 81.64721081626895,
+    "delta_pt": 0.4789959586350423,
+    "ci_lo_pt": 0.01922860852076298,
+    "ci_hi_pt": 0.9568816343802904,
+    "p": 0.0396,
+    "holm_12": 0.3168,
+    "holm_15": 0.4136,
+    "significatif_brut": true
+   },
+   {
+    "rang": 4,
+    "bras": "Dp",
+    "label": "Dp · CE+SDT (distmap)",
+    "miou_pct": 81.64293544928223,
+    "delta_pt": 0.4747205916483255,
+    "ci_lo_pt": 0.03831838954776512,
+    "ci_hi_pt": 0.9274688043590742,
+    "p": 0.0312,
+    "holm_12": 0.2808,
+    "holm_15": 0.396,
+    "significatif_brut": true
+   },
+   {
+    "rang": 5,
+    "bras": "moe_v3cs",
+    "label": "MoE-V3-CS (4 experts)",
+    "miou_pct": 81.61757521422855,
+    "delta_pt": 0.44936035659464135,
+    "ci_lo_pt": 0.10857264271771029,
+    "ci_hi_pt": 0.8195330474257972,
+    "p": 0.0066,
+    "holm_12": 0.0726,
+    "holm_15": 0.0924,
+    "significatif_brut": true
+   },
+   {
+    "rang": 6,
+    "bras": "A",
+    "label": "A · CE seule",
+    "miou_pct": 81.28298118173008,
+    "delta_pt": 0.1147663240961716,
+    "ci_lo_pt": -0.2707768974497607,
+    "ci_hi_pt": 0.5245533800610307,
+    "p": 0.5722,
+    "holm_12": 1.0,
+    "holm_15": null,
+    "significatif_brut": false
+   },
+   {
+    "rang": 7,
+    "bras": "G",
+    "label": "G · CE+Dice+Blob (Kofler)",
+    "miou_pct": 81.26326378163824,
+    "delta_pt": 0.09504892400433729,
+    "ci_lo_pt": -0.27925578066831463,
+    "ci_hi_pt": 0.46708767594628087,
+    "p": 0.6552,
+    "holm_12": 1.0,
+    "holm_15": 1.0,
+    "significatif_brut": false
+   },
+   {
+    "rang": 8,
+    "bras": "fused_CvetoB",
+    "label": "consensus C⊘B",
+    "miou_pct": 81.2364210429897,
+    "delta_pt": 0.06820618535579026,
+    "ci_lo_pt": -0.3379413900502967,
+    "ci_hi_pt": 0.4720212772363523,
+    "p": 0.7758,
+    "holm_12": 1.0,
+    "holm_15": 1.0,
+    "significatif_brut": false
+   },
+   {
+    "rang": 9,
+    "bras": "C",
+    "label": "C · CE+Dice+EDT",
+    "miou_pct": 81.22672677133758,
+    "delta_pt": 0.05851191370366271,
+    "ci_lo_pt": -0.3444852897123976,
+    "ci_hi_pt": 0.46778348644985357,
+    "p": 0.8096,
+    "holm_12": 1.0,
+    "holm_15": 1.0,
+    "significatif_brut": false
+   },
+   {
+    "rang": 10,
+    "bras": "B",
+    "label": "B · CE+Dice (baseline)",
+    "miou_pct": 81.09306379353373,
+    "delta_pt": -0.07515106410017625,
+    "ci_lo_pt": -0.4465660912073288,
+    "ci_hi_pt": 0.28082145385906937,
+    "p": 0.6748,
+    "holm_12": 1.0,
+    "holm_15": 1.0,
+    "significatif_brut": false
+   },
+   {
+    "rang": 11,
+    "bras": "fused_CpvetoB",
+    "label": "consensus Cp⊘B",
+    "miou_pct": 81.01420274119918,
+    "delta_pt": -0.1540121164347319,
+    "ci_lo_pt": -0.5158068204177904,
+    "ci_hi_pt": 0.17038733857791705,
+    "p": 0.3498,
+    "holm_12": 1.0,
+    "holm_15": 1.0,
+    "significatif_brut": false
+   },
+   {
+    "rang": 12,
+    "bras": "Cp",
+    "label": "Cp · CE+Dice+SDT",
+    "miou_pct": 80.89046535920049,
+    "delta_pt": -0.27774949843342167,
+    "ci_lo_pt": -0.5968408429794059,
+    "ci_hi_pt": 0.015537632215914754,
+    "p": 0.0628,
+    "holm_12": 0.4396,
+    "holm_15": 0.618,
+    "significatif_brut": false
+   }
+  ],
+  "rang_moe": 5,
+  "rang_moe_13": 5,
+  "rang_controle_13": 10,
+  "n_bras": 13,
+  "n_sig_brut": 5,
+  "n_sig_holm_12": 0,
+  "n_sig_holm_15": 0,
+  "meilleur_holm_12": 0.0576,
+  "meilleur_holm_15": 0.075,
+  "bras_hors_famille_15": [
+   "A"
+  ],
+  "points": {
+   "A": 0.8128298118173009,
+   "B": 0.8109306379353374,
+   "C": 0.8122672677133758,
+   "Cp": 0.8089046535920049,
+   "D": 0.8168578082293015,
+   "Dp": 0.8164293544928224,
+   "fused_CpvetoB": 0.8101420274119918,
+   "fused_CvetoB": 0.812364210429897,
+   "fused_DpvetoB": 0.8164721081626896,
+   "fused_DvetoB": 0.8165231923756028,
+   "G": 0.8126326378163825,
+   "controle": 0.8116821485763391,
+   "moe_v3cs": 0.8161757521422855
+  }
+ },
+ "T4": {
+  "n_experts": 4,
+  "top_k": 2,
+  "equirepartition": 0.5,
+  "anneal": 40,
+  "n_epochs": 80,
+  "n_seeds": 3,
+  "entropy_norm_final": {
+   "42": 0.9999980948158936,
+   "123": 0.99770705565239,
+   "456": 0.999966414165561
+  },
+  "entropy_token_final": {
+   "42": 0.9999582975521614,
+   "123": 0.9874530974938394,
+   "456": 0.9998210438883537
+  },
+  "entropy_token_clean_final": {
+   "42": 0.9999582975521614,
+   "123": 0.9874530974938394,
+   "456": 0.9998210438883537
+  },
+  "part_max_final": {
+   "42": 0.5030262352398922,
+   "123": 0.5018680491500359,
+   "456": 0.5018680491099521
+  },
+  "part_max_ep0": {
+   "42": 0.5005604198732349,
+   "123": 0.5014944404624178,
+   "456": 0.5014944402043781
+  },
+  "frac_min_final": 0.4979451619284058,
+  "frac_max_final": 0.5030262352398922,
+  "experts_morts": {
+   "42": 0,
+   "123": 0,
+   "456": 0
+  },
+  "gamma_ep0": {
+   "42": 0.00024294381986748585,
+   "123": 0.00022731325581291516,
+   "456": 0.0002342466520849821
+  },
+  "gamma_final": {
+   "42": 0.020260640731295566,
+   "123": 0.01911584452977097,
+   "456": 0.018153079823611484
+  },
+  "gamma_ratio_min": 77.49557853670305,
+  "gamma_ratio_max": 84.09471969159519,
+  "train_loss_final": {
+   "42": 0.07484208443844045,
+   "123": 0.07424219369026504,
+   "456": 0.07400195246716434
+  },
+  "top_expert_share_final": {
+   "42": 0.5975491402930033,
+   "123": 0.5954569342077058,
+   "456": 0.5969513667535685
+  },
+  "ecart_entropie_bruit_final": 0.0,
+  "bruit_actif": {
+   "n_epochs": {
+    "42": 40,
+    "123": 40,
+    "456": 40
+   },
+   "ecart_token_clean_max": {
+    "42": 0.0009542164100283523,
+    "123": 0.0009954435438940257,
+    "456": 0.001452140945993885
+   },
+   "ecart_token_clean_max_tous_seeds": 0.001452140945993885,
+   "entropy_clean_min": {
+    "42": 0.9989624114427779,
+    "123": 0.998855605210405,
+    "456": 0.9982085026745517
+   },
+   "entropy_token_min": {
+    "42": 0.9980081950327495,
+    "123": 0.9978601616665109,
+    "456": 0.9967563617285579
+   },
+   "part_max_bornes": {
+    "42": [
+     0.5001868109927132,
+     0.5019054091920689
+    ],
+    "123": [
+     0.5001120892301372,
+     0.5021669353009593
+    ],
+    "456": [
+     0.5002615324045558,
+     0.5014944404799544
+    ]
+   }
+  },
+  "seed_moins_uniforme": 123
+ },
+ "T5": {
+  "n_metriques": 20,
+  "ordre": [
+   "mIoU",
+   "boundary_f1_3px",
+   "boundary_f1_3px_pieds",
+   "rappel_strict_instances",
+   "precision_ped_pixels",
+   "instances_toutes_rappel",
+   "instances_toutes_det05",
+   "instances_individuelles_rappel",
+   "instances_individuelles_det05",
+   "instances_foule_rappel",
+   "instances_foule_det05",
+   "instances_taille_T1_rappel",
+   "instances_taille_T1_det05",
+   "instances_taille_T2_rappel",
+   "instances_taille_T2_det05",
+   "instances_taille_T3_rappel",
+   "instances_taille_T3_det05",
+   "IoU_person",
+   "IoU_rider",
+   "fragments"
+  ],
+  "lignes": [
+   {
+    "metrique": "mIoU",
+    "n_images": 500,
+    "unite": "pt",
+    "point_controle": 81.16796431196492,
+    "point_moe": 81.61818246594868,
+    "delta": 0.4502181539837502,
+    "ci_lo": 0.11038403881781927,
+    "ci_hi": 0.8180599445170845,
+    "p": 0.0066,
+    "holm": 0.0924,
+    "survit_holm": false,
+    "ic_exclut_0": true,
+    "delta_D": 0.51539995906148,
+    "delta_Dp": 0.4713864839323678,
+    "delta_G": 0.09430770643868991,
+    "delta_B": -0.0790280105628538
+   },
+   {
+    "metrique": "boundary_f1_3px",
+    "n_images": 500,
+    "unite": "pt",
+    "point_controle": 76.62735133767129,
+    "point_moe": 76.566569040219,
+    "delta": -0.06078229745228869,
+    "ci_lo": -0.17788179824751144,
+    "ci_hi": 0.05547840431331237,
+    "p": 0.3004,
+    "holm": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": 0.6769487182299194,
+    "delta_Dp": 0.5452398339907294,
+    "delta_G": 0.37572304805120194,
+    "delta_B": -0.25395283699035653
+   },
+   {
+    "metrique": "boundary_f1_3px_pieds",
+    "n_images": 500,
+    "unite": "pt",
+    "point_controle": 67.48615564952294,
+    "point_moe": 67.42666929711899,
+    "delta": -0.05948635240394795,
+    "ci_lo": -0.41200832466284554,
+    "ci_hi": 0.3086120385925011,
+    "p": 0.7238,
+    "holm": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": -0.12972832322120098,
+    "delta_Dp": -0.29172178755203504,
+    "delta_G": 0.24658803542454422,
+    "delta_B": -0.18460884491601215
+   },
+   {
+    "metrique": "rappel_strict_instances",
+    "n_images": 441,
+    "unite": "pt",
+    "point_controle": 76.25347588232736,
+    "point_moe": 76.72826523640578,
+    "delta": 0.4747893540783976,
+    "ci_lo": -0.0044901291881788066,
+    "ci_hi": 0.934982888138431,
+    "p": 0.0516,
+    "holm": 0.2064,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": 2.1828573373237514,
+    "delta_Dp": 1.7192503634253842,
+    "delta_G": -3.4168003464665198,
+    "delta_B": 0.9182187178517376
+   },
+   {
+    "metrique": "precision_ped_pixels",
+    "n_images": 473,
+    "unite": "pt",
+    "point_controle": 70.02832733066722,
+    "point_moe": 70.02386420849497,
+    "delta": -0.00446312217224909,
+    "ci_lo": -0.3774997924797499,
+    "ci_hi": 0.37637124887112794,
+    "p": 0.9896,
+    "holm": 0.9896,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": -22.195190803794684,
+    "delta_Dp": -15.02015168284193,
+    "delta_G": -6.76258964226416,
+    "delta_B": -4.063762166738538
+   },
+   {
+    "metrique": "instances_toutes_rappel",
+    "n_images": 441,
+    "unite": "pt",
+    "point_controle": 79.97523506652956,
+    "point_moe": 80.37232128044393,
+    "delta": 0.39708621391435495,
+    "ci_lo": -0.027745360597953267,
+    "ci_hi": 0.7656001567897974,
+    "p": 0.0694,
+    "holm": 0.2776,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": 2.322189249798845,
+    "delta_Dp": 1.8791955342626676,
+    "delta_G": -3.4232850371831547,
+    "delta_B": 1.0158284661909156
+   },
+   {
+    "metrique": "instances_toutes_det05",
+    "n_images": 441,
+    "unite": "pt",
+    "point_controle": 87.11112004244762,
+    "point_moe": 87.25594100896052,
+    "delta": 0.144820966512893,
+    "ci_lo": -0.38465165503514254,
+    "ci_hi": 0.651262625300994,
+    "p": 0.562,
+    "holm": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": 1.307756517074432,
+    "delta_Dp": 1.1729037865336855,
+    "delta_G": -1.9941360959338628,
+    "delta_B": 0.9417528652675422
+   },
+   {
+    "metrique": "instances_individuelles_rappel",
+    "n_images": 440,
+    "unite": "pt",
+    "point_controle": 80.0964804773155,
+    "point_moe": 80.50354997873175,
+    "delta": 0.4070695014162684,
+    "ci_lo": -0.029880795118618905,
+    "ci_hi": 0.7829873221847047,
+    "p": 0.0662,
+    "holm": 0.2648,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": 2.310766613283599,
+    "delta_Dp": 1.8629820895528226,
+    "delta_G": -3.3614791068424688,
+    "delta_B": 1.0148695191398271
+   },
+   {
+    "metrique": "instances_individuelles_det05",
+    "n_images": 440,
+    "unite": "pt",
+    "point_controle": 87.1754988338456,
+    "point_moe": 87.31658828318201,
+    "delta": 0.14108944933641787,
+    "ci_lo": -0.3964977061151254,
+    "ci_hi": 0.6534254089633379,
+    "p": 0.571,
+    "holm": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": 1.2509796908810267,
+    "delta_Dp": 1.1547200920752454,
+    "delta_G": -2.001969316747132,
+    "delta_B": 0.9007789859584059
+   },
+   {
+    "metrique": "instances_foule_rappel",
+    "n_images": 63,
+    "unite": "pt",
+    "point_controle": 74.58389554420268,
+    "point_moe": 74.19945567111128,
+    "delta": -0.38443987309139116,
+    "ci_lo": -1.5364588576738267,
+    "ci_hi": 0.49322976052197426,
+    "p": 0.4822,
+    "holm": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": 1.511215765757934,
+    "delta_Dp": 1.3186843112072077,
+    "delta_G": -4.611828930294881,
+    "delta_B": 1.1242336152002874
+   },
+   {
+    "metrique": "instances_foule_det05",
+    "n_images": 63,
+    "unite": "pt",
+    "point_controle": 83.5978835978836,
+    "point_moe": 83.06878306878306,
+    "delta": -0.5291005291005235,
+    "ci_lo": -2.645502645502662,
+    "ci_hi": 1.5873015873015928,
+    "p": 0.7946,
+    "holm": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": 3.1746031746031855,
+    "delta_Dp": 0.5291005291005346,
+    "delta_G": -1.5873015873015817,
+    "delta_B": 2.645502645502651
+   },
+   {
+    "metrique": "instances_taille_T1_rappel",
+    "n_images": 315,
+    "unite": "pt",
+    "point_controle": 64.99397383322506,
+    "point_moe": 65.79639569283054,
+    "delta": 0.8024218596054844,
+    "ci_lo": 0.07324460613812617,
+    "ci_hi": 1.5097400946727477,
+    "p": 0.033,
+    "holm": 0.198,
+    "survit_holm": false,
+    "ic_exclut_0": true,
+    "delta_D": 2.8162763976441907,
+    "delta_Dp": 2.0164943530120327,
+    "delta_G": -4.080279076102555,
+    "delta_B": 1.5645634292469457
+   },
+   {
+    "metrique": "instances_taille_T1_det05",
+    "n_images": 315,
+    "unite": "pt",
+    "point_controle": 71.72791006528946,
+    "point_moe": 72.04240558924654,
+    "delta": 0.31449552395708125,
+    "ci_lo": -0.8443378889729856,
+    "ci_hi": 1.4551546712961205,
+    "p": 0.5908,
+    "holm": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": 2.129019258273268,
+    "delta_Dp": 1.3764086140369947,
+    "delta_G": -3.4663536112981785,
+    "delta_B": 1.1081315256540991
+   },
+   {
+    "metrique": "instances_taille_T2_rappel",
+    "n_images": 320,
+    "unite": "pt",
+    "point_controle": 84.5339348564019,
+    "point_moe": 84.92872202172755,
+    "delta": 0.3947871653256607,
+    "ci_lo": -0.03133725991280977,
+    "ci_hi": 0.8096726689951582,
+    "p": 0.0684,
+    "holm": 0.6156,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": 1.745390244566103,
+    "delta_Dp": 1.2435029809367948,
+    "delta_G": -3.6563267750658546,
+    "delta_B": 0.9278131477829632
+   },
+   {
+    "metrique": "instances_taille_T2_det05",
+    "n_images": 320,
+    "unite": "pt",
+    "point_controle": 93.14725436600436,
+    "point_moe": 93.43182887714137,
+    "delta": 0.2845745111370146,
+    "ci_lo": -0.3628025981541566,
+    "ci_hi": 1.0200847763347682,
+    "p": 0.4046,
+    "holm": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": 0.2605872137122045,
+    "delta_Dp": 0.40463529526031383,
+    "delta_G": -2.063805118492612,
+    "delta_B": 0.6314528931716357
+   },
+   {
+    "metrique": "instances_taille_T3_rappel",
+    "n_images": 335,
+    "unite": "pt",
+    "point_controle": 93.47442818150658,
+    "point_moe": 93.73290188707385,
+    "delta": 0.2584737055672637,
+    "ci_lo": 0.14188674440444748,
+    "ci_hi": 0.3843262353130847,
+    "p": 0.0,
+    "holm": 0.0,
+    "survit_holm": true,
+    "ic_exclut_0": true,
+    "delta_D": 0.8603914877695296,
+    "delta_Dp": 0.7615428695838977,
+    "delta_G": -1.7984774677309856,
+    "delta_B": 0.3762444996067149
+   },
+   {
+    "metrique": "instances_taille_T3_det05",
+    "n_images": 335,
+    "unite": "pt",
+    "point_controle": 98.95996209429046,
+    "point_moe": 98.9570942281076,
+    "delta": -0.0028678661828762664,
+    "ci_lo": -0.11421588797867477,
+    "ci_hi": 0.13503909026297833,
+    "p": 0.9104,
+    "holm": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": 0.1556108347153029,
+    "delta_Dp": 0.1310313511805994,
+    "delta_G": -0.17728816236280975,
+    "delta_B": 0.002369106846722424
+   },
+   {
+    "metrique": "IoU_person",
+    "n_images": 500,
+    "unite": "pt",
+    "point_controle": 85.15222596276041,
+    "point_moe": 84.90985991375607,
+    "delta": -0.2423660490043389,
+    "ci_lo": -0.4291764639551535,
+    "ci_hi": -0.06157973100512475,
+    "p": 0.008,
+    "holm": 0.088,
+    "survit_holm": false,
+    "ic_exclut_0": true,
+    "delta_D": -0.20670654586530945,
+    "delta_Dp": -0.2688269744751004,
+    "delta_G": 0.06703793792358637,
+    "delta_B": -0.27717569005970555
+   },
+   {
+    "metrique": "IoU_rider",
+    "n_images": 500,
+    "unite": "pt",
+    "point_controle": 68.91997947946274,
+    "point_moe": 68.55454183630589,
+    "delta": -0.3654376431568518,
+    "ci_lo": -1.3020684466360253,
+    "ci_hi": 0.5241499041725727,
+    "p": 0.4298,
+    "holm": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_D": -0.5796318942138501,
+    "delta_Dp": -0.3764429445865414,
+    "delta_G": -1.3385608823029749,
+    "delta_B": -0.42755504097654606
+   },
+   {
+    "metrique": "fragments",
+    "n_images": 500,
+    "unite": "composantes/image",
+    "point_controle": 519.264,
+    "point_moe": 488.0466666666666,
+    "delta": -31.217333333333386,
+    "ci_lo": -35.70801666666664,
+    "ci_hi": -26.739250000000045,
+    "p": 0.0,
+    "holm": 0.0,
+    "survit_holm": true,
+    "ic_exclut_0": true
+   }
+  ],
+  "n_survit_holm": 2,
+  "n_ic_exclut_0": 5,
+  "n_famille_holm": 15,
+  "n_bras": 12,
+  "n_paires": 15,
+  "fragments": {
+   "controle": 519.264,
+   "moe": 488.0466666666666,
+   "delta": -31.217333333333386,
+   "ratio": 0.9398815759741993,
+   "p": 0.0,
+   "holm": 0.0,
+   "ci": [
+    -35.70801666666664,
+    -26.739250000000045
+   ],
+   "n_bras_couverts": 2
+  },
+  "delta_T1_rappel": {
+   "moe_v3cs": 0.8024218596054844,
+   "D": 2.8162763976441907,
+   "Dp": 2.0164943530120327,
+   "G": -4.080279076102555
+  },
+  "delta_rappel_strict": {
+   "moe_v3cs": 0.4747893540783976,
+   "D": 2.1828573373237514,
+   "Dp": 1.7192503634253842,
+   "G": -3.4168003464665198
+  },
+  "delta_traffic_light": {
+   "moe_v3cs": -0.08100310804701749,
+   "D": -2.601890560702791,
+   "Dp": -2.3400635324026586
+  },
+  "pire_famille": {
+   "famille": "contours",
+   "delta_moyen_pt": -0.06,
+   "n_familles_negatives": 1
+  }
+ },
+ "T6": {
+  "n_classes": 19,
+  "classes": [
+   "road",
+   "sidewalk",
+   "building",
+   "wall",
+   "fence",
+   "pole",
+   "traffic light",
+   "traffic sign",
+   "vegetation",
+   "terrain",
+   "sky",
+   "person",
+   "rider",
+   "car",
+   "truck",
+   "bus",
+   "train",
+   "motorcycle",
+   "bicycle"
+  ],
+  "lignes": [
+   {
+    "classe": "truck",
+    "iou_moe": 84.83406831501553,
+    "iou_controle": 80.59314926090214,
+    "delta_pt": 4.24091905411339,
+    "ci_lo_pt": 0.43773119127558824,
+    "ci_hi_pt": 8.751947120822363,
+    "p": 0.0066,
+    "holm_19": 0.1188,
+    "survit_holm": false,
+    "ic_exclut_0": true,
+    "delta_B": -0.3498274931032386,
+    "delta_D": 4.942643935854485,
+    "delta_Dp": 5.192041544497384,
+    "delta_G": 3.434120821836417
+   },
+   {
+    "classe": "wall",
+    "iou_moe": 58.69771996658717,
+    "iou_controle": 56.146756428966206,
+    "delta_pt": 2.550963537620965,
+    "ci_lo_pt": -1.0851714964625139,
+    "ci_hi_pt": 6.8968215484462485,
+    "p": 0.2,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": 1.7686039712580093,
+    "delta_D": 5.492325320760372,
+    "delta_Dp": 3.084449752297469,
+    "delta_G": 1.065997649265793
+   },
+   {
+    "classe": "train",
+    "iou_moe": 83.46252356942406,
+    "iou_controle": 82.23368542795679,
+    "delta_pt": 1.228838141467281,
+    "ci_lo_pt": 0.054140965839442924,
+    "ci_hi_pt": 2.8203382857706902,
+    "p": 0.0408,
+    "holm_19": 0.5712,
+    "survit_holm": false,
+    "ic_exclut_0": true,
+    "delta_B": 1.5025449427050086,
+    "delta_D": 0.39952702752661384,
+    "delta_Dp": 0.6601607555164479,
+    "delta_G": -1.0376594114938409
+   },
+   {
+    "classe": "fence",
+    "iou_moe": 66.68291531771251,
+    "iou_controle": 65.8074835855295,
+    "delta_pt": 0.8754317321830185,
+    "ci_lo_pt": -0.27069272718264115,
+    "ci_hi_pt": 2.2976479051669796,
+    "p": 0.1586,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": 0.26449115714203275,
+    "delta_D": 1.212662909542872,
+    "delta_Dp": 1.0567063810197896,
+    "delta_G": -0.4573844907100555
+   },
+   {
+    "classe": "sidewalk",
+    "iou_moe": 87.29621042676841,
+    "iou_controle": 86.97546600542245,
+    "delta_pt": 0.32074442134596426,
+    "ci_lo_pt": 0.040108705147362256,
+    "ci_hi_pt": 0.6603984453203635,
+    "p": 0.0224,
+    "holm_19": 0.336,
+    "survit_holm": false,
+    "ic_exclut_0": true,
+    "delta_B": 0.09105143331066268,
+    "delta_D": 0.6248600277002803,
+    "delta_Dp": 0.4767933201506147,
+    "delta_G": 0.06370085604539
+   },
+   {
+    "classe": "terrain",
+    "iou_moe": 66.59917218520386,
+    "iou_controle": 66.39584632628052,
+    "delta_pt": 0.2033258589233422,
+    "ci_lo_pt": -0.251852770227258,
+    "ci_hi_pt": 0.67303004609009,
+    "p": 0.398,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": -0.29648978159113604,
+    "delta_D": 1.212511840269348,
+    "delta_Dp": 0.3295157384814007,
+    "delta_G": 0.00647284811245985
+   },
+   {
+    "classe": "car",
+    "iou_moe": 95.69770308845213,
+    "iou_controle": 95.56320533803547,
+    "delta_pt": 0.13449775041666223,
+    "ci_lo_pt": -0.06508399722269187,
+    "ci_hi_pt": 0.3979991109755298,
+    "p": 0.2622,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": -0.10622837301894617,
+    "delta_D": 0.24243922292284115,
+    "delta_Dp": 0.3156654499510747,
+    "delta_G": 0.14349790888277258
+   },
+   {
+    "classe": "traffic sign",
+    "iou_moe": 83.83445534050088,
+    "iou_controle": 83.70322630283243,
+    "delta_pt": 0.13122903766844551,
+    "ci_lo_pt": -0.13643713982149724,
+    "ci_hi_pt": 0.505494250243921,
+    "p": 0.4942,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": -0.18456261449044664,
+    "delta_D": -1.0490464957429557,
+    "delta_Dp": -1.0090375220838999,
+    "delta_G": 0.21365920576362774
+   },
+   {
+    "classe": "bus",
+    "iou_moe": 91.65307612527263,
+    "iou_controle": 91.54991327444502,
+    "delta_pt": 0.10316285082762056,
+    "ci_lo_pt": -0.7932306782167609,
+    "ci_hi_pt": 0.9468062910638197,
+    "p": 0.8056,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": -1.7982815768187055,
+    "delta_D": 0.5689936703399567,
+    "delta_Dp": 0.7859724986198358,
+    "delta_G": -1.478152575352798
+   },
+   {
+    "classe": "building",
+    "iou_moe": 93.34734556876427,
+    "iou_controle": 93.25064675021957,
+    "delta_pt": 0.09669881854469375,
+    "ci_lo_pt": -0.039634957982284114,
+    "ci_hi_pt": 0.2576553191669526,
+    "p": 0.1778,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": 0.024111058479592273,
+    "delta_D": 0.2856745525278481,
+    "delta_Dp": 0.23067309089671584,
+    "delta_G": 0.070714650881476
+   },
+   {
+    "classe": "road",
+    "iou_moe": 98.46785401487742,
+    "iou_controle": 98.41075096797654,
+    "delta_pt": 0.05710304690088597,
+    "ci_lo_pt": 0.013069199902243924,
+    "ci_hi_pt": 0.11105137624903062,
+    "p": 0.0078,
+    "holm_19": 0.1326,
+    "survit_holm": false,
+    "ic_exclut_0": true,
+    "delta_B": 0.031528399135660745,
+    "delta_D": 0.05191622398686979,
+    "delta_Dp": 0.06651472710786921,
+    "delta_G": 0.0383116779638204
+   },
+   {
+    "classe": "vegetation",
+    "iou_moe": 93.12368186197033,
+    "iou_controle": 93.13412297474888,
+    "delta_pt": -0.010441112778558637,
+    "ci_lo_pt": -0.05579049678968607,
+    "ci_hi_pt": 0.032878275277052296,
+    "p": 0.6456,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": -0.04020733433610646,
+    "delta_D": 0.03173939050511443,
+    "delta_Dp": 0.038131155794618454,
+    "delta_G": 0.020450210145239733
+   },
+   {
+    "classe": "sky",
+    "iou_moe": 95.5149252118061,
+    "iou_controle": 95.53018840031399,
+    "delta_pt": -0.015263188507885772,
+    "ci_lo_pt": -0.0678428946571713,
+    "ci_hi_pt": 0.030993761225660825,
+    "p": 0.584,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": 0.06782020328952587,
+    "delta_D": -0.08587396754304866,
+    "delta_Dp": -0.11841279370756741,
+    "delta_G": 0.11454090066704836
+   },
+   {
+    "classe": "traffic light",
+    "iou_moe": 77.27884981650314,
+    "iou_controle": 77.35985292455015,
+    "delta_pt": -0.08100310804701749,
+    "ci_lo_pt": -0.2347806473174968,
+    "ci_hi_pt": 0.08203908921209306,
+    "p": 0.323,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": -0.5077999934373967,
+    "delta_D": -2.601890560702791,
+    "delta_Dp": -2.3400635324026586,
+    "delta_G": 0.46976330937911204
+   },
+   {
+    "classe": "pole",
+    "iou_moe": 69.93482091218257,
+    "iou_controle": 70.04580010205704,
+    "delta_pt": -0.11097918987447164,
+    "ci_lo_pt": -0.32425891485614533,
+    "ci_hi_pt": 0.0935697139179153,
+    "p": 0.2828,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": -0.2906812544780646,
+    "delta_D": 0.1135374268331546,
+    "delta_Dp": 0.0798297623386679,
+    "delta_G": 0.2915051390606771
+   },
+   {
+    "classe": "person",
+    "iou_moe": 84.90954259600811,
+    "iou_controle": 85.15318970504894,
+    "delta_pt": -0.2436471090408343,
+    "ci_lo_pt": -0.43257090616311444,
+    "ci_hi_pt": -0.06203341851619926,
+    "p": 0.0078,
+    "holm_19": 0.1326,
+    "survit_holm": false,
+    "ic_exclut_0": true,
+    "delta_B": -0.25677232071132927,
+    "delta_D": -0.1925596465182644,
+    "delta_Dp": -0.2537274943890555,
+    "delta_G": 0.06750150730528981
+   },
+   {
+    "classe": "bicycle",
+    "iou_moe": 80.06809826408166,
+    "iou_controle": 80.33295507217154,
+    "delta_pt": -0.2648568080898861,
+    "ci_lo_pt": -0.40762009662505033,
+    "ci_hi_pt": -0.12102303105783671,
+    "p": 0.0002,
+    "holm_19": 0.0038,
+    "survit_holm": true,
+    "ic_exclut_0": true,
+    "delta_B": -0.5201201853820558,
+    "delta_D": -0.6995331092031876,
+    "delta_Dp": -0.5284131815425641,
+    "delta_G": 0.051840353787024895
+   },
+   {
+    "classe": "motorcycle",
+    "iou_moe": 70.7750030562591,
+    "iou_controle": 71.08449730754322,
+    "delta_pt": -0.3094942512841148,
+    "ci_lo_pt": -1.4850434973270479,
+    "ci_hi_pt": 0.7266274301562343,
+    "p": 0.561,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": -0.3887028084714972,
+    "delta_D": -0.13233216579280338,
+    "delta_Dp": 1.3395735949758514,
+    "delta_G": 0.06767543742185467
+   },
+   {
+    "classe": "rider",
+    "iou_moe": 68.5559634329526,
+    "iou_controle": 68.92534614004401,
+    "delta_pt": -0.36938270709141463,
+    "ci_lo_pt": -1.316602953466563,
+    "ci_hi_pt": 0.5250278683334155,
+    "p": 0.4308,
+    "holm_19": 1.0,
+    "survit_holm": false,
+    "ic_exclut_0": false,
+    "delta_B": -0.4383476473851844,
+    "delta_D": -0.5838422626381012,
+    "delta_Dp": -0.38668200620404214,
+    "delta_G": -1.3406264428788894
+   }
+  ],
+  "n_gains": 11,
+  "n_pertes": 8,
+  "n_holm_significatifs": 0,
+  "n_ic_exclut_0_gains": 4,
+  "n_ic_exclut_0_pertes": 2,
+  "top4_amplitude": [
+   "truck",
+   "wall",
+   "train",
+   "fence"
+  ],
+  "gains_ic_exclut_0": [
+   "truck",
+   "train",
+   "sidewalk",
+   "road"
+  ],
+  "pertes_ic_exclut_0": [
+   "person",
+   "bicycle"
+  ],
+  "gains_holm": [],
+  "pertes_holm": [
+   "bicycle"
+  ],
+  "holm_min_pertes": 0.0038,
+  "miou_moe": 81.61757521422855,
+  "miou_controle": 81.1682148576339,
+  "delta_miou_pt": 0.44936035659465245,
+  "part_gain_truck": 0.8168114638081027,
+  "person_delta_pt": -0.2436471090408343,
+  "person_holm": 0.1326,
+  "traffic_light_delta": -0.08100310804701749,
+  "ecart_holm_recompute": 0.0
+ },
+ "T7": {
+  "n_endpoints": 36,
+  "n_classes_endpoints": 19,
+  "n_endpoints_delta_positif": 22,
+  "n_endpoints_delta_negatif": 14,
+  "n_top_half_classement": 28,
+  "n_bottom_half_classement": 8,
+  "pire_rang_avec_denominateur": {
+   "rang": 11,
+   "denom": 12,
+   "endpoint": "instances_foule_rappel"
+  },
+  "denominateurs_rang_observes": [
+   12,
+   13
+  ],
+  "ecart_identite_classe_miou_pt": 0.0008577973891140123,
+  "n_bras": 13,
+  "n_bras_complets": 12,
+  "criteres": {
+   "T1": "dommage maximal le plus faible du plateau",
+   "T2": "ΔmIoU significatif malgré tout",
+   "T3": "aucun endpoint gagné outright",
+   "T4": "verdict stable seed par seed"
+  },
+  "lignes": [
+   {
+    "bras": "B",
+    "label": "B · CE+Dice (baseline)",
+    "dommage_max_pt": -4.063762166738538,
+    "endpoint_dommage": "precision_ped_pixels",
+    "z": -0.6289672038214856,
+    "delta_miou_pt": -0.0790280105628538,
+    "p_miou": 0.6592,
+    "holm12": 1.0,
+    "holm15": 1.0,
+    "prix_par_pt_miou": null,
+    "n_endpoints_dommage_1pt": 2,
+    "n_classes_perte_0.5pt": 3,
+    "percentile_moyen": 51.228632478632484,
+    "pire_rang": 13,
+    "n_rang1": 2,
+    "n_dernier": 4,
+    "pic_max_pt": 2.645502645502651,
+    "rang_dommage": 5,
+    "T0_verdict": false
+   },
+   {
+    "bras": "C",
+    "label": "C · CE+Dice+EDT",
+    "dommage_max_pt": -3.2059525520353738,
+    "endpoint_dommage": "precision_ped_pixels",
+    "z": -0.4962000553926074,
+    "delta_miou_pt": 0.05565428947733597,
+    "p_miou": 0.8182,
+    "holm12": 1.0,
+    "holm15": 1.0,
+    "prix_par_pt_miou": null,
+    "n_endpoints_dommage_1pt": 2,
+    "n_classes_perte_0.5pt": 2,
+    "percentile_moyen": 47.54273504273503,
+    "pire_rang": 13,
+    "n_rang1": 0,
+    "n_dernier": 1,
+    "pic_max_pt": 3.6292321268372785,
+    "rang_dommage": 4,
+    "T0_verdict": false
+   },
+   {
+    "bras": "Cp",
+    "label": "Cp · CE+Dice+SDT",
+    "dommage_max_pt": -6.050878832211115,
+    "endpoint_dommage": "precision_ped_pixels",
+    "z": -0.9365224104177517,
+    "delta_miou_pt": -0.27915384587304803,
+    "p_miou": 0.0618,
+    "holm12": 0.4396,
+    "holm15": 0.618,
+    "prix_par_pt_miou": null,
+    "n_endpoints_dommage_1pt": 3,
+    "n_classes_perte_0.5pt": 4,
+    "percentile_moyen": 34.46403133903134,
+    "pire_rang": 13,
+    "n_rang1": 0,
+    "n_dernier": 2,
+    "pic_max_pt": 2.64550264550264,
+    "rang_dommage": 7,
+    "T0_verdict": false
+   },
+   {
+    "bras": "D",
+    "label": "D · CE+Kervadec EDT",
+    "dommage_max_pt": -22.195190803794684,
+    "endpoint_dommage": "precision_ped_pixels",
+    "z": -3.4352519968832325,
+    "delta_miou_pt": 0.51539995906148,
+    "p_miou": 0.005,
+    "holm12": 0.0576,
+    "holm15": 0.075,
+    "prix_par_pt_miou": -43.06401351721316,
+    "n_endpoints_dommage_1pt": 3,
+    "n_classes_perte_0.5pt": 4,
+    "percentile_moyen": 77.28810541310543,
+    "pire_rang": 13,
+    "n_rang1": 16,
+    "n_dernier": 2,
+    "pic_max_pt": 5.492325320760372,
+    "rang_dommage": 11,
+    "T0_verdict": false
+   },
+   {
+    "bras": "Dp",
+    "label": "Dp · CE+SDT (distmap)",
+    "dommage_max_pt": -15.02015168284193,
+    "endpoint_dommage": "precision_ped_pixels",
+    "z": -2.324738116382858,
+    "delta_miou_pt": 0.4713864839323678,
+    "p_miou": 0.033,
+    "holm12": 0.2808,
+    "holm15": 0.396,
+    "prix_par_pt_miou": -31.863772498400586,
+    "n_endpoints_dommage_1pt": 3,
+    "n_classes_perte_0.5pt": 3,
+    "percentile_moyen": 72.72079772079772,
+    "pire_rang": 13,
+    "n_rang1": 3,
+    "n_dernier": 1,
+    "pic_max_pt": 5.192041544497384,
+    "rang_dommage": 10,
+    "T0_verdict": false
+   },
+   {
+    "bras": "G",
+    "label": "G · CE+Dice+Blob (Kofler)",
+    "dommage_max_pt": -6.76258964226416,
+    "endpoint_dommage": "precision_ped_pixels",
+    "z": -1.0466771733594653,
+    "delta_miou_pt": 0.09430770643868991,
+    "p_miou": 0.6592,
+    "holm12": 1.0,
+    "holm15": 1.0,
+    "prix_par_pt_miou": null,
+    "n_endpoints_dommage_1pt": 16,
+    "n_classes_perte_0.5pt": 3,
+    "percentile_moyen": 41.933760683760696,
+    "pire_rang": 13,
+    "n_rang1": 7,
+    "n_dernier": 16,
+    "pic_max_pt": 3.434120821836417,
+    "rang_dommage": 8,
+    "T0_verdict": false
+   },
+   {
+    "bras": "fused_CvetoB",
+    "label": "consensus C⊘B",
+    "dommage_max_pt": -1.8952257716432164,
+    "endpoint_dommage": "IoU_bus",
+    "z": -1.4726270042867926,
+    "delta_miou_pt": 0.06578177402412066,
+    "p_miou": 0.7866,
+    "holm12": 1.0,
+    "holm15": 1.0,
+    "prix_par_pt_miou": null,
+    "n_endpoints_dommage_1pt": 1,
+    "n_classes_perte_0.5pt": 2,
+    "percentile_moyen": 43.981481481481474,
+    "pire_rang": 13,
+    "n_rang1": 0,
+    "n_dernier": 1,
+    "pic_max_pt": 3.436024130125981,
+    "rang_dommage": 2,
+    "T0_verdict": false
+   },
+   {
+    "bras": "fused_CpvetoB",
+    "label": "consensus Cp⊘B",
+    "dommage_max_pt": -2.7797380145720307,
+    "endpoint_dommage": "IoU_bus",
+    "z": -2.1599100889980654,
+    "delta_miou_pt": -0.15300050291076062,
+    "p_miou": 0.3532,
+    "holm12": 1.0,
+    "holm15": 1.0,
+    "prix_par_pt_miou": null,
+    "n_endpoints_dommage_1pt": 2,
+    "n_classes_perte_0.5pt": 4,
+    "percentile_moyen": 35.692663817663814,
+    "pire_rang": 13,
+    "n_rang1": 0,
+    "n_dernier": 1,
+    "pic_max_pt": 2.64550264550264,
+    "rang_dommage": 3,
+    "T0_verdict": false
+   },
+   {
+    "bras": "fused_DvetoB",
+    "label": "consensus D⊘B",
+    "dommage_max_pt": -8.70179276797347,
+    "endpoint_dommage": "precision_ped_pixels",
+    "z": -1.3468165805330312,
+    "delta_miou_pt": 0.48542566928425623,
+    "p_miou": 0.0082,
+    "holm12": 0.082,
+    "holm15": 0.10660000000000001,
+    "prix_par_pt_miou": -17.926107576478127,
+    "n_endpoints_dommage_1pt": 3,
+    "n_classes_perte_0.5pt": 3,
+    "percentile_moyen": 71.91061253561253,
+    "pire_rang": 12,
+    "n_rang1": 3,
+    "n_dernier": 0,
+    "pic_max_pt": 4.944262164994962,
+    "rang_dommage": 9,
+    "T0_verdict": false
+   },
+   {
+    "bras": "fused_DpvetoB",
+    "label": "consensus Dp⊘B",
+    "dommage_max_pt": -4.76777489790694,
+    "endpoint_dommage": "precision_ped_pixels",
+    "z": -0.7379304996073452,
+    "delta_miou_pt": 0.48168234093299844,
+    "p_miou": 0.0376,
+    "holm12": 0.3168,
+    "holm15": 0.4136,
+    "prix_par_pt_miou": -9.89817249407973,
+    "n_endpoints_dommage_1pt": 2,
+    "n_classes_perte_0.5pt": 2,
+    "percentile_moyen": 69.03490028490029,
+    "pire_rang": 12,
+    "n_rang1": 4,
+    "n_dernier": 1,
+    "pic_max_pt": 4.382347923713259,
+    "rang_dommage": 6,
+    "T0_verdict": false
+   },
+   {
+    "bras": "moe_v3cs",
+    "label": "MoE-V3-CS (4 experts)",
+    "dommage_max_pt": -0.5291005291005235,
+    "endpoint_dommage": "instances_foule_det05",
+    "z": -0.3535533905932706,
+    "delta_miou_pt": 0.4502181539837502,
+    "p_miou": 0.0066,
+    "holm12": 0.0726,
+    "holm15": 0.0924,
+    "prix_par_pt_miou": -1.1752092278349584,
+    "n_endpoints_dommage_1pt": 0,
+    "n_classes_perte_0.5pt": 0,
+    "percentile_moyen": 60.43447293447293,
+    "pire_rang": 11,
+    "n_rang1": 0,
+    "n_dernier": 0,
+    "pic_max_pt": 4.24091905411339,
+    "rang_dommage": 1,
+    "T0_verdict": true
+   }
+  ],
+  "classement_dommage": [
+   "moe_v3cs",
+   "fused_CvetoB",
+   "fused_CpvetoB",
+   "C",
+   "B",
+   "fused_DpvetoB",
+   "Cp",
+   "G",
+   "fused_DvetoB",
+   "Dp",
+   "D"
+  ],
+  "T0_gagnants": [
+   "moe_v3cs"
+  ],
+  "dommage_moe": {
+   "dommage_max_pt": -0.5291005291005235,
+   "endpoint": "instances_foule_det05",
+   "n_dommage_1pt": 0,
+   "n_dommage_2pt": 0
+  },
+  "marge_vs_suivant": 1.3661252425426929,
+  "prix": {
+   "D": -43.06401351721316,
+   "Dp": -31.863772498400586,
+   "fused_DvetoB": -17.926107576478127,
+   "fused_DpvetoB": -9.89817249407973,
+   "moe_v3cs": -1.1752092278349584
+  },
+  "z": {
+   "B": -0.6289672038214856,
+   "C": -0.4962000553926074,
+   "Cp": -0.9365224104177517,
+   "D": -3.4352519968832325,
+   "Dp": -2.324738116382858,
+   "G": -1.0466771733594653,
+   "fused_CvetoB": -1.4726270042867926,
+   "fused_CpvetoB": -2.1599100889980654,
+   "fused_DvetoB": -1.3468165805330312,
+   "fused_DpvetoB": -0.7379304996073452,
+   "moe_v3cs": -0.3535533905932706
+  },
+  "pic": {
+   "B": 2.645502645502651,
+   "C": 3.6292321268372785,
+   "Cp": 2.64550264550264,
+   "D": 5.492325320760372,
+   "Dp": 5.192041544497384,
+   "G": 3.434120821836417,
+   "fused_CvetoB": 3.436024130125981,
+   "fused_CpvetoB": 2.64550264550264,
+   "fused_DvetoB": 4.944262164994962,
+   "fused_DpvetoB": 4.382347923713259,
+   "moe_v3cs": 4.24091905411339
+  },
+  "n_rang1": {
+   "A": 1,
+   "B": 2,
+   "C": 0,
+   "Cp": 0,
+   "D": 16,
+   "Dp": 3,
+   "G": 7,
+   "fused_CvetoB": 0,
+   "fused_CpvetoB": 0,
+   "fused_DvetoB": 3,
+   "fused_DpvetoB": 4,
+   "controle": 1,
+   "moe_v3cs": 0
+  },
+  "n_dernier": {
+   "B": 4,
+   "C": 1,
+   "Cp": 2,
+   "D": 2,
+   "Dp": 1,
+   "G": 16,
+   "fused_CvetoB": 1,
+   "fused_CpvetoB": 1,
+   "fused_DvetoB": 0,
+   "fused_DpvetoB": 1,
+   "moe_v3cs": 0
+  },
+  "pire_rang_moe": 11,
+  "percentile_moyen_moe": 60.43447293447293,
+  "ordre_percentile": [
+   "D",
+   "Dp",
+   "fused_DvetoB",
+   "fused_DpvetoB",
+   "moe_v3cs",
+   "B",
+   "C",
+   "fused_CvetoB",
+   "G",
+   "fused_CpvetoB",
+   "Cp"
+  ],
+  "par_seed": {
+   "42": {
+    "dommage_max_pt": {
+     "B": -8.904262606472365,
+     "C": -7.891982543714235,
+     "Cp": -7.847423762694717,
+     "D": -24.565338801659784,
+     "Dp": -17.04000174192406,
+     "G": -10.221613907372927,
+     "fused_CvetoB": -6.213533287958377,
+     "fused_CpvetoB": -6.284222082969812,
+     "fused_DvetoB": -13.600654904184601,
+     "fused_DpvetoB": -8.327287313418005,
+     "controle": 0.0,
+     "moe_v3cs": -2.9770853191823363
+    },
+    "endpoint_dommage": {
+     "B": "precision_ped_pixels",
+     "C": "precision_ped_pixels",
+     "Cp": "IoU_truck",
+     "D": "precision_ped_pixels",
+     "Dp": "precision_ped_pixels",
+     "G": "precision_ped_pixels",
+     "fused_CvetoB": "IoU_wall",
+     "fused_CpvetoB": "IoU_wall",
+     "fused_DvetoB": "precision_ped_pixels",
+     "fused_DpvetoB": "precision_ped_pixels",
+     "controle": "IoU_road",
+     "moe_v3cs": "IoU_wall"
+    },
+    "n_rang1": {
+     "B": 0,
+     "C": 0,
+     "Cp": 0,
+     "D": 11,
+     "Dp": 6,
+     "G": 8,
+     "fused_CvetoB": 0,
+     "fused_CpvetoB": 0,
+     "fused_DvetoB": 3,
+     "fused_DpvetoB": 1,
+     "controle": 4,
+     "moe_v3cs": 3
+    },
+    "delta_miou_pt": {
+     "B": -0.1372096019473048,
+     "C": -0.24979292390469254,
+     "Cp": -1.0628182243985407,
+     "D": 0.16423339859447594,
+     "Dp": 0.19520412838511447,
+     "G": -0.2659478943963052,
+     "fused_CvetoB": -0.2907913023092732,
+     "fused_CpvetoB": -0.8271257073028551,
+     "fused_DvetoB": 0.22307142292821425,
+     "fused_DpvetoB": 0.22071865042043726,
+     "controle": 0.0,
+     "moe_v3cs": 0.2523910032825398
+    },
+    "classement_dommage": [
+     "moe_v3cs",
+     "fused_CvetoB",
+     "fused_CpvetoB",
+     "Cp",
+     "C",
+     "fused_DpvetoB",
+     "B",
+     "G",
+     "fused_DvetoB",
+     "Dp",
+     "D"
+    ]
+   },
+   "123": {
+    "dommage_max_pt": {
+     "B": -3.96566165678189,
+     "C": -3.6676928597774747,
+     "Cp": -6.0408396330062075,
+     "D": -23.581696203016214,
+     "Dp": -15.124662904689771,
+     "G": -7.335197672851798,
+     "fused_CvetoB": -0.668687132000926,
+     "fused_CpvetoB": -1.7393301548215305,
+     "fused_DvetoB": -6.412420872723672,
+     "fused_DpvetoB": -3.693195399222361,
+     "controle": 0.0,
+     "moe_v3cs": -3.1746031746031775
+    },
+    "endpoint_dommage": {
+     "B": "precision_ped_pixels",
+     "C": "precision_ped_pixels",
+     "Cp": "precision_ped_pixels",
+     "D": "precision_ped_pixels",
+     "Dp": "precision_ped_pixels",
+     "G": "precision_ped_pixels",
+     "fused_CvetoB": "boundary_f1_3px_pieds",
+     "fused_CpvetoB": "IoU_rider",
+     "fused_DvetoB": "precision_ped_pixels",
+     "fused_DpvetoB": "precision_ped_pixels",
+     "controle": "IoU_road",
+     "moe_v3cs": "instances_foule_det05"
+    },
+    "n_rang1": {
+     "B": 3,
+     "C": 1,
+     "Cp": 0,
+     "D": 10,
+     "Dp": 5,
+     "G": 5,
+     "fused_CvetoB": 0,
+     "fused_CpvetoB": 1,
+     "fused_DvetoB": 6,
+     "fused_DpvetoB": 2,
+     "controle": 3,
+     "moe_v3cs": 0
+    },
+    "delta_miou_pt": {
+     "B": 0.29974497995209504,
+     "C": 0.6630696154270765,
+     "Cp": 0.6882622752542176,
+     "D": 1.2018068059822014,
+     "Dp": 0.9864493401295533,
+     "G": 0.7333783780258187,
+     "fused_CvetoB": 0.6904881301500296,
+     "fused_CpvetoB": 0.7327029877977651,
+     "fused_DvetoB": 1.1300312231022502,
+     "fused_DpvetoB": 0.9739695721504518,
+     "controle": 0.0,
+     "moe_v3cs": 0.783233391494349
+    },
+    "classement_dommage": [
+     "fused_CvetoB",
+     "fused_CpvetoB",
+     "moe_v3cs",
+     "C",
+     "fused_DpvetoB",
+     "B",
+     "Cp",
+     "fused_DvetoB",
+     "G",
+     "Dp",
+     "D"
+    ]
+   },
+   "456": {
+    "dommage_max_pt": {
+     "B": -4.218268774347806,
+     "C": -4.06206429939688,
+     "Cp": -6.88732265581546,
+     "D": -17.164770410493773,
+     "Dp": -12.784435850569189,
+     "G": -5.175632183764051,
+     "fused_CvetoB": -3.560772746312381,
+     "fused_CpvetoB": -4.871003014549743,
+     "fused_DvetoB": -5.800290640105651,
+     "fused_DpvetoB": -3.015261006379788,
+     "controle": 0.0,
+     "moe_v3cs": -2.757357950823888
+    },
+    "endpoint_dommage": {
+     "B": "IoU_bus",
+     "C": "IoU_train",
+     "Cp": "precision_ped_pixels",
+     "D": "precision_ped_pixels",
+     "Dp": "precision_ped_pixels",
+     "G": "IoU_train",
+     "fused_CvetoB": "IoU_train",
+     "fused_CpvetoB": "IoU_train",
+     "fused_DvetoB": "precision_ped_pixels",
+     "fused_DpvetoB": "IoU_traffic light",
+     "controle": "IoU_road",
+     "moe_v3cs": "IoU_train"
+    },
+    "n_rang1": {
+     "B": 0,
+     "C": 0,
+     "Cp": 1,
+     "D": 12,
+     "Dp": 5,
+     "G": 5,
+     "fused_CvetoB": 1,
+     "fused_CpvetoB": 0,
+     "fused_DvetoB": 3,
+     "fused_DpvetoB": 3,
+     "controle": 2,
+     "moe_v3cs": 4
+    },
+    "delta_miou_pt": {
+     "B": -0.39961940969335785,
+     "C": -0.2463138230903752,
+     "Cp": -0.4629055884747828,
+     "D": 0.18015967260777188,
+     "Dp": 0.23250598328247918,
+     "G": -0.18450736431346115,
+     "fused_CvetoB": -0.2023515057683909,
+     "fused_CpvetoB": -0.36457878922718123,
+     "fused_DvetoB": 0.10317436182232598,
+     "fused_DpvetoB": 0.2503588002280708,
+     "controle": 0.0,
+     "moe_v3cs": 0.3150300671743622
+    },
+    "classement_dommage": [
+     "moe_v3cs",
+     "fused_DpvetoB",
+     "fused_CvetoB",
+     "C",
+     "B",
+     "fused_CpvetoB",
+     "G",
+     "fused_DvetoB",
+     "Cp",
+     "Dp",
+     "D"
+    ]
+   }
+  },
+  "n_seeds_premier": 2,
+  "verdicts_stocks": {
+   "T0": true,
+   "T1": true,
+   "T2": true,
+   "T3": true,
+   "T4": false,
+   "T4_moe_premier_sur_n_seeds": 2
+  },
+  "familles": {
+   "IoU par classe": 19,
+   "contours": 2,
+   "global": 1,
+   "instances par strate": 12,
+   "piéton": 2
+  },
+  "sanity_miou_vs_p314": 0.004127492131658528,
+  "sanity_iou_recompute": 0.06326464860237024,
+  "seuils": {
+   "endpoint_pt": -1.0,
+   "classe_pt": -0.5
+  }
+ },
+ "T8": {
+  "brats_doi": "10.5281/zenodo.22903668",
+  "brats_concept_doi": "10.5281/zenodo.22776410",
+  "brats_record_id": "22903668",
+  "brats_published": "2026-09-22",
+  "brats_method": "consensus",
+  "gamma_necessaire_ici": true,
+  "delta_primaire_pt": 0.44936035659464135
+ },
+ "sanity": {
+  "n_checks": 257,
+  "n_ok": 257,
+  "checks": [
+   {
+    "check": "famille 1 paire (P3.10) : taille calculée == 1",
+    "ok": true,
+    "detail": "len = 1"
+   },
+   {
+    "check": "famille 1 paire : Holm == p (recomputé)",
+    "ok": true,
+    "detail": "holm=0.0066 p=0.0066"
+   },
+   {
+    "check": "famille 1 paire : Holm recomputé == stocké",
+    "ok": true,
+    "detail": "0.0066 vs 0.0066"
+   },
+   {
+    "check": "famille P3.14 : taille calculée == 12",
+    "ok": true,
+    "detail": "len(pairwise) = 12"
+   },
+   {
+    "check": "famille P3.14 : Holm recomputé == stocké (12 paires)",
+    "ok": true,
+    "detail": "écart max 0"
+   },
+   {
+    "check": "famille P3.16 : taille calculée == len(pairs) déclaré",
+    "ok": true,
+    "detail": "15 vs 15"
+   },
+   {
+    "check": "famille P3.16 : Holm recomputé == stocké",
+    "ok": true,
+    "detail": "écart max 0"
+   },
+   {
+    "check": "P3.17 cite la famille 15 paires (pas une autre)",
+    "ok": true,
+    "detail": "11 bras comparés, écart max 0"
+   },
+   {
+    "check": "les 3 familles sont DISTINCTES (Holm moe différent partout)",
+    "ok": true,
+    "detail": "1 paire 0.0066 / 12 paires 0.0726 / 15 paires 0.0924"
+   },
+   {
+    "check": "famille P3.16 : bras vs contrôle == paires déclarées vs contrôle",
+    "ok": true,
+    "detail": "11 bras vs contrôle + 4 paires fusion-vs-expert = 15 paires"
+   },
+   {
+    "check": "le MoE est parmi les bras comparés au contrôle",
+    "ok": true,
+    "detail": "11 bras : ['B', 'C', 'Cp', 'D', 'Dp', 'G', 'fused_CpvetoB', 'fused_CvetoB', 'fused_DpvetoB', 'fused_DvetoB', 'moe_v3cs']"
+   },
+   {
+    "check": "log moe_v3cs_Binit seed42 : 80 époques lues",
+    "ok": true,
+    "detail": "80 lignes de temps, 80 de VRAM"
+   },
+   {
+    "check": "log moe_v3cs_Binit seed123 : 80 époques lues",
+    "ok": true,
+    "detail": "80 lignes de temps, 80 de VRAM"
+   },
+   {
+    "check": "log moe_v3cs_Binit seed456 : 80 époques lues",
+    "ok": true,
+    "detail": "80 lignes de temps, 80 de VRAM"
+   },
+   {
+    "check": "log control_nomoe_Binit seed42 : 80 époques lues",
+    "ok": true,
+    "detail": "80 lignes de temps, 80 de VRAM"
+   },
+   {
+    "check": "log control_nomoe_Binit seed123 : 80 époques lues",
+    "ok": true,
+    "detail": "80 lignes de temps, 80 de VRAM"
+   },
+   {
+    "check": "log control_nomoe_Binit seed456 : 80 époques lues",
+    "ok": true,
+    "detail": "80 lignes de temps, 80 de VRAM"
+   },
+   {
+    "check": "experts initialisés bit-à-bit (max_ecart = 0 partout)",
+    "ok": true,
+    "detail": "12 copies, max_ecart 0.0"
+   },
+   {
+    "check": "nombre de copies d'experts = n_experts × n_seeds",
+    "ok": true,
+    "detail": "12 vs 4×3"
+   },
+   {
+    "check": "chaque expert apparié au MÊME seed que le run",
+    "ok": true,
+    "detail": "12 couples (seed run, seed expert) tous égaux"
+   },
+   {
+    "check": "4 méthodes distinctes en experts",
+    "ok": true,
+    "detail": "['B', 'D', 'Dp', 'G']"
+   },
+   {
+    "check": "source_block = head.fpn_convs.0",
+    "ok": true,
+    "detail": "head.fpn_convs.0"
+   },
+   {
+    "check": "gate aléatoire (aucun pré-appariement)",
+    "ok": true,
+    "detail": "random"
+   },
+   {
+    "check": "époques = 80 pour les 3 seeds",
+    "ok": true,
+    "detail": "[80, 80, 80]"
+   },
+   {
+    "check": "équirépartition part_max = top_k/n_experts",
+    "ok": true,
+    "detail": "2/4 = 0.5"
+   },
+   {
+    "check": "residual_scale initial = 0 (époque 0 bit-exacte au contrôle)",
+    "ok": true,
+    "detail": "0.0"
+   },
+   {
+    "check": "surcoût temporel MoE vs contrôle > 0",
+    "ok": true,
+    "detail": "+24.7 %"
+   },
+   {
+    "check": "surcoût VRAM MoE vs contrôle > 0",
+    "ok": true,
+    "detail": "35.2 vs 31.5 Go"
+   },
+   {
+    "check": "γ croît strictement de l'époque 0 à la finale (3 seeds)",
+    "ok": true,
+    "detail": "s42 0.00024→0.02026 · s123 0.00023→0.01912 · s456 0.00023→0.01815"
+   },
+   {
+    "check": "γ final strictement positif (le MoE sert)",
+    "ok": true,
+    "detail": "min 0.01815"
+   },
+   {
+    "check": "primaire : Δ(moe − contrôle) positif",
+    "ok": true,
+    "detail": "+0.4494 pt"
+   },
+   {
+    "check": "primaire : IC95 exclut 0 (significatif au sens IC)",
+    "ok": true,
+    "detail": "[+0.1086 ; +0.8195]"
+   },
+   {
+    "check": "primaire : p < 0,05",
+    "ok": true,
+    "detail": "0.0066"
+   },
+   {
+    "check": "primaire : le harnais annonce la paire pré-enregistrée moe/contrôle",
+    "ok": true,
+    "detail": "controle_vs_moe_v3cs"
+   },
+   {
+    "check": "3 seeds par bras dans le harnais",
+    "ok": true,
+    "detail": "3 / 3"
+   },
+   {
+    "check": "primaire : moyenne des mIoU par seed == point bootstrap (moe_v3cs)",
+    "ok": true,
+    "detail": "81.617575 vs 81.617575"
+   },
+   {
+    "check": "primaire : moyenne des mIoU par seed == point bootstrap (controle)",
+    "ok": true,
+    "detail": "81.168215 vs 81.168215"
+   },
+   {
+    "check": "écart harness ↔ métiers P3.16 (2ᵉ forward) < 0,01 pt",
+    "ok": true,
+    "detail": "moe 6.07e-04 pt, contrôle 2.51e-04 pt"
+   },
+   {
+    "check": "verdict identique dans les deux forwards (significatif partout)",
+    "ok": true,
+    "detail": "harness +0.4494 pt p=0.0066 · métiers +0.4502 pt"
+   },
+   {
+    "check": "Δ primaire cohérent entre 5 artefacts (< 0,01 pt)",
+    "ok": true,
+    "detail": "amplitude 8.58e-04 pt sur 5 sources"
+   },
+   {
+    "check": "master P3.14 : 13 bras dont le contrôle",
+    "ok": true,
+    "detail": "13 bras, 12 hors contrôle"
+   },
+   {
+    "check": "classement trié par Δ décroissant",
+    "ok": true,
+    "detail": "13 bras"
+   },
+   {
+    "check": "rang du MoE cohérent avec la position du contrôle",
+    "ok": true,
+    "detail": "rang 5/12, rang13 5/13, contrôle 10/13"
+   },
+   {
+    "check": "aucun bras significatif après Holm (les deux familles)",
+    "ok": true,
+    "detail": "5 bras à p brut < 0,05 ; 0 après Holm 12 ; 0 après Holm 15"
+   },
+   {
+    "check": "routing seed42 : 80 époques, epochs 0..79 sans trou",
+    "ok": true,
+    "detail": "80 entrées"
+   },
+   {
+    "check": "routing seed42 : n_experts cohérent avec moe_kwargs",
+    "ok": true,
+    "detail": "4"
+   },
+   {
+    "check": "routing seed42 ep0 : somme des frac == top_k",
+    "ok": true,
+    "detail": "2.000000028 pour top_k = 2"
+   },
+   {
+    "check": "routing seed42 ep0 : part_max == max(frac)",
+    "ok": true,
+    "detail": "0.500560420"
+   },
+   {
+    "check": "routing seed42 ep0 : top_expert_share ≥ part_max (Jensen)",
+    "ok": true,
+    "detail": "moyenne des maxima 0.667003 ≥ maximum des moyennes 0.500560"
+   },
+   {
+    "check": "routing seed42 ep79 : somme des frac == top_k",
+    "ok": true,
+    "detail": "2.000000030 pour top_k = 2"
+   },
+   {
+    "check": "routing seed42 ep79 : part_max == max(frac)",
+    "ok": true,
+    "detail": "0.503026235"
+   },
+   {
+    "check": "routing seed42 ep79 : top_expert_share ≥ part_max (Jensen)",
+    "ok": true,
+    "detail": "moyenne des maxima 0.597549 ≥ maximum des moyennes 0.503026"
+   },
+   {
+    "check": "routing seed42 : entropies dans [0,1] (normalisées)",
+    "ok": true,
+    "detail": "entropy_norm / entropy_token / entropy_token_clean"
+   },
+   {
+    "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (entropy_norm)",
+    "ok": true,
+    "detail": "0.999998095 vs 0.999998095"
+   },
+   {
+    "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (entropy_token)",
+    "ok": true,
+    "detail": "0.999958298 vs 0.999958298"
+   },
+   {
+    "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (entropy_token_clean)",
+    "ok": true,
+    "detail": "0.999958298 vs 0.999958298"
+   },
+   {
+    "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (gamma_absmean)",
+    "ok": true,
+    "detail": "0.0202606407 vs 0.0202606407"
+   },
+   {
+    "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (part_max)",
+    "ok": true,
+    "detail": "0.503026235 vs 0.503026235"
+   },
+   {
+    "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (top_expert_share)",
+    "ok": true,
+    "detail": "0.59754914 vs 0.59754914"
+   },
+   {
+    "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (aux_loss_weighted)",
+    "ok": true,
+    "detail": "0.0020000299 vs 0.0020000299"
+   },
+   {
+    "check": "routing seed42 : jsonl ep79 == summary final_epoch_stats (noise_std)",
+    "ok": true,
+    "detail": "0 vs 0"
+   },
+   {
+    "check": "routing seed42 : bruit recuit sur 40 époques puis nul",
+    "ok": true,
+    "detail": "noise_std 1.00 → 0.025 → 0.00"
+   },
+   {
+    "check": "routing seed123 : 80 époques, epochs 0..79 sans trou",
+    "ok": true,
+    "detail": "80 entrées"
+   },
+   {
+    "check": "routing seed123 : n_experts cohérent avec moe_kwargs",
+    "ok": true,
+    "detail": "4"
+   },
+   {
+    "check": "routing seed123 ep0 : somme des frac == top_k",
+    "ok": true,
+    "detail": "2.000000027 pour top_k = 2"
+   },
+   {
+    "check": "routing seed123 ep0 : part_max == max(frac)",
+    "ok": true,
+    "detail": "0.501494440"
+   },
+   {
+    "check": "routing seed123 ep0 : top_expert_share ≥ part_max (Jensen)",
+    "ok": true,
+    "detail": "moyenne des maxima 0.668983 ≥ maximum des moyennes 0.501494"
+   },
+   {
+    "check": "routing seed123 ep79 : somme des frac == top_k",
+    "ok": true,
+    "detail": "2.000000029 pour top_k = 2"
+   },
+   {
+    "check": "routing seed123 ep79 : part_max == max(frac)",
+    "ok": true,
+    "detail": "0.501868049"
+   },
+   {
+    "check": "routing seed123 ep79 : top_expert_share ≥ part_max (Jensen)",
+    "ok": true,
+    "detail": "moyenne des maxima 0.595457 ≥ maximum des moyennes 0.501868"
+   },
+   {
+    "check": "routing seed123 : entropies dans [0,1] (normalisées)",
+    "ok": true,
+    "detail": "entropy_norm / entropy_token / entropy_token_clean"
+   },
+   {
+    "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (entropy_norm)",
+    "ok": true,
+    "detail": "0.997707056 vs 0.997707056"
+   },
+   {
+    "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (entropy_token)",
+    "ok": true,
+    "detail": "0.987453097 vs 0.987453097"
+   },
+   {
+    "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (entropy_token_clean)",
+    "ok": true,
+    "detail": "0.987453097 vs 0.987453097"
+   },
+   {
+    "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (gamma_absmean)",
+    "ok": true,
+    "detail": "0.0191158445 vs 0.0191158445"
+   },
+   {
+    "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (part_max)",
+    "ok": true,
+    "detail": "0.501868049 vs 0.501868049"
+   },
+   {
+    "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (top_expert_share)",
+    "ok": true,
+    "detail": "0.595456934 vs 0.595456934"
+   },
+   {
+    "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (aux_loss_weighted)",
+    "ok": true,
+    "detail": "0.00199941921 vs 0.00199941921"
+   },
+   {
+    "check": "routing seed123 : jsonl ep79 == summary final_epoch_stats (noise_std)",
+    "ok": true,
+    "detail": "0 vs 0"
+   },
+   {
+    "check": "routing seed123 : bruit recuit sur 40 époques puis nul",
+    "ok": true,
+    "detail": "noise_std 1.00 → 0.025 → 0.00"
+   },
+   {
+    "check": "routing seed456 : 80 époques, epochs 0..79 sans trou",
+    "ok": true,
+    "detail": "80 entrées"
+   },
+   {
+    "check": "routing seed456 : n_experts cohérent avec moe_kwargs",
+    "ok": true,
+    "detail": "4"
+   },
+   {
+    "check": "routing seed456 ep0 : somme des frac == top_k",
+    "ok": true,
+    "detail": "2.000000029 pour top_k = 2"
+   },
+   {
+    "check": "routing seed456 ep0 : part_max == max(frac)",
+    "ok": true,
+    "detail": "0.501494440"
+   },
+   {
+    "check": "routing seed456 ep0 : top_expert_share ≥ part_max (Jensen)",
+    "ok": true,
+    "detail": "moyenne des maxima 0.659568 ≥ maximum des moyennes 0.501494"
+   },
+   {
+    "check": "routing seed456 ep79 : somme des frac == top_k",
+    "ok": true,
+    "detail": "2.000000029 pour top_k = 2"
+   },
+   {
+    "check": "routing seed456 ep79 : part_max == max(frac)",
+    "ok": true,
+    "detail": "0.501868049"
+   },
+   {
+    "check": "routing seed456 ep79 : top_expert_share ≥ part_max (Jensen)",
+    "ok": true,
+    "detail": "moyenne des maxima 0.596951 ≥ maximum des moyennes 0.501868"
+   },
+   {
+    "check": "routing seed456 : entropies dans [0,1] (normalisées)",
+    "ok": true,
+    "detail": "entropy_norm / entropy_token / entropy_token_clean"
+   },
+   {
+    "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (entropy_norm)",
+    "ok": true,
+    "detail": "0.999966414 vs 0.999966414"
+   },
+   {
+    "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (entropy_token)",
+    "ok": true,
+    "detail": "0.999821044 vs 0.999821044"
+   },
+   {
+    "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (entropy_token_clean)",
+    "ok": true,
+    "detail": "0.999821044 vs 0.999821044"
+   },
+   {
+    "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (gamma_absmean)",
+    "ok": true,
+    "detail": "0.0181530798 vs 0.0181530798"
+   },
+   {
+    "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (part_max)",
+    "ok": true,
+    "detail": "0.501868049 vs 0.501868049"
+   },
+   {
+    "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (top_expert_share)",
+    "ok": true,
+    "detail": "0.596951367 vs 0.596951367"
+   },
+   {
+    "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (aux_loss_weighted)",
+    "ok": true,
+    "detail": "0.00199997181 vs 0.00199997181"
+   },
+   {
+    "check": "routing seed456 : jsonl ep79 == summary final_epoch_stats (noise_std)",
+    "ok": true,
+    "detail": "0 vs 0"
+   },
+   {
+    "check": "routing seed456 : bruit recuit sur 40 époques puis nul",
+    "ok": true,
+    "detail": "noise_std 1.00 → 0.025 → 0.00"
+   },
+   {
+    "check": "aucun expert mort à l'époque finale (3 seeds)",
+    "ok": true,
+    "detail": "{42: 0, 123: 0, 456: 0}"
+   },
+   {
+    "check": "part_max final dans un voisinage de l'équirépartition 0.5000",
+    "ok": true,
+    "detail": "s42 0.5030 · s123 0.5019 · s456 0.5019"
+   },
+   {
+    "check": "frac des 4 experts ∈ [0.4979 ; 0.5030] autour de 0.5000",
+    "ok": true,
+    "detail": "étendue 0.0051 pt"
+   },
+   {
+    "check": "entropy_norm ≥ 0,98 partout (porte quasi uniforme)",
+    "ok": true,
+    "detail": "min 0.99771"
+   },
+   {
+    "check": "seed42 : le bruit est actif sur exactement noise_anneal époques",
+    "ok": true,
+    "detail": "40 époques à noise_std > 0 (0..39)"
+   },
+   {
+    "check": "seed42 : après recuit, token == clean par construction (tautologie, non preuve)",
+    "ok": true,
+    "detail": "40 époques à bruit nul"
+   },
+   {
+    "check": "seed123 : le bruit est actif sur exactement noise_anneal époques",
+    "ok": true,
+    "detail": "40 époques à noise_std > 0 (0..39)"
+   },
+   {
+    "check": "seed123 : après recuit, token == clean par construction (tautologie, non preuve)",
+    "ok": true,
+    "detail": "40 époques à bruit nul"
+   },
+   {
+    "check": "seed456 : le bruit est actif sur exactement noise_anneal époques",
+    "ok": true,
+    "detail": "40 époques à noise_std > 0 (0..39)"
+   },
+   {
+    "check": "seed456 : après recuit, token == clean par construction (tautologie, non preuve)",
+    "ok": true,
+    "detail": "40 époques à bruit nul"
+   },
+   {
+    "check": "phase à bruit ACTIF : l'écart token↔clean reste négligeable devant la platitude",
+    "ok": true,
+    "detail": "écart max 1.45e-03 sur 40 époques × 3 seeds"
+   },
+   {
+    "check": "phase à bruit ACTIF : la distribution SANS bruit est déjà plate (clean ≥ 0,99)",
+    "ok": true,
+    "detail": "min 0.99821"
+   },
+   {
+    "check": "phase à bruit ACTIF : part_max reste collé à l'équirépartition",
+    "ok": true,
+    "detail": "bornes 0.50011–0.50217 pour 0.5000"
+   },
+   {
+    "check": "γ final ≫ γ époque 0 (le MoE sert, mais comme moyenne)",
+    "ok": true,
+    "detail": "s42 ×83 · s123 ×84 · s456 ×77"
+   },
+   {
+    "check": "métiers P3.16 : 20 métriques",
+    "ok": true,
+    "detail": "20 tables"
+   },
+   {
+    "check": "métiers P3.16 : 15 paires",
+    "ok": true,
+    "detail": "15 paires"
+   },
+   {
+    "check": "métiers P3.16 : 12 bras (couverture complète, A exclu)",
+    "ok": true,
+    "detail": "12 bras : ['controle', 'B', 'C', 'Cp', 'D', 'Dp', 'G', 'fused_CvetoB', 'fused_DvetoB', 'fused_CpvetoB', 'fused_DpvetoB', 'moe_v3cs']"
+   },
+   {
+    "check": "le MoE et le contrôle sont dans les 12 bras",
+    "ok": true,
+    "detail": "moe_v3cs, controle"
+   },
+   {
+    "check": "bras de contexte présents dans la table métier",
+    "ok": true,
+    "detail": "['D', 'Dp', 'G', 'B']"
+   },
+   {
+    "check": "ordre d'affichage == ensemble des métriques de l'artefact",
+    "ok": true,
+    "detail": "0 différence(s)"
+   },
+   {
+    "check": "unité de « mIoU » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.808888, max 0.816834"
+   },
+   {
+    "check": "unité de « boundary_f1_3px » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.763734, max 0.773043"
+   },
+   {
+    "check": "unité de « boundary_f1_3px_pieds » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.666386, max 0.677327"
+   },
+   {
+    "check": "unité de « rappel_strict_instances » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.728367, max 0.784363"
+   },
+   {
+    "check": "unité de « precision_ped_pixels » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.478331, max 0.700283"
+   },
+   {
+    "check": "unité de « instances_toutes_rappel » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.765520, max 0.822974"
+   },
+   {
+    "check": "unité de « instances_toutes_det05 » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.851170, max 0.884189"
+   },
+   {
+    "check": "unité de « instances_individuelles_rappel » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.767350, max 0.824072"
+   },
+   {
+    "check": "unité de « instances_individuelles_det05 » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.851735, max 0.884265"
+   },
+   {
+    "check": "unité de « instances_foule_rappel » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.699721, max 0.764346"
+   },
+   {
+    "check": "unité de « instances_foule_det05 » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.820106, max 0.867725"
+   },
+   {
+    "check": "unité de « instances_taille_T1_rappel » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.609137, max 0.678103"
+   },
+   {
+    "check": "unité de « instances_taille_T1_det05 » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.682616, max 0.738569"
+   },
+   {
+    "check": "unité de « instances_taille_T2_rappel » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.808776, max 0.862793"
+   },
+   {
+    "check": "unité de « instances_taille_T2_det05 » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.910834, max 0.937787"
+   },
+   {
+    "check": "unité de « instances_taille_T3_rappel » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.916760, max 0.943435"
+   },
+   {
+    "check": "unité de « instances_taille_T3_det05 » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.987827, max 0.991156"
+   },
+   {
+    "check": "unité de « IoU_person » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.848751, max 0.852193"
+   },
+   {
+    "check": "unité de « IoU_rider » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.675814, max 0.692278"
+   },
+   {
+    "check": "unité de « fragments » = composantes/image (valeurs > 1)",
+    "ok": true,
+    "detail": "min 488.0, max 519.3"
+   },
+   {
+    "check": "comptes de significativité métier cohérents",
+    "ok": true,
+    "detail": "2 Holm-significatifs, 5 IC excluant 0 (Holm ⊆ IC)"
+   },
+   {
+    "check": "fragments : artefact à 2 bras (contrôle + MoE seulement)",
+    "ok": true,
+    "detail": "2 bras : ['controle', 'moe_v3cs']"
+   },
+   {
+    "check": "fragments : points de la table == fragments_point de l'artefact",
+    "ok": true,
+    "detail": "519.264 → 488.047"
+   },
+   {
+    "check": "fragments : baisse mesurée",
+    "ok": true,
+    "detail": "-31.217 composantes/image (0.9399×)"
+   },
+   {
+    "check": "compte des survivantes au Holm == n_holm calculé plus haut",
+    "ok": true,
+    "detail": "2 vs 2"
+   },
+   {
+    "check": "les fragments sont parmi les survivantes au Holm",
+    "ok": true,
+    "detail": "['instances_taille_T3_rappel', 'fragments']"
+   },
+   {
+    "check": "il y a PLUS d'une survivante (ne pas écrire « la seule »)",
+    "ok": true,
+    "detail": "instances_taille_T3_rappel (Holm 0) · fragments (Holm 0)"
+   },
+   {
+    "check": "unité de « instances_taille_T1_rappel » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.609137, max 0.678103"
+   },
+   {
+    "check": "unité de « rappel_strict_instances » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.728367, max 0.784363"
+   },
+   {
+    "check": "unité de « instances_toutes_rappel » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.765520, max 0.822974"
+   },
+   {
+    "check": "unité de « boundary_f1_3px » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.763734, max 0.773043"
+   },
+   {
+    "check": "unité de « precision_ped_pixels » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.478331, max 0.700283"
+   },
+   {
+    "check": "unité de « instances_foule_rappel » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.699721, max 0.764346"
+   },
+   {
+    "check": "unité de « IoU_person » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.848751, max 0.852193"
+   },
+   {
+    "check": "unité de « instances_taille_T1_rappel » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.609137, max 0.678103"
+   },
+   {
+    "check": "le MoE capte une partie du gain T1 de D/Dp, sans l'ampleur de la perte de G",
+    "ok": true,
+    "detail": "MoE +0.80 · D +2.82 · Dp +2.02 · G -4.08"
+   },
+   {
+    "check": "unité de « rappel_strict_instances » = fraction dans [0,1] -> points",
+    "ok": true,
+    "detail": "min 0.728367, max 0.784363"
+   },
+   {
+    "check": "rappel piéton strict : le MoE ne hérite PAS de la perte de G",
+    "ok": true,
+    "detail": "MoE +0.47 vs G -3.42"
+   },
+   {
+    "check": "traffic light : le MoE n'hérite pas de la perte des bras boundary/distmap",
+    "ok": true,
+    "detail": "MoE -0.08 · D -2.60 · Dp -2.34"
+   },
+   {
+    "check": "attribution P3.16 : référence = contrôle",
+    "ok": true,
+    "detail": "controle"
+   },
+   {
+    "check": "attribution P3.16 : 12 bras",
+    "ok": true,
+    "detail": "12 bras"
+   },
+   {
+    "check": "attribution P3.16 : 19 classes Cityscapes",
+    "ok": true,
+    "detail": "19"
+   },
+   {
+    "check": "classes toutes distinctes",
+    "ok": true,
+    "detail": "19"
+   },
+   {
+    "check": "mIoU == moyenne des 19 IoU par classe (moe_v3cs)",
+    "ok": true,
+    "detail": "81.617575 vs 81.617575"
+   },
+   {
+    "check": "mIoU == moyenne des 19 IoU par classe (D)",
+    "ok": true,
+    "detail": "81.685781 vs 81.685781"
+   },
+   {
+    "check": "mIoU == moyenne des 19 IoU par classe (G)",
+    "ok": true,
+    "detail": "81.263264 vs 81.263264"
+   },
+   {
+    "check": "IoU de référence (contrôle) : moyenne des 19 == point du harnais",
+    "ok": true,
+    "detail": "81.168215 vs 81.168215"
+   },
+   {
+    "check": "Δ mIoU de l'attribution == somme des Δ par classe / 19",
+    "ok": true,
+    "detail": "+0.449360 vs +0.449360"
+   },
+   {
+    "check": "Holm 19 classes recomputé == p_holm_arm stocké",
+    "ok": true,
+    "detail": "écart max 0"
+   },
+   {
+    "check": "gains + pertes + classes nulles == 19",
+    "ok": true,
+    "detail": "11 gains, 8 pertes"
+   },
+   {
+    "check": "critère AMPLITUDE : les 4 plus fortes hausses sont truck, wall, train, fence",
+    "ok": true,
+    "detail": "['truck', 'wall', 'train', 'fence']"
+   },
+   {
+    "check": "critère IC-excluant-0 : hausses = truck, train, sidewalk, road",
+    "ok": true,
+    "detail": "['truck', 'train', 'sidewalk', 'road']"
+   },
+   {
+    "check": "critère IC-excluant-0 : baisses = person, bicycle",
+    "ok": true,
+    "detail": "['person', 'bicycle']"
+   },
+   {
+    "check": "critère HOLM(19) : aucune HAUSSE ne survit",
+    "ok": true,
+    "detail": "0 hausse(s) Holm-significative(s) : []"
+   },
+   {
+    "check": "critère HOLM(19) : la seule classe survivante est une BAISSE",
+    "ok": true,
+    "detail": "['bicycle']"
+   },
+   {
+    "check": "les deux critères ne sont PAS réductibles l'un à l'autre",
+    "ok": true,
+    "detail": "amplitude ['truck', 'wall', 'train', 'fence'] vs IC ['truck', 'train', 'sidewalk', 'road']"
+   },
+   {
+    "check": "truck : le MoE retrouve une part majoritaire du MEILLEUR des 4 experts",
+    "ok": true,
+    "detail": "81.7 % (+4.24 vs meilleur expert +5.19 = Dp)"
+   },
+   {
+    "check": "train : le meilleur expert est bien B, pas D ni Dp (le dénominateur D/Dp mentait)",
+    "ok": true,
+    "detail": "B +1.50 · D +0.40 · Dp +0.66 · G -1.04"
+   },
+   {
+    "check": "coût piéton faible et non Holm-significatif",
+    "ok": true,
+    "detail": "-0.244 pt, Holm 0.1326, IC [-0.433 ; -0.062]"
+   },
+   {
+    "check": "polyvalence : 36 endpoints",
+    "ok": true,
+    "detail": "36"
+   },
+   {
+    "check": "polyvalence : 13 bras",
+    "ok": true,
+    "detail": "13"
+   },
+   {
+    "check": "polyvalence : 12 bras à couverture complète (A en partielle)",
+    "ok": true,
+    "detail": "12 ; annexe = ['A']"
+   },
+   {
+    "check": "familles : somme des effectifs == 36",
+    "ok": true,
+    "detail": "36 affectations"
+   },
+   {
+    "check": "19 endpoints « IoU par classe »",
+    "ok": true,
+    "detail": "19"
+   },
+   {
+    "check": "chaque bras complet a ses 36 deltas",
+    "ok": true,
+    "detail": "12 bras × 36 endpoints"
+   },
+   {
+    "check": "sd inter-bras présent pour les 36 endpoints (B)",
+    "ok": true,
+    "detail": "36"
+   },
+   {
+    "check": "dommage max recalculé == stocké (B)",
+    "ok": true,
+    "detail": "-4.0638 (precision_ped_pixels) vs ['B', -4.06, 'precision_ped_pixels']"
+   },
+   {
+    "check": "dommage max recalculé == stocké (C)",
+    "ok": true,
+    "detail": "-3.2060 (precision_ped_pixels) vs ['C', -3.21, 'precision_ped_pixels']"
+   },
+   {
+    "check": "dommage max recalculé == stocké (Cp)",
+    "ok": true,
+    "detail": "-6.0509 (precision_ped_pixels) vs ['Cp', -6.05, 'precision_ped_pixels']"
+   },
+   {
+    "check": "dommage max recalculé == stocké (D)",
+    "ok": true,
+    "detail": "-22.1952 (precision_ped_pixels) vs ['D', -22.2, 'precision_ped_pixels']"
+   },
+   {
+    "check": "dommage max recalculé == stocké (Dp)",
+    "ok": true,
+    "detail": "-15.0202 (precision_ped_pixels) vs ['Dp', -15.02, 'precision_ped_pixels']"
+   },
+   {
+    "check": "dommage max recalculé == stocké (G)",
+    "ok": true,
+    "detail": "-6.7626 (precision_ped_pixels) vs ['G', -6.76, 'precision_ped_pixels']"
+   },
+   {
+    "check": "dommage max recalculé == stocké (fused_CvetoB)",
+    "ok": true,
+    "detail": "-1.8952 (IoU_bus) vs ['fused_CvetoB', -1.9, 'IoU_bus']"
+   },
+   {
+    "check": "dommage max recalculé == stocké (fused_CpvetoB)",
+    "ok": true,
+    "detail": "-2.7797 (IoU_bus) vs ['fused_CpvetoB', -2.78, 'IoU_bus']"
+   },
+   {
+    "check": "dommage max recalculé == stocké (fused_DvetoB)",
+    "ok": true,
+    "detail": "-8.7018 (precision_ped_pixels) vs ['fused_DvetoB', -8.7, 'precision_ped_pixels']"
+   },
+   {
+    "check": "dommage max recalculé == stocké (fused_DpvetoB)",
+    "ok": true,
+    "detail": "-4.7678 (precision_ped_pixels) vs ['fused_DpvetoB', -4.77, 'precision_ped_pixels']"
+   },
+   {
+    "check": "dommage max recalculé == stocké (moe_v3cs)",
+    "ok": true,
+    "detail": "-0.5291 (instances_foule_det05) vs ['moe_v3cs', -0.53, 'instances_foule_det05']"
+   },
+   {
+    "check": "classement par dommage recalculé == classement stocké",
+    "ok": true,
+    "detail": "['moe_v3cs', 'fused_CvetoB', 'fused_CpvetoB']… == ['moe_v3cs', 'fused_CvetoB', 'fused_CpvetoB']…"
+   },
+   {
+    "check": "le MoE est premier en dommage maximal",
+    "ok": true,
+    "detail": "moe_v3cs"
+   },
+   {
+    "check": "marge du MoE sur le suivant == stockée",
+    "ok": true,
+    "detail": "1.366 vs 1.366"
+   },
+   {
+    "check": "marge positive (le MoE est bien le moins abîmé)",
+    "ok": true,
+    "detail": "+1.366 pt"
+   },
+   {
+    "check": "couverture de rang_entier : bras complets + bras partiels == n_bras",
+    "ok": true,
+    "detail": "13 bras dont 12 à couverture complète sur 36 endpoints ; partiels : {'A': 20}"
+   },
+   {
+    "check": "le MoE est à couverture complète sur les 36 endpoints",
+    "ok": true,
+    "detail": "36/36"
+   },
+   {
+    "check": "n_rang1 recalculé == profil stocké (B)",
+    "ok": true,
+    "detail": "2 vs 2"
+   },
+   {
+    "check": "n_rang1 recalculé == profil stocké (C)",
+    "ok": true,
+    "detail": "0 vs 0"
+   },
+   {
+    "check": "n_rang1 recalculé == profil stocké (Cp)",
+    "ok": true,
+    "detail": "0 vs 0"
+   },
+   {
+    "check": "n_rang1 recalculé == profil stocké (D)",
+    "ok": true,
+    "detail": "16 vs 16"
+   },
+   {
+    "check": "n_rang1 recalculé == profil stocké (Dp)",
+    "ok": true,
+    "detail": "3 vs 3"
+   },
+   {
+    "check": "n_rang1 recalculé == profil stocké (G)",
+    "ok": true,
+    "detail": "7 vs 7"
+   },
+   {
+    "check": "n_rang1 recalculé == profil stocké (fused_CvetoB)",
+    "ok": true,
+    "detail": "0 vs 0"
+   },
+   {
+    "check": "n_rang1 recalculé == profil stocké (fused_CpvetoB)",
+    "ok": true,
+    "detail": "0 vs 0"
+   },
+   {
+    "check": "n_rang1 recalculé == profil stocké (fused_DvetoB)",
+    "ok": true,
+    "detail": "3 vs 3"
+   },
+   {
+    "check": "n_rang1 recalculé == profil stocké (fused_DpvetoB)",
+    "ok": true,
+    "detail": "4 vs 4"
+   },
+   {
+    "check": "n_rang1 recalculé == profil stocké (moe_v3cs)",
+    "ok": true,
+    "detail": "0 vs 0"
+   },
+   {
+    "check": "le MoE n'est premier sur AUCUN endpoint",
+    "ok": true,
+    "detail": "0"
+   },
+   {
+    "check": "D est premier sur le plus grand nombre d'endpoints",
+    "ok": true,
+    "detail": "D 16"
+   },
+   {
+    "check": "le MoE n'est jamais dernier",
+    "ok": true,
+    "detail": "0"
+   },
+   {
+    "check": "le dénominateur des rangs varie selon les endpoints (A en couverture partielle)",
+    "ok": true,
+    "detail": "tailles observées [12, 13]"
+   },
+   {
+    "check": "pire rang du MoE recalculé == profil",
+    "ok": true,
+    "detail": "11 vs 11"
+   },
+   {
+    "check": "le pire rang du MoE n'est PAS une dernière place",
+    "ok": true,
+    "detail": "11/12 sur `instances_foule_rappel` (dernière place = 12)"
+   },
+   {
+    "check": "pire rang + son dénominateur cohérents avec le profil (MoE)",
+    "ok": true,
+    "detail": "11/12 sur `instances_foule_rappel` — jamais dernier"
+   },
+   {
+    "check": "le dénominateur du pire rang n'est PAS toujours 13 (A en couverture partielle)",
+    "ok": true,
+    "detail": "dénominateurs observés : [12, 13]"
+   },
+   {
+    "check": "moyenne des 19 Δ par classe ≈ ΔmIoU (identité exacte within-artefact, la polyvalence mélange 2 forwards)",
+    "ok": true,
+    "detail": "+0.449360 vs +0.450218 — écart 8.58e-04 pt = l'écart inter-forwards mesuré en T2"
+   },
+   {
+    "check": "l'écart d'identité de la polyvalence est du même ordre que son écart inter-forwards",
+    "ok": true,
+    "detail": "8.58e-04 pt vs sanity déclarée 4.13e-03 pt"
+   },
+   {
+    "check": "percentile moyen du MoE recalculé == profil",
+    "ok": true,
+    "detail": "0.604345 vs 0.604345"
+   },
+   {
+    "check": "T0 détail recalculé == stocké (D)",
+    "ok": true,
+    "detail": "dommage -22.195 vs -22.2, end>1pt 3 vs 3, classes 4 vs 4"
+   },
+   {
+    "check": "T0 détail recalculé == stocké (Dp)",
+    "ok": true,
+    "detail": "dommage -15.020 vs -15.02, end>1pt 3 vs 3, classes 3 vs 3"
+   },
+   {
+    "check": "T0 détail recalculé == stocké (fused_DvetoB)",
+    "ok": true,
+    "detail": "dommage -8.702 vs -8.7, end>1pt 3 vs 3, classes 3 vs 3"
+   },
+   {
+    "check": "T0 détail recalculé == stocké (fused_DpvetoB)",
+    "ok": true,
+    "detail": "dommage -4.768 vs -4.77, end>1pt 2 vs 2, classes 2 vs 2"
+   },
+   {
+    "check": "T0 détail recalculé == stocké (moe_v3cs)",
+    "ok": true,
+    "detail": "dommage -0.529 vs -0.53, end>1pt 0 vs 0, classes 0 vs 0"
+   },
+   {
+    "check": "T0 recalculé : le MoE est le SEUL bras à cocher les trois critères",
+    "ok": true,
+    "detail": "recalculé ['moe_v3cs'], stocké ['moe_v3cs']"
+   },
+   {
+    "check": "bras à mIoU significative recalculés == stockés",
+    "ok": true,
+    "detail": "['D', 'Dp', 'fused_DpvetoB', 'fused_DvetoB', 'moe_v3cs']"
+   },
+   {
+    "check": "prix par point de mIoU recalculé == stocké (D)",
+    "ok": true,
+    "detail": "-43.06 vs -43.1"
+   },
+   {
+    "check": "prix par point de mIoU recalculé == stocké (Dp)",
+    "ok": true,
+    "detail": "-31.86 vs -31.9"
+   },
+   {
+    "check": "prix par point de mIoU recalculé == stocké (fused_DvetoB)",
+    "ok": true,
+    "detail": "-17.93 vs -17.9"
+   },
+   {
+    "check": "prix par point de mIoU recalculé == stocké (fused_DpvetoB)",
+    "ok": true,
+    "detail": "-9.90 vs -9.9"
+   },
+   {
+    "check": "prix par point de mIoU recalculé == stocké (moe_v3cs)",
+    "ok": true,
+    "detail": "-1.18 vs -1.2"
+   },
+   {
+    "check": "le MoE paie le prix le plus faible par point de mIoU",
+    "ok": true,
+    "detail": "moe_v3cs -1.2 · fused_DpvetoB -9.9 · fused_DvetoB -17.9 · Dp -31.9 · D -43.1"
+   },
+   {
+    "check": "z du dommage maximal recalculé == stocké (MoE)",
+    "ok": true,
+    "detail": "-0.354 vs -0.354"
+   },
+   {
+    "check": "z du MoE ≫ meilleur z des spécialistes en dommage",
+    "ok": true,
+    "detail": "MoE -0.35 vs D -3.44"
+   },
+   {
+    "check": "pic maximal du MoE recalculé == profil",
+    "ok": true,
+    "detail": "+4.241 vs +4.241"
+   },
+   {
+    "check": "sanity P3.17 : mIoU consolidé == P3.14 à < 0,01 pt",
+    "ok": true,
+    "detail": "4.13e-03 pt"
+   },
+   {
+    "check": "sanity P3.17 : IoU par classe recomputées depuis npz à < 0,1 pt",
+    "ok": true,
+    "detail": "6.33e-02 pt"
+   },
+   {
+    "check": "verdicts stockés T0-T3 vrais, T4 partiel (2 seeds sur 3)",
+    "ok": true,
+    "detail": "{\"T0\": true, \"T1\": true, \"T2\": true, \"T3\": true, \"T4\": false, \"T4_moe_premier_sur_n_seeds\": 2}"
+   },
+   {
+    "check": "T4 recalculé depuis par_seed : le MoE est 1er en dommage sur 2 seeds sur 3",
+    "ok": true,
+    "detail": "2/3"
+   },
+   {
+    "check": "le MoE n'est PAS premier en niveau moyen (ne pas survendre)",
+    "ok": true,
+    "detail": "1er = D (77.3 %), MoE 5ᵉ (60.4 %)"
+   },
+   {
+    "check": "Δ > 0 et Δ < 0 partitionnent les 36 endpoints (aucun Δ nul)",
+    "ok": true,
+    "detail": "22 positifs + 14 négatifs = 36"
+   },
+   {
+    "check": "endpoints au-dessus du contrôle == 22 (valeur citée par le cadrage)",
+    "ok": true,
+    "detail": "22/36"
+   },
+   {
+    "check": "les deux compteurs ne sont PAS égaux (sinon l'ambiguïté serait sans objet)",
+    "ok": true,
+    "detail": "Δ > 0 : 22 · moitié haute du classement : 28"
+   },
+   {
+    "check": "par_seed 42 : le MoE est classé et son dommage est du bon ordre",
+    "ok": true,
+    "detail": "rang 1, dommage seed -2.98 (moyenne 3 seeds -0.53)"
+   },
+   {
+    "check": "par_seed 123 : le MoE est classé et son dommage est du bon ordre",
+    "ok": true,
+    "detail": "rang 3, dommage seed -3.17 (moyenne 3 seeds -0.53)"
+   },
+   {
+    "check": "par_seed 456 : le MoE est classé et son dommage est du bon ordre",
+    "ok": true,
+    "detail": "rang 1, dommage seed -2.76 (moyenne 3 seeds -0.53)"
+   },
+   {
+    "check": "une seule famille négative pour le MoE",
+    "ok": true,
+    "detail": "1 : contours"
+   },
+   {
+    "check": "BRATS paper3 : champ zenodo_doi lu dans le dépôt voisin",
+    "ok": true,
+    "detail": "10.5281/zenodo.22903668"
+   },
+   {
+    "check": "BRATS paper3 : champ zenodo_concept_doi lu dans le dépôt voisin",
+    "ok": true,
+    "detail": "10.5281/zenodo.22776410"
+   },
+   {
+    "check": "BRATS paper3 : champ zenodo_record_id lu dans le dépôt voisin",
+    "ok": true,
+    "detail": "22903668"
+   },
+   {
+    "check": "BRATS paper3 : champ zenodo_published lu dans le dépôt voisin",
+    "ok": true,
+    "detail": "2026-09-22"
+   },
+   {
+    "check": "BRATS paper3 publié",
+    "ok": true,
+    "detail": "published"
+   },
+   {
+    "check": "le DOI BRATS diffère de celui du paper4 Cityscapes (pas de confusion)",
+    "ok": true,
+    "detail": "10.5281/zenodo.22903668"
+   }
+  ]
+ },
+ "figures_autocontrole": {
+  "date": "2026-10-01T20:30:08",
+  "script": "scripts/p3_moe_figures.py",
+  "n_autocontroles": 9,
+  "n_ok": 9,
+  "autocontroles": [
+   {
+    "figure": "F1_delta_13bras",
+    "ok": true,
+    "detail": "12 bras tracés (+ le contrôle à Δ = 0, soit 13 au total) ; le MoE est en 5ᵉ position ; IC95 tracés pour les 12"
+   },
+   {
+    "figure": "F2 sources",
+    "ok": true,
+    "detail": "240 lignes CSV = 80 époques × 3 seeds"
+   },
+   {
+    "figure": "F2_routage",
+    "ok": true,
+    "detail": "6 panneaux × 3 seeds ; zone de bruit actif 0–39 marquée sur les 4 panneaux concernés"
+   },
+   {
+    "figure": "F3 unités séparées",
+    "ok": true,
+    "detail": "19 métriques en points + 1 en composantes/image = 20 ; aucun mélange d'unité sur un axe"
+   },
+   {
+    "figure": "F3 rapport d'échelle entre les deux unités (justifie la séparation)",
+    "ok": true,
+    "detail": "39× entre `fragments` et la plus grande métrique en points"
+   },
+   {
+    "figure": "F3 compte des survivantes",
+    "ok": true,
+    "detail": "1 pleins (Holm) côté points + 1 côté fragments = 2 au total ; 3 IC excluant 0 sans Holm"
+   },
+   {
+    "figure": "F3_forest_metiers",
+    "ok": true,
+    "detail": "19 lignes côté points + 1 côté fragments ; 2 panneaux"
+   },
+   {
+    "figure": "F4_polyvalence",
+    "ok": true,
+    "detail": "11 bras à couverture complète tracés (le contrôle est la référence, A en couverture partielle) ; 5 bras avec un prix calculable ; 3 panneaux"
+   },
+   {
+    "figure": "F5_perclass",
+    "ok": true,
+    "detail": "19 classes au forest + 7 classes au comparateur d'experts (4 experts + le MoE) ; 2 panneaux"
+   }
+  ],
+  "figures": {
+   "F1": {
+    "png": {
+     "chemin": "papers/paper3/figures/F1_delta_13bras.png",
+     "octets": 142311
+    },
+    "pdf": {
+     "chemin": "papers/paper3/figures/F1_delta_13bras.pdf",
+     "octets": 22911
+    },
+    "dims_px": [
+     1762,
+     1286
+    ],
+    "discord_out": "discord_out/paper3_F1_delta_13bras.png"
+   },
+   "F2": {
+    "png": {
+     "chemin": "papers/paper3/figures/F2_routage.png",
+     "octets": 388184
+    },
+    "pdf": {
+     "chemin": "papers/paper3/figures/F2_routage.pdf",
+     "octets": 35561
+    },
+    "dims_px": [
+     2626,
+     1359
+    ],
+    "discord_out": "discord_out/paper3_F2_routage.png"
+   },
+   "F3": {
+    "png": {
+     "chemin": "papers/paper3/figures/F3_forest_metiers.png",
+     "octets": 225993
+    },
+    "pdf": {
+     "chemin": "papers/paper3/figures/F3_forest_metiers.pdf",
+     "octets": 36776
+    },
+    "dims_px": [
+     2260,
+     1733
+    ],
+    "discord_out": "discord_out/paper3_F3_forest_metiers.png"
+   },
+   "F4": {
+    "png": {
+     "chemin": "papers/paper3/figures/F4_polyvalence.png",
+     "octets": 260856
+    },
+    "pdf": {
+     "chemin": "papers/paper3/figures/F4_polyvalence.pdf",
+     "octets": 26836
+    },
+    "dims_px": [
+     3847,
+     1143
+    ],
+    "discord_out": "discord_out/paper3_F4_polyvalence.png"
+   },
+   "F5": {
+    "png": {
+     "chemin": "papers/paper3/figures/F5_perclass.png",
+     "octets": 209608
+    },
+    "pdf": {
+     "chemin": "papers/paper3/figures/F5_perclass.pdf",
+     "octets": 28482
+    },
+    "dims_px": [
+     2964,
+     1795
+    ],
+    "discord_out": "discord_out/paper3_F5_perclass.png"
+   }
+  }
+ }
+}

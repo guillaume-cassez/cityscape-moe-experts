@@ -1,0 +1,305 @@
+{
+  "date": "2026-09-26T19:48:04",
+  "holdout": {
+    "description": "first:500",
+    "n": 500,
+    "bornes": [
+      "max_images=500"
+    ]
+  },
+  "B": 10000,
+  "bootstrap_seed": 20260618,
+  "ref": "controle",
+  "arms": {
+    "controle": {
+      "kind": "dense",
+      "meta": {
+        "template": "checkpoints/control_nomoe_Binit_seed{seed}/epoch_080.pth"
+      },
+      "seeds": [
+        42,
+        123,
+        456
+      ],
+      "source_par_seed": {
+        "42": "forward:checkpoints/control_nomoe_Binit_seed42/epoch_080.pth",
+        "123": "forward:checkpoints/control_nomoe_Binit_seed123/epoch_080.pth",
+        "456": "forward:checkpoints/control_nomoe_Binit_seed456/epoch_080.pth"
+      },
+      "miou_dataset_par_seed": {
+        "42": 0.815605002966323,
+        "123": 0.8055603266325183,
+        "456": 0.8138811161301761
+      },
+      "routing": {},
+      "provenance": {},
+      "epoch": {}
+    },
+    "moe_v3cs": {
+      "kind": "moe",
+      "meta": {
+        "template": "checkpoints/moe_v3cs_Binit_seed{seed}/epoch_080.pth"
+      },
+      "seeds": [
+        42,
+        123,
+        456
+      ],
+      "source_par_seed": {
+        "42": "forward:checkpoints/moe_v3cs_Binit_seed42/epoch_080.pth",
+        "123": "forward:checkpoints/moe_v3cs_Binit_seed123/epoch_080.pth",
+        "456": "forward:checkpoints/moe_v3cs_Binit_seed456/epoch_080.pth"
+      },
+      "miou_dataset_par_seed": {
+        "42": 0.8181361508241668,
+        "123": 0.8133857303329101,
+        "456": 0.8170053752697796
+      },
+      "routing": {
+        "42": {
+          "entropy_norm": 0.9999965691566467,
+          "entropy_token": 0.999950383424759,
+          "top_expert_share": 0.6826666855812072,
+          "gamma_absmean": 0.0202740877866745
+        },
+        "123": {
+          "entropy_norm": 0.9965748430490494,
+          "entropy_token": 0.9847966911792755,
+          "top_expert_share": 0.6784444636106491,
+          "gamma_absmean": 0.019130047410726547
+        },
+        "456": {
+          "entropy_norm": 0.9999534201622009,
+          "entropy_token": 0.9997925155162811,
+          "top_expert_share": 0.6751111304759979,
+          "gamma_absmean": 0.018165763467550278
+        }
+      },
+      "provenance": {
+        "42": {
+          "backbone": {
+            "method": "B",
+            "seed": 42,
+            "path": "/home/ser/Bureau/City_Scape/reeval_slim/pilot_fullres_B_baseline_seed42__epoch_160.pth",
+            "epoch": 160
+          },
+          "experts": [
+            {
+              "expert": 0,
+              "method": "B",
+              "label": "Baseline(B)",
+              "seed": 42,
+              "path": "/home/ser/Bureau/City_Scape/reeval_slim/pilot_fullres_B_baseline_seed42__epoch_160.pth",
+              "max_ecart": 0.0
+            },
+            {
+              "expert": 1,
+              "method": "D",
+              "label": "Kervadec(D)",
+              "seed": 42,
+              "path": "/home/ser/Bureau/City_Scape/reeval_slim/pilot_fullres_D_ce_boundary_seed42__epoch_160.pth",
+              "max_ecart": 0.0
+            },
+            {
+              "expert": 2,
+              "method": "Dp",
+              "label": "DistMap(D')",
+              "seed": 42,
+              "path": "/home/ser/Bureau/City_Scape/checkpoints/pilot_fullres_DM_distmap_seed42/epoch_160.pth",
+              "max_ecart": 0.0
+            },
+            {
+              "expert": 3,
+              "method": "G",
+              "label": "Blob(G)",
+              "seed": 42,
+              "path": "/home/ser/Bureau/City_Scape/checkpoints/pilot_fullres_G_blob_seed42/epoch_160.pth",
+              "max_ecart": 0.0
+            }
+          ],
+          "gate": "random",
+          "source_block": "head.fpn_convs.0",
+          "seed": 42,
+          "moe_kwargs": {
+            "n_experts": 4,
+            "top_k": 2,
+            "grid": [
+              3,
+              3
+            ],
+            "kernel_size": 3,
+            "balance": "switch",
+            "balance_weight": 0.001,
+            "noise_std": 1.0,
+            "noise_anneal": 40,
+            "residual_scale": 0.0
+          }
+        },
+        "123": {
+          "backbone": {
+            "method": "B",
+            "seed": 123,
+            "path": "/home/ser/Bureau/City_Scape/reeval_slim/pilot_fullres_B_baseline_seed123__epoch_160.pth",
+            "epoch": 160
+          },
+          "experts": [
+            {
+              "expert": 0,
+              "method": "B",
+              "label": "Baseline(B)",
+              "seed": 123,
+              "path": "/home/ser/Bureau/City_Scape/reeval_slim/pilot_fullres_B_baseline_seed123__epoch_160.pth",
+              "max_ecart": 0.0
+            },
+            {
+              "expert": 1,
+              "method": "D",
+              "label": "Kervadec(D)",
+              "seed": 123,
+              "path": "/home/ser/Bureau/City_Scape/reeval_slim/pilot_fullres_D_ce_boundary_seed123__epoch_160.pth",
+              "max_ecart": 0.0
+            },
+            {
+              "expert": 2,
+              "method": "Dp",
+              "label": "DistMap(D')",
+              "seed": 123,
+              "path": "/home/ser/Bureau/City_Scape/checkpoints/pilot_fullres_DM_distmap_seed123/epoch_160.pth",
+              "max_ecart": 0.0
+            },
+            {
+              "expert": 3,
+              "method": "G",
+              "label": "Blob(G)",
+              "seed": 123,
+              "path": "/home/ser/Bureau/City_Scape/checkpoints/pilot_fullres_G_blob_seed123/epoch_160.pth",
+              "max_ecart": 0.0
+            }
+          ],
+          "gate": "random",
+          "source_block": "head.fpn_convs.0",
+          "seed": 123,
+          "moe_kwargs": {
+            "n_experts": 4,
+            "top_k": 2,
+            "grid": [
+              3,
+              3
+            ],
+            "kernel_size": 3,
+            "balance": "switch",
+            "balance_weight": 0.001,
+            "noise_std": 1.0,
+            "noise_anneal": 40,
+            "residual_scale": 0.0
+          }
+        },
+        "456": {
+          "backbone": {
+            "method": "B",
+            "seed": 456,
+            "path": "/home/ser/Bureau/City_Scape/reeval_slim/pilot_fullres_B_baseline_seed456__epoch_160.pth",
+            "epoch": 160
+          },
+          "experts": [
+            {
+              "expert": 0,
+              "method": "B",
+              "label": "Baseline(B)",
+              "seed": 456,
+              "path": "/home/ser/Bureau/City_Scape/reeval_slim/pilot_fullres_B_baseline_seed456__epoch_160.pth",
+              "max_ecart": 0.0
+            },
+            {
+              "expert": 1,
+              "method": "D",
+              "label": "Kervadec(D)",
+              "seed": 456,
+              "path": "/home/ser/Bureau/City_Scape/reeval_slim/pilot_fullres_D_ce_boundary_seed456__epoch_160.pth",
+              "max_ecart": 0.0
+            },
+            {
+              "expert": 2,
+              "method": "Dp",
+              "label": "DistMap(D')",
+              "seed": 456,
+              "path": "/home/ser/Bureau/City_Scape/checkpoints/pilot_fullres_DM_distmap_seed456/epoch_160.pth",
+              "max_ecart": 0.0
+            },
+            {
+              "expert": 3,
+              "method": "G",
+              "label": "Blob(G)",
+              "seed": 456,
+              "path": "/home/ser/Bureau/City_Scape/checkpoints/pilot_fullres_G_blob_seed456/epoch_160.pth",
+              "max_ecart": 0.0
+            }
+          ],
+          "gate": "random",
+          "source_block": "head.fpn_convs.0",
+          "seed": 456,
+          "moe_kwargs": {
+            "n_experts": 4,
+            "top_k": 2,
+            "grid": [
+              3,
+              3
+            ],
+            "kernel_size": 3,
+            "balance": "switch",
+            "balance_weight": 0.001,
+            "noise_std": 1.0,
+            "noise_anneal": 40,
+            "residual_scale": 0.0
+          }
+        }
+      },
+      "epoch": {
+        "42": 80,
+        "123": 80,
+        "456": 80
+      }
+    }
+  },
+  "bootstrap_miou": {
+    "test": "paired image-bootstrap (dataset-level mIoU, seed-mean), two-sided",
+    "n_images": 500,
+    "B": 10000,
+    "arms": [
+      "controle",
+      "moe_v3cs"
+    ],
+    "point": {
+      "controle": 0.8116821485763391,
+      "moe_v3cs": 0.8161757521422855
+    },
+    "ci95": {
+      "controle": [
+        0.7980203007454423,
+        0.8225076699891491
+      ],
+      "moe_v3cs": [
+        0.8026438080748718,
+        0.8270908005076589
+      ]
+    },
+    "pairwise": {
+      "controle_vs_moe_v3cs": {
+        "delta": -0.0044936035659464135,
+        "ci95": [
+          -0.008195330474257972,
+          -0.0010857264271771046
+        ],
+        "p_two_sided": 0.0066,
+        "significant": true,
+        "p_holm": 0.0066
+      }
+    }
+  },
+  "bootstrap_bf1": null,
+  "bf1_note": null,
+  "notes": [
+    "holdout partagé : first:500",
+    "mIoU dataset-level, bootstrap APPARIÉ (mêmes positions pour tous les bras), seeds moyennés dans chaque réplicat"
+  ]
+}

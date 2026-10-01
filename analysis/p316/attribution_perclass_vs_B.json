@@ -1,0 +1,2636 @@
+{
+ "ref": "B",
+ "B": 10000,
+ "bootstrap_seed": 20260618,
+ "n_images": 500,
+ "arms": {
+  "A": {
+   "miou_point": 0.8128298118173009,
+   "miou_delta_pt": 0.18991738819635895,
+   "miou_delta_ci_pt": [
+    -0.1861921737491623,
+    0.5975622361380747
+   ],
+   "per_class": [
+    {
+     "classe": "road",
+     "iou_bras": 0.9843952003060532,
+     "iou_ref": 0.984422793671122,
+     "delta_pt": -0.0027593365068745435,
+     "ci_lo_pt": -0.08444334025407646,
+     "ci_hi_pt": 0.07935917196745079,
+     "p_two_sided": 0.9584,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sidewalk",
+     "iou_bras": 0.8752109143251907,
+     "iou_ref": 0.870665174387331,
+     "delta_pt": 0.4545739937859672,
+     "ci_lo_pt": -0.050419987571009565,
+     "ci_hi_pt": 0.9948546574796389,
+     "p_two_sided": 0.0754,
+     "p_holm_arm": 0.9047999999999999,
+     "significant": false
+    },
+    {
+     "classe": "building",
+     "iou_bras": 0.9338703417964188,
+     "iou_ref": 0.9327475780869916,
+     "delta_pt": 0.11227637094272103,
+     "ci_lo_pt": -0.005931521201889552,
+     "ci_hi_pt": 0.21748044918814818,
+     "p_two_sided": 0.0596,
+     "p_holm_arm": 0.7748,
+     "significant": false
+    },
+    {
+     "classe": "wall",
+     "iou_bras": 0.5775843596188124,
+     "iou_ref": 0.5791536040022421,
+     "delta_pt": -0.15692443834297576,
+     "ci_lo_pt": -3.003755011262454,
+     "ci_hi_pt": 2.577593827421894,
+     "p_two_sided": 0.9664,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "fence",
+     "iou_bras": 0.6676114510524741,
+     "iou_ref": 0.6607197474267152,
+     "delta_pt": 0.689170362575886,
+     "ci_lo_pt": -0.6337102973139774,
+     "ci_hi_pt": 1.9874626872741188,
+     "p_two_sided": 0.2934,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "pole",
+     "iou_bras": 0.7011000497444595,
+     "iou_ref": 0.6975511884757898,
+     "delta_pt": 0.3548861268669712,
+     "ci_lo_pt": 0.0494575728786631,
+     "ci_hi_pt": 0.7234292521913726,
+     "p_two_sided": 0.0196,
+     "p_holm_arm": 0.294,
+     "significant": true
+    },
+    {
+     "classe": "traffic light",
+     "iou_bras": 0.7459498480789807,
+     "iou_ref": 0.7685205293111276,
+     "delta_pt": -2.2570681232146894,
+     "ci_lo_pt": -2.727142761174083,
+     "ci_hi_pt": -1.7658448994052247,
+     "p_two_sided": 0.0,
+     "p_holm_arm": 0.0,
+     "significant": true
+    },
+    {
+     "classe": "traffic sign",
+     "iou_bras": 0.8273139972101391,
+     "iou_ref": 0.8351866368834199,
+     "delta_pt": -0.7872639673280779,
+     "ci_lo_pt": -1.340654452873399,
+     "ci_hi_pt": 0.00042256451077421405,
+     "p_two_sided": 0.0502,
+     "p_holm_arm": 0.7028,
+     "significant": false
+    },
+    {
+     "classe": "vegetation",
+     "iou_bras": 0.9311218007471679,
+     "iou_ref": 0.9309391564041277,
+     "delta_pt": 0.01826443430401614,
+     "ci_lo_pt": -0.05308000231431687,
+     "ci_hi_pt": 0.09147893041552746,
+     "p_two_sided": 0.621,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "terrain",
+     "iou_bras": 0.6690519987663048,
+     "iou_ref": 0.6609935654468938,
+     "delta_pt": 0.8058433319411029,
+     "ci_lo_pt": -0.693590447047824,
+     "ci_hi_pt": 2.332819184396843,
+     "p_two_sided": 0.3038,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sky",
+     "iou_bras": 0.9542437131122199,
+     "iou_ref": 0.9559800860360351,
+     "delta_pt": -0.17363729238152326,
+     "ci_lo_pt": -0.3954223757616166,
+     "ci_hi_pt": -0.03559618946201882,
+     "p_two_sided": 0.0054,
+     "p_holm_arm": 0.09720000000000001,
+     "significant": true
+    },
+    {
+     "classe": "person",
+     "iou_bras": 0.8472139439834038,
+     "iou_ref": 0.8489641738433762,
+     "delta_pt": -0.17502298599724186,
+     "ci_lo_pt": -0.3773134108541279,
+     "ci_hi_pt": 0.02802667705636321,
+     "p_two_sided": 0.091,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "rider",
+     "iou_bras": 0.6794710391955339,
+     "iou_ref": 0.6848699849265882,
+     "delta_pt": -0.5398945731054372,
+     "ci_lo_pt": -1.64979688314631,
+     "ci_hi_pt": 0.5137947251149677,
+     "p_two_sided": 0.3126,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "car",
+     "iou_bras": 0.957808009432457,
+     "iou_ref": 0.9545697696501653,
+     "delta_pt": 0.3238239782291763,
+     "ci_lo_pt": 0.06637009495660623,
+     "ci_hi_pt": 0.6427993773294373,
+     "p_two_sided": 0.0068,
+     "p_holm_arm": 0.1156,
+     "significant": true
+    },
+    {
+     "classe": "truck",
+     "iou_bras": 0.8585263592716902,
+     "iou_ref": 0.802433217677989,
+     "delta_pt": 5.609314159370116,
+     "ci_lo_pt": 0.689475256282471,
+     "ci_hi_pt": 11.294340680245949,
+     "p_two_sided": 0.0176,
+     "p_holm_arm": 0.2816,
+     "significant": true
+    },
+    {
+     "classe": "bus",
+     "iou_bras": 0.9088818071140577,
+     "iou_ref": 0.8975163169762631,
+     "delta_pt": 1.1365490137794643,
+     "ci_lo_pt": -0.3933661785424686,
+     "ci_hi_pt": 3.1102665365878575,
+     "p_two_sided": 0.1678,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "train",
+     "iou_bras": 0.8276456870333658,
+     "iou_ref": 0.8373623037066179,
+     "delta_pt": -0.9716616673252076,
+     "ci_lo_pt": -2.555862219251679,
+     "ci_hi_pt": 0.6011366666250622,
+     "p_two_sided": 0.2264,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "motorcycle",
+     "iou_bras": 0.7017576398965156,
+     "iou_ref": 0.7069579449907172,
+     "delta_pt": -0.5200305094201552,
+     "ci_lo_pt": -1.936331709553256,
+     "ci_hi_pt": 1.3219726753227907,
+     "p_two_sided": 0.5122,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bicycle",
+     "iou_bras": 0.7950082638434702,
+     "iou_ref": 0.7981283488678949,
+     "delta_pt": -0.31200850244246237,
+     "ci_lo_pt": -0.6918080228538059,
+     "ci_hi_pt": 0.1581349844371359,
+     "p_two_sided": 0.1632,
+     "p_holm_arm": 1.0,
+     "significant": false
+    }
+   ]
+  },
+  "C": {
+   "miou_point": 0.8122672677133758,
+   "miou_delta_pt": 0.13366297780385006,
+   "miou_delta_ci_pt": [
+    -0.23050211865268147,
+    0.501206989245441
+   ],
+   "per_class": [
+    {
+     "classe": "road",
+     "iou_bras": 0.9844023066242293,
+     "iou_ref": 0.984422793671122,
+     "delta_pt": -0.002048704689261438,
+     "ci_lo_pt": -0.04322352819993602,
+     "ci_hi_pt": 0.035934427131565354,
+     "p_two_sided": 0.961,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sidewalk",
+     "iou_bras": 0.8705433453683944,
+     "iou_ref": 0.870665174387331,
+     "delta_pt": -0.012182901893664777,
+     "ci_lo_pt": -0.27362971719956414,
+     "ci_hi_pt": 0.2417616348692197,
+     "p_two_sided": 0.9594,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "building",
+     "iou_bras": 0.9327207198957618,
+     "iou_ref": 0.9327475780869916,
+     "delta_pt": -0.0026858191229828243,
+     "ci_lo_pt": -0.10720786450186093,
+     "ci_hi_pt": 0.09430494148488149,
+     "p_two_sided": 0.9672,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "wall",
+     "iou_bras": 0.5716583584669174,
+     "iou_ref": 0.5791536040022421,
+     "delta_pt": -0.7495245535324768,
+     "ci_lo_pt": -3.267760604519591,
+     "ci_hi_pt": 1.481628172579794,
+     "p_two_sided": 0.5712,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "fence",
+     "iou_bras": 0.6616321778264743,
+     "iou_ref": 0.6607197474267152,
+     "delta_pt": 0.09124303997590788,
+     "ci_lo_pt": -1.0589909296252036,
+     "ci_hi_pt": 1.2331155911660456,
+     "p_two_sided": 0.8556,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "pole",
+     "iou_bras": 0.6974478973457395,
+     "iou_ref": 0.6975511884757898,
+     "delta_pt": -0.01032911300502537,
+     "ci_lo_pt": -0.17368149840329944,
+     "ci_hi_pt": 0.15096068105447,
+     "p_two_sided": 0.9072,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "traffic light",
+     "iou_bras": 0.7700543864122866,
+     "iou_ref": 0.7685205293111276,
+     "delta_pt": 0.1533857101159053,
+     "ci_lo_pt": -0.04780964117799241,
+     "ci_hi_pt": 0.35635766457148493,
+     "p_two_sided": 0.1434,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "traffic sign",
+     "iou_bras": 0.8360240951228808,
+     "iou_ref": 0.8351866368834199,
+     "delta_pt": 0.08374582394609087,
+     "ci_lo_pt": -0.18364156342059512,
+     "ci_hi_pt": 0.393115946872064,
+     "p_two_sided": 0.6142,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "vegetation",
+     "iou_bras": 0.9306893509492081,
+     "iou_ref": 0.9309391564041277,
+     "delta_pt": -0.024980545491959383,
+     "ci_lo_pt": -0.08356321592794175,
+     "ci_hi_pt": 0.03178719160490172,
+     "p_two_sided": 0.3952,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "terrain",
+     "iou_bras": 0.6641924965394573,
+     "iou_ref": 0.6609935654468938,
+     "delta_pt": 0.31989310925635284,
+     "ci_lo_pt": -0.4692777622723724,
+     "ci_hi_pt": 1.16399418657759,
+     "p_two_sided": 0.4376,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sky",
+     "iou_bras": 0.956094622135684,
+     "iou_ref": 0.9559800860360351,
+     "delta_pt": 0.011453609964884315,
+     "ci_lo_pt": -0.05747159847718841,
+     "ci_hi_pt": 0.08916503346573004,
+     "p_two_sided": 0.7944,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "person",
+     "iou_bras": 0.849195129699376,
+     "iou_ref": 0.8489641738433762,
+     "delta_pt": 0.023095585599985924,
+     "ci_lo_pt": -0.2128813447818861,
+     "ci_hi_pt": 0.23025311040794907,
+     "p_two_sided": 0.8192,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "rider",
+     "iou_bras": 0.6801150099933592,
+     "iou_ref": 0.6848699849265882,
+     "delta_pt": -0.47549749332290725,
+     "ci_lo_pt": -1.588796587508834,
+     "ci_hi_pt": 0.593863601267851,
+     "p_two_sided": 0.3922,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "car",
+     "iou_bras": 0.9563677673340051,
+     "iou_ref": 0.9545697696501653,
+     "delta_pt": 0.17979976838398137,
+     "ci_lo_pt": -0.030141264778684725,
+     "ci_hi_pt": 0.46149288091492013,
+     "p_two_sided": 0.113,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "truck",
+     "iou_bras": 0.8422238138773942,
+     "iou_ref": 0.802433217677989,
+     "delta_pt": 3.979059619940517,
+     "ci_lo_pt": 0.2598835381877121,
+     "ci_hi_pt": 8.540448523566143,
+     "p_two_sided": 0.0144,
+     "p_holm_arm": 0.2736,
+     "significant": true
+    },
+    {
+     "classe": "bus",
+     "iou_bras": 0.8977601575905202,
+     "iou_ref": 0.8975163169762631,
+     "delta_pt": 0.02438406142570848,
+     "ci_lo_pt": -1.8421810280053237,
+     "ci_hi_pt": 2.0996586662474424,
+     "p_two_sided": 0.9958,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "train",
+     "iou_bras": 0.8173442243339198,
+     "iou_ref": 0.8373623037066179,
+     "delta_pt": -2.001807937269806,
+     "ci_lo_pt": -5.034702912250759,
+     "ci_hi_pt": 0.5355985655852892,
+     "p_two_sided": 0.111,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "motorcycle",
+     "iou_bras": 0.7158538505622879,
+     "iou_ref": 0.7069579449907172,
+     "delta_pt": 0.8895905571570717,
+     "ci_lo_pt": -0.708931177127676,
+     "ci_hi_pt": 2.3672814847237076,
+     "p_two_sided": 0.2596,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bicycle",
+     "iou_bras": 0.7987583764762437,
+     "iou_ref": 0.7981283488678949,
+     "delta_pt": 0.06300276083488487,
+     "ci_lo_pt": -0.19412614623575353,
+     "ci_hi_pt": 0.38562302134901255,
+     "p_two_sided": 0.7256,
+     "p_holm_arm": 1.0,
+     "significant": false
+    }
+   ]
+  },
+  "Cp": {
+   "miou_point": 0.8089046535920049,
+   "miou_delta_pt": -0.20259843433323432,
+   "miou_delta_ci_pt": [
+    -0.5514234413654359,
+    0.13486637330143045
+   ],
+   "per_class": [
+    {
+     "classe": "road",
+     "iou_bras": 0.984240701493582,
+     "iou_ref": 0.984422793671122,
+     "delta_pt": -0.018209217753994977,
+     "ci_lo_pt": -0.07942944186279138,
+     "ci_hi_pt": 0.046134324666179664,
+     "p_two_sided": 0.5582,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sidewalk",
+     "iou_bras": 0.8686753224904175,
+     "iou_ref": 0.870665174387331,
+     "delta_pt": -0.1989851896913586,
+     "ci_lo_pt": -0.6169231000822147,
+     "ci_hi_pt": 0.2615914919895593,
+     "p_two_sided": 0.3684,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "building",
+     "iou_bras": 0.9328602139193549,
+     "iou_ref": 0.9327475780869916,
+     "delta_pt": 0.011263583236331698,
+     "ci_lo_pt": -0.1690921472407897,
+     "ci_hi_pt": 0.1862784477464079,
+     "p_two_sided": 0.8926,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "wall",
+     "iou_bras": 0.5699865617566541,
+     "iou_ref": 0.5791536040022421,
+     "delta_pt": -0.9167042245588064,
+     "ci_lo_pt": -5.712956820911974,
+     "ci_hi_pt": 3.9705268062501062,
+     "p_two_sided": 0.7074,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "fence",
+     "iou_bras": 0.6550645254468016,
+     "iou_ref": 0.6607197474267152,
+     "delta_pt": -0.5655221979913638,
+     "ci_lo_pt": -1.7072440702207992,
+     "ci_hi_pt": 0.5010502536136019,
+     "p_two_sided": 0.3172,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "pole",
+     "iou_bras": 0.6985099229275162,
+     "iou_ref": 0.6975511884757898,
+     "delta_pt": 0.09587344517264507,
+     "ci_lo_pt": -0.08410128672290768,
+     "ci_hi_pt": 0.27334083507033946,
+     "p_two_sided": 0.2894,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "traffic light",
+     "iou_bras": 0.7718323973481267,
+     "iou_ref": 0.7685205293111276,
+     "delta_pt": 0.33118680369991216,
+     "ci_lo_pt": 0.03398371822179531,
+     "ci_hi_pt": 0.61598118019218,
+     "p_two_sided": 0.0306,
+     "p_holm_arm": 0.5814,
+     "significant": true
+    },
+    {
+     "classe": "traffic sign",
+     "iou_bras": 0.8376572617258894,
+     "iou_ref": 0.8351866368834199,
+     "delta_pt": 0.24706248424695154,
+     "ci_lo_pt": -0.08218715321221925,
+     "ci_hi_pt": 0.6369576746311589,
+     "p_two_sided": 0.1638,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "vegetation",
+     "iou_bras": 0.9312506562327841,
+     "iou_ref": 0.9309391564041277,
+     "delta_pt": 0.031149982865641412,
+     "ci_lo_pt": -0.023434368479390844,
+     "ci_hi_pt": 0.09083435263887076,
+     "p_two_sided": 0.2768,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "terrain",
+     "iou_bras": 0.6666820972884745,
+     "iou_ref": 0.6609935654468938,
+     "delta_pt": 0.5688531841580691,
+     "ci_lo_pt": -0.04317841940011251,
+     "ci_hi_pt": 1.2067900828368057,
+     "p_two_sided": 0.0684,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sky",
+     "iou_bras": 0.9551891342340658,
+     "iou_ref": 0.9559800860360351,
+     "delta_pt": -0.07909518019693085,
+     "ci_lo_pt": -0.15972811114424945,
+     "ci_hi_pt": -0.0024846484027460456,
+     "p_two_sided": 0.0426,
+     "p_holm_arm": 0.7667999999999999,
+     "significant": true
+    },
+    {
+     "classe": "person",
+     "iou_bras": 0.8492176339010246,
+     "iou_ref": 0.8489641738433762,
+     "delta_pt": 0.02534600576483692,
+     "ci_lo_pt": -0.204077244109768,
+     "ci_hi_pt": 0.21428384946097384,
+     "p_two_sided": 0.781,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "rider",
+     "iou_bras": 0.6774940035185506,
+     "iou_ref": 0.6848699849265882,
+     "delta_pt": -0.7375981408037635,
+     "ci_lo_pt": -1.765502339463885,
+     "ci_hi_pt": 0.1255872569384603,
+     "p_two_sided": 0.1078,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "car",
+     "iou_bras": 0.9546777443187427,
+     "iou_ref": 0.9545697696501653,
+     "delta_pt": 0.010797466857748184,
+     "ci_lo_pt": -0.13562944978877028,
+     "ci_hi_pt": 0.1594328327971148,
+     "p_two_sided": 0.8704,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "truck",
+     "iou_bras": 0.8099246238827695,
+     "iou_ref": 0.802433217677989,
+     "delta_pt": 0.7491406204780504,
+     "ci_lo_pt": -1.0730636567970515,
+     "ci_hi_pt": 2.1456127715635986,
+     "p_two_sided": 0.3668,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bus",
+     "iou_bras": 0.8884354431494925,
+     "iou_ref": 0.8975163169762631,
+     "delta_pt": -0.9080873826770586,
+     "ci_lo_pt": -3.054177701744932,
+     "ci_hi_pt": 0.9554719563243447,
+     "p_two_sided": 0.3544,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "train",
+     "iou_bras": 0.8159859509047666,
+     "iou_ref": 0.8373623037066179,
+     "delta_pt": -2.137635280185135,
+     "ci_lo_pt": -4.763768157821808,
+     "ci_hi_pt": -0.004025354692105203,
+     "p_two_sided": 0.0492,
+     "p_holm_arm": 0.8364,
+     "significant": true
+    },
+    {
+     "classe": "motorcycle",
+     "iou_bras": 0.7025229795806748,
+     "iou_ref": 0.7069579449907172,
+     "delta_pt": -0.4434965410042402,
+     "ci_lo_pt": -1.2982675844154825,
+     "ci_hi_pt": 0.8266702099157341,
+     "p_two_sided": 0.448,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bicycle",
+     "iou_bras": 0.7989812441284054,
+     "iou_ref": 0.7981283488678949,
+     "delta_pt": 0.08528952605105777,
+     "ci_lo_pt": -0.10292530015244716,
+     "ci_hi_pt": 0.27938207579167335,
+     "p_two_sided": 0.359,
+     "p_holm_arm": 1.0,
+     "significant": false
+    }
+   ]
+  },
+  "D": {
+   "miou_point": 0.8168578082293015,
+   "miou_delta_pt": 0.5927170293964279,
+   "miou_delta_ci_pt": [
+    0.15442024311841746,
+    1.087567572901251
+   ],
+   "per_class": [
+    {
+     "classe": "road",
+     "iou_bras": 0.984626671919634,
+     "iou_ref": 0.984422793671122,
+     "delta_pt": 0.020387824851209047,
+     "ci_lo_pt": -0.028541914265834405,
+     "ci_hi_pt": 0.07562071111848422,
+     "p_two_sided": 0.4416,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sidewalk",
+     "iou_bras": 0.8760032603312272,
+     "iou_ref": 0.870665174387331,
+     "delta_pt": 0.5338085943896176,
+     "ci_lo_pt": 0.17199347500715528,
+     "ci_hi_pt": 0.931558198682038,
+     "p_two_sided": 0.0034,
+     "p_holm_arm": 0.051,
+     "significant": true
+    },
+    {
+     "classe": "building",
+     "iou_bras": 0.9353632130274742,
+     "iou_ref": 0.9327475780869916,
+     "delta_pt": 0.26156349404825585,
+     "ci_lo_pt": 0.08162781627493704,
+     "ci_hi_pt": 0.4781567777804495,
+     "p_two_sided": 0.0052,
+     "p_holm_arm": 0.0676,
+     "significant": true
+    },
+    {
+     "classe": "wall",
+     "iou_bras": 0.6163908174972658,
+     "iou_ref": 0.5791536040022421,
+     "delta_pt": 3.7237213495023624,
+     "ci_lo_pt": -1.4721795494113117,
+     "ci_hi_pt": 9.654608542199973,
+     "p_two_sided": 0.1898,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "fence",
+     "iou_bras": 0.6702014649507236,
+     "iou_ref": 0.6607197474267152,
+     "delta_pt": 0.9481717524008393,
+     "ci_lo_pt": -0.3433564185564886,
+     "ci_hi_pt": 2.390996963519543,
+     "p_two_sided": 0.1502,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "pole",
+     "iou_bras": 0.701593375288902,
+     "iou_ref": 0.6975511884757898,
+     "delta_pt": 0.4042186813112192,
+     "ci_lo_pt": 0.13171942563733163,
+     "ci_hi_pt": 0.7167989078982019,
+     "p_two_sided": 0.003,
+     "p_holm_arm": 0.048,
+     "significant": true
+    },
+    {
+     "classe": "traffic light",
+     "iou_bras": 0.7475796236384736,
+     "iou_ref": 0.7685205293111276,
+     "delta_pt": -2.094090567265394,
+     "ci_lo_pt": -2.5408691282400806,
+     "ci_hi_pt": -1.6504109367052815,
+     "p_two_sided": 0.0,
+     "p_holm_arm": 0.0,
+     "significant": true
+    },
+    {
+     "classe": "traffic sign",
+     "iou_bras": 0.8265417980708948,
+     "iou_ref": 0.8351866368834199,
+     "delta_pt": -0.8644838812525091,
+     "ci_lo_pt": -1.4450269684785428,
+     "ci_hi_pt": -0.05742380099688204,
+     "p_two_sided": 0.0404,
+     "p_holm_arm": 0.44439999999999996,
+     "significant": true
+    },
+    {
+     "classe": "vegetation",
+     "iou_bras": 0.9316586236525399,
+     "iou_ref": 0.9309391564041277,
+     "delta_pt": 0.07194672484122089,
+     "ci_lo_pt": -0.0015944678409743338,
+     "ci_hi_pt": 0.14934425291770997,
+     "p_two_sided": 0.0558,
+     "p_holm_arm": 0.5022,
+     "significant": false
+    },
+    {
+     "classe": "terrain",
+     "iou_bras": 0.6760835816654986,
+     "iou_ref": 0.6609935654468938,
+     "delta_pt": 1.509001621860484,
+     "ci_lo_pt": 0.057647059962243195,
+     "ci_hi_pt": 3.078930171234915,
+     "p_two_sided": 0.0416,
+     "p_holm_arm": 0.44439999999999996,
+     "significant": true
+    },
+    {
+     "classe": "sky",
+     "iou_bras": 0.9544431443277094,
+     "iou_ref": 0.9559800860360351,
+     "delta_pt": -0.15369417083257453,
+     "ci_lo_pt": -0.26015110509498146,
+     "ci_hi_pt": -0.06455685506056076,
+     "p_two_sided": 0.0,
+     "p_holm_arm": 0.0,
+     "significant": true
+    },
+    {
+     "classe": "person",
+     "iou_bras": 0.8496063005853068,
+     "iou_ref": 0.8489641738433762,
+     "delta_pt": 0.06421267419306487,
+     "ci_lo_pt": -0.14075523246256577,
+     "ci_hi_pt": 0.27225878191924563,
+     "p_two_sided": 0.5444,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "rider",
+     "iou_bras": 0.6834150387740591,
+     "iou_ref": 0.6848699849265882,
+     "delta_pt": -0.14549461525291685,
+     "ci_lo_pt": -1.2180548396227782,
+     "ci_hi_pt": 0.9198281376247813,
+     "p_two_sided": 0.768,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "car",
+     "iou_bras": 0.9580564456095831,
+     "iou_ref": 0.9545697696501653,
+     "delta_pt": 0.3486675959417873,
+     "ci_lo_pt": 0.11203994857595602,
+     "ci_hi_pt": 0.633216992224616,
+     "p_two_sided": 0.0014,
+     "p_holm_arm": 0.023799999999999998,
+     "significant": true
+    },
+    {
+     "classe": "truck",
+     "iou_bras": 0.8553579319675663,
+     "iou_ref": 0.802433217677989,
+     "delta_pt": 5.2924714289577235,
+     "ci_lo_pt": 1.2851061107833393,
+     "ci_hi_pt": 10.800839353044399,
+     "p_two_sided": 0.0042,
+     "p_holm_arm": 0.0588,
+     "significant": true
+    },
+    {
+     "classe": "bus",
+     "iou_bras": 0.9211890694478497,
+     "iou_ref": 0.8975163169762631,
+     "delta_pt": 2.367275247158662,
+     "ci_lo_pt": 0.14254340200743204,
+     "ci_hi_pt": 5.466587113582102,
+     "p_two_sided": 0.0312,
+     "p_holm_arm": 0.37439999999999996,
+     "significant": true
+    },
+    {
+     "classe": "train",
+     "iou_bras": 0.826332124554834,
+     "iou_ref": 0.8373623037066179,
+     "delta_pt": -1.1030179151783948,
+     "ci_lo_pt": -3.229284576929358,
+     "ci_hi_pt": 0.4310942644783081,
+     "p_two_sided": 0.1558,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "motorcycle",
+     "iou_bras": 0.7095216514175041,
+     "iou_ref": 0.7069579449907172,
+     "delta_pt": 0.2563706426786938,
+     "ci_lo_pt": -1.078023004555017,
+     "ci_hi_pt": 1.6196562297186474,
+     "p_two_sided": 0.7118,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bicycle",
+     "iou_bras": 0.7963342196296835,
+     "iou_ref": 0.7981283488678949,
+     "delta_pt": -0.17941292382113172,
+     "ci_lo_pt": -0.5676339606683428,
+     "ci_hi_pt": 0.2707623483130771,
+     "p_two_sided": 0.384,
+     "p_holm_arm": 1.0,
+     "significant": false
+    }
+   ]
+  },
+  "Dp": {
+   "miou_point": 0.8164293544928224,
+   "miou_delta_pt": 0.5498716557485128,
+   "miou_delta_ci_pt": [
+    0.12159847326541849,
+    0.9834530483673266
+   ],
+   "per_class": [
+    {
+     "classe": "road",
+     "iou_bras": 0.984772656950844,
+     "iou_ref": 0.984422793671122,
+     "delta_pt": 0.034986327972208464,
+     "ci_lo_pt": -0.0141185323139012,
+     "ci_hi_pt": 0.08111145121040331,
+     "p_two_sided": 0.1558,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sidewalk",
+     "iou_bras": 0.8745225932557306,
+     "iou_ref": 0.870665174387331,
+     "delta_pt": 0.38574188683995203,
+     "ci_lo_pt": 0.05066570351605736,
+     "ci_hi_pt": 0.7051123035802306,
+     "p_two_sided": 0.0258,
+     "p_holm_arm": 0.258,
+     "significant": true
+    },
+    {
+     "classe": "building",
+     "iou_bras": 0.9348131984111628,
+     "iou_ref": 0.9327475780869916,
+     "delta_pt": 0.20656203241712356,
+     "ci_lo_pt": 0.06512184007793215,
+     "ci_hi_pt": 0.33605786244558816,
+     "p_two_sided": 0.0058,
+     "p_holm_arm": 0.087,
+     "significant": true
+    },
+    {
+     "classe": "wall",
+     "iou_bras": 0.5923120618126367,
+     "iou_ref": 0.5791536040022421,
+     "delta_pt": 1.3158457810394597,
+     "ci_lo_pt": -2.147263852043585,
+     "ci_hi_pt": 4.475757541702627,
+     "p_two_sided": 0.416,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "fence",
+     "iou_bras": 0.6686418996654928,
+     "iou_ref": 0.6607197474267152,
+     "delta_pt": 0.7922152238777569,
+     "ci_lo_pt": -0.3390310306057129,
+     "ci_hi_pt": 1.8684819285073428,
+     "p_two_sided": 0.157,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "pole",
+     "iou_bras": 0.7012562986439571,
+     "iou_ref": 0.6975511884757898,
+     "delta_pt": 0.3705110168167325,
+     "ci_lo_pt": 0.12741409942592263,
+     "ci_hi_pt": 0.6351699456806785,
+     "p_two_sided": 0.0026,
+     "p_holm_arm": 0.0416,
+     "significant": true
+    },
+    {
+     "classe": "traffic light",
+     "iou_bras": 0.750197893921475,
+     "iou_ref": 0.7685205293111276,
+     "delta_pt": -1.832263538965262,
+     "ci_lo_pt": -2.1936788552057624,
+     "ci_hi_pt": -1.4822848210814972,
+     "p_two_sided": 0.0,
+     "p_holm_arm": 0.0,
+     "significant": true
+    },
+    {
+     "classe": "traffic sign",
+     "iou_bras": 0.8269418878074853,
+     "iou_ref": 0.8351866368834199,
+     "delta_pt": -0.8244749075934532,
+     "ci_lo_pt": -1.2600722230571528,
+     "ci_hi_pt": -0.2322955140654964,
+     "p_two_sided": 0.0102,
+     "p_holm_arm": 0.1428,
+     "significant": true
+    },
+    {
+     "classe": "vegetation",
+     "iou_bras": 0.931722541305435,
+     "iou_ref": 0.9309391564041277,
+     "delta_pt": 0.07833849013072491,
+     "ci_lo_pt": 0.01264510693856774,
+     "ci_hi_pt": 0.14604090526277091,
+     "p_two_sided": 0.0202,
+     "p_holm_arm": 0.2424,
+     "significant": true
+    },
+    {
+     "classe": "terrain",
+     "iou_bras": 0.6672536206476192,
+     "iou_ref": 0.6609935654468938,
+     "delta_pt": 0.6260055200725367,
+     "ci_lo_pt": -0.41086588156699216,
+     "ci_hi_pt": 1.6749523313682617,
+     "p_two_sided": 0.2354,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sky",
+     "iou_bras": 0.9541177560660642,
+     "iou_ref": 0.9559800860360351,
+     "delta_pt": -0.18623299699709328,
+     "ci_lo_pt": -0.342604985450273,
+     "ci_hi_pt": -0.06675071917262608,
+     "p_two_sided": 0.0008,
+     "p_holm_arm": 0.014400000000000001,
+     "significant": true
+    },
+    {
+     "classe": "person",
+     "iou_bras": 0.8489946221065989,
+     "iou_ref": 0.8489641738433762,
+     "delta_pt": 0.0030448263222737637,
+     "ci_lo_pt": -0.30021707185401175,
+     "ci_hi_pt": 0.30535332801173204,
+     "p_two_sided": 0.998,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "rider",
+     "iou_bras": 0.6853866413383997,
+     "iou_ref": 0.6848699849265882,
+     "delta_pt": 0.05166564118114225,
+     "ci_lo_pt": -1.57676641111796,
+     "ci_hi_pt": 1.681171443389319,
+     "p_two_sided": 0.988,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "car",
+     "iou_bras": 0.9587887078798655,
+     "iou_ref": 0.9545697696501653,
+     "delta_pt": 0.42189382297002087,
+     "ci_lo_pt": 0.12329992527081558,
+     "ci_hi_pt": 0.7945762367207531,
+     "p_two_sided": 0.0008,
+     "p_holm_arm": 0.014400000000000001,
+     "significant": true
+    },
+    {
+     "classe": "truck",
+     "iou_bras": 0.8578519080539952,
+     "iou_ref": 0.802433217677989,
+     "delta_pt": 5.541869037600621,
+     "ci_lo_pt": 0.8526985740709493,
+     "ci_hi_pt": 10.90182112297219,
+     "p_two_sided": 0.0116,
+     "p_holm_arm": 0.1508,
+     "significant": true
+    },
+    {
+     "classe": "bus",
+     "iou_bras": 0.9233588577306485,
+     "iou_ref": 0.8975163169762631,
+     "delta_pt": 2.5842540754385412,
+     "ci_lo_pt": 0.2143395672423338,
+     "ci_hi_pt": 6.190768007825356,
+     "p_two_sided": 0.0202,
+     "p_holm_arm": 0.2424,
+     "significant": true
+    },
+    {
+     "classe": "train",
+     "iou_bras": 0.8289384618347323,
+     "iou_ref": 0.8373623037066179,
+     "delta_pt": -0.8423841871885607,
+     "ci_lo_pt": -2.500187214807772,
+     "ci_hi_pt": 0.6004433926860522,
+     "p_two_sided": 0.233,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "motorcycle",
+     "iou_bras": 0.7242407090251907,
+     "iou_ref": 0.7069579449907172,
+     "delta_pt": 1.7282764034473486,
+     "ci_lo_pt": -1.2499242789348095,
+     "ci_hi_pt": 4.750564034126901,
+     "p_two_sided": 0.3452,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bicycle",
+     "iou_bras": 0.7980454189062898,
+     "iou_ref": 0.7981283488678949,
+     "delta_pt": -0.00829299616050827,
+     "ci_lo_pt": -0.43397360975967053,
+     "ci_hi_pt": 0.5292371440251056,
+     "p_two_sided": 0.8878,
+     "p_holm_arm": 1.0,
+     "significant": false
+    }
+   ]
+  },
+  "G": {
+   "miou_point": 0.8126326378163826,
+   "miou_delta_pt": 0.17019998810453574,
+   "miou_delta_ci_pt": [
+    -0.232884427981751,
+    0.5511845144558958
+   ],
+   "per_class": [
+    {
+     "classe": "road",
+     "iou_bras": 0.9844906264594036,
+     "iou_ref": 0.984422793671122,
+     "delta_pt": 0.006783278828159656,
+     "ci_lo_pt": -0.0517338070992468,
+     "ci_hi_pt": 0.06494523639434838,
+     "p_two_sided": 0.797,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sidewalk",
+     "iou_bras": 0.8703916686146783,
+     "iou_ref": 0.870665174387331,
+     "delta_pt": -0.02735057726527268,
+     "ci_lo_pt": -0.4394168331605964,
+     "ci_hi_pt": 0.38233770220127133,
+     "p_two_sided": 0.9184,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "building",
+     "iou_bras": 0.9332136140110104,
+     "iou_ref": 0.9327475780869916,
+     "delta_pt": 0.04660359240188372,
+     "ci_lo_pt": -0.12647903335822552,
+     "ci_hi_pt": 0.1845522389009735,
+     "p_two_sided": 0.517,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "wall",
+     "iou_bras": 0.57212754078232,
+     "iou_ref": 0.5791536040022421,
+     "delta_pt": -0.7026063219922163,
+     "ci_lo_pt": -4.971550519852449,
+     "ci_hi_pt": 2.4274884005152555,
+     "p_two_sided": 0.7974,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "fence",
+     "iou_bras": 0.6535009909481944,
+     "iou_ref": 0.6607197474267152,
+     "delta_pt": -0.7218756478520882,
+     "ci_lo_pt": -2.4698384905170094,
+     "ci_hi_pt": 0.7073376857208813,
+     "p_two_sided": 0.3874,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "pole",
+     "iou_bras": 0.7033730524111772,
+     "iou_ref": 0.6975511884757898,
+     "delta_pt": 0.5821863935387417,
+     "ci_lo_pt": 0.3446434393188408,
+     "ci_hi_pt": 0.8108422025913997,
+     "p_two_sided": 0.0,
+     "p_holm_arm": 0.0,
+     "significant": true
+    },
+    {
+     "classe": "traffic light",
+     "iou_bras": 0.7782961623392927,
+     "iou_ref": 0.7685205293111276,
+     "delta_pt": 0.9775633028165087,
+     "ci_lo_pt": 0.5761815768927242,
+     "ci_hi_pt": 1.3738086112223074,
+     "p_two_sided": 0.0,
+     "p_holm_arm": 0.0,
+     "significant": true
+    },
+    {
+     "classe": "traffic sign",
+     "iou_bras": 0.8391688550859606,
+     "iou_ref": 0.8351866368834199,
+     "delta_pt": 0.3982218202540744,
+     "ci_lo_pt": -0.03502358538956057,
+     "ci_hi_pt": 0.8278014782034311,
+     "p_two_sided": 0.0686,
+     "p_holm_arm": 0.7056,
+     "significant": false
+    },
+    {
+     "classe": "vegetation",
+     "iou_bras": 0.9315457318489412,
+     "iou_ref": 0.9309391564041277,
+     "delta_pt": 0.06065754448134619,
+     "ci_lo_pt": -0.0022738685310194594,
+     "ci_hi_pt": 0.12757266193631264,
+     "p_two_sided": 0.0588,
+     "p_holm_arm": 0.7056,
+     "significant": false
+    },
+    {
+     "classe": "terrain",
+     "iou_bras": 0.6640231917439298,
+     "iou_ref": 0.6609935654468938,
+     "delta_pt": 0.3029626297035959,
+     "ci_lo_pt": -0.46234324500924184,
+     "ci_hi_pt": 1.06409042534442,
+     "p_two_sided": 0.4454,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sky",
+     "iou_bras": 0.9564472930098104,
+     "iou_ref": 0.9559800860360351,
+     "delta_pt": 0.04672069737752249,
+     "ci_lo_pt": -0.05458818039895397,
+     "ci_hi_pt": 0.14804690209494176,
+     "p_two_sided": 0.3538,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "person",
+     "iou_bras": 0.8522069121235424,
+     "iou_ref": 0.8489641738433762,
+     "delta_pt": 0.3242738280166191,
+     "ci_lo_pt": 0.07399474663101119,
+     "ci_hi_pt": 0.5574273439039498,
+     "p_two_sided": 0.0146,
+     "p_holm_arm": 0.2336,
+     "significant": true
+    },
+    {
+     "classe": "rider",
+     "iou_bras": 0.6758471969716512,
+     "iou_ref": 0.6848699849265882,
+     "delta_pt": -0.902278795493705,
+     "ci_lo_pt": -1.9821957520392508,
+     "ci_hi_pt": 0.033343221109786644,
+     "p_two_sided": 0.0632,
+     "p_holm_arm": 0.7056,
+     "significant": false
+    },
+    {
+     "classe": "car",
+     "iou_bras": 0.9570670324691825,
+     "iou_ref": 0.9545697696501653,
+     "delta_pt": 0.24972628190171875,
+     "ci_lo_pt": 0.027904809840748338,
+     "ci_hi_pt": 0.5367673547700574,
+     "p_two_sided": 0.0212,
+     "p_holm_arm": 0.2968,
+     "significant": true
+    },
+    {
+     "classe": "truck",
+     "iou_bras": 0.8402727008273856,
+     "iou_ref": 0.802433217677989,
+     "delta_pt": 3.7839483149396558,
+     "ci_lo_pt": 0.09420598276684625,
+     "ci_hi_pt": 8.299522334918272,
+     "p_two_sided": 0.0354,
+     "p_holm_arm": 0.4602,
+     "significant": true
+    },
+    {
+     "classe": "bus",
+     "iou_bras": 0.9007176069909222,
+     "iou_ref": 0.8975163169762631,
+     "delta_pt": 0.3201290014659075,
+     "ci_lo_pt": -1.3767701081786112,
+     "ci_hi_pt": 2.201927958171891,
+     "p_two_sided": 0.7154,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "train",
+     "iou_bras": 0.8119602601646294,
+     "iou_ref": 0.8373623037066179,
+     "delta_pt": -2.5402043541988495,
+     "ci_lo_pt": -5.591904247797898,
+     "ci_hi_pt": -0.3443338320457908,
+     "p_two_sided": 0.0176,
+     "p_holm_arm": 0.264,
+     "significant": true
+    },
+    {
+     "classe": "motorcycle",
+     "iou_bras": 0.7115217274496507,
+     "iou_ref": 0.7069579449907172,
+     "delta_pt": 0.45637824589335185,
+     "ci_lo_pt": -0.8992583804675581,
+     "ci_hi_pt": 2.3091005402042053,
+     "p_two_sided": 0.5112,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bicycle",
+     "iou_bras": 0.8038479542595857,
+     "iou_ref": 0.7981283488678949,
+     "delta_pt": 0.5719605391690807,
+     "ci_lo_pt": 0.2825296757148629,
+     "ci_hi_pt": 0.8975811145933876,
+     "p_two_sided": 0.0,
+     "p_holm_arm": 0.0,
+     "significant": true
+    }
+   ]
+  },
+  "fused_CvetoB": {
+   "miou_point": 0.8123642104298969,
+   "miou_delta_pt": 0.1433572494559665,
+   "miou_delta_ci_pt": [
+    -0.2069253437982627,
+    0.49304132728815997
+   ],
+   "per_class": [
+    {
+     "classe": "road",
+     "iou_bras": 0.9844278545412065,
+     "iou_ref": 0.984422793671122,
+     "delta_pt": 0.0005060870084561131,
+     "ci_lo_pt": -0.04015139757503117,
+     "ci_hi_pt": 0.03763020289328928,
+     "p_two_sided": 0.9396,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sidewalk",
+     "iou_bras": 0.8704754396063574,
+     "iou_ref": 0.870665174387331,
+     "delta_pt": -0.018973478097361607,
+     "ci_lo_pt": -0.2770538207024259,
+     "ci_hi_pt": 0.23020427896422446,
+     "p_two_sided": 0.9108,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "building",
+     "iou_bras": 0.9326377590306577,
+     "iou_ref": 0.9327475780869916,
+     "delta_pt": -0.0109819056333893,
+     "ci_lo_pt": -0.10995132789882317,
+     "ci_hi_pt": 0.07710772370180502,
+     "p_two_sided": 0.8342,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "wall",
+     "iou_bras": 0.5678014374163194,
+     "iou_ref": 0.5791536040022421,
+     "delta_pt": -1.1352166585922752,
+     "ci_lo_pt": -3.62745082500153,
+     "ci_hi_pt": 1.0429769155431823,
+     "p_two_sided": 0.3444,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "fence",
+     "iou_bras": 0.6636562383842707,
+     "iou_ref": 0.6607197474267152,
+     "delta_pt": 0.29364909575554377,
+     "ci_lo_pt": -0.846860879691006,
+     "ci_hi_pt": 1.4111703797008432,
+     "p_two_sided": 0.59,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "pole",
+     "iou_bras": 0.6974332090364546,
+     "iou_ref": 0.6975511884757898,
+     "delta_pt": -0.011797943933522514,
+     "ci_lo_pt": -0.17318339936217841,
+     "ci_hi_pt": 0.14858369071151706,
+     "p_two_sided": 0.8902,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "traffic light",
+     "iou_bras": 0.7701400045438115,
+     "iou_ref": 0.7685205293111276,
+     "delta_pt": 0.1619475232683909,
+     "ci_lo_pt": -0.036139746585054366,
+     "ci_hi_pt": 0.3613882009285165,
+     "p_two_sided": 0.118,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "traffic sign",
+     "iou_bras": 0.8360676056168866,
+     "iou_ref": 0.8351866368834199,
+     "delta_pt": 0.08809687334667693,
+     "ci_lo_pt": -0.1762116801870786,
+     "ci_hi_pt": 0.3958106570485934,
+     "p_two_sided": 0.5892,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "vegetation",
+     "iou_bras": 0.9308450681778645,
+     "iou_ref": 0.9309391564041277,
+     "delta_pt": -0.009408822626322255,
+     "ci_lo_pt": -0.06785928560026021,
+     "ci_hi_pt": 0.04687743632646734,
+     "p_two_sided": 0.7498,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "terrain",
+     "iou_bras": 0.6636450099119302,
+     "iou_ref": 0.6609935654468938,
+     "delta_pt": 0.2651444465036401,
+     "ci_lo_pt": -0.5539851565298679,
+     "ci_hi_pt": 1.1428569432564624,
+     "p_two_sided": 0.532,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sky",
+     "iou_bras": 0.9561824496964674,
+     "iou_ref": 0.9559800860360351,
+     "delta_pt": 0.020236366043224763,
+     "ci_lo_pt": -0.04407514655905803,
+     "ci_hi_pt": 0.09502943791332343,
+     "p_two_sided": 0.59,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "person",
+     "iou_bras": 0.8500971708400472,
+     "iou_ref": 0.8489641738433762,
+     "delta_pt": 0.11329969966710207,
+     "ci_lo_pt": -0.09845493236285724,
+     "ci_hi_pt": 0.3070320351943961,
+     "p_two_sided": 0.2814,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "rider",
+     "iou_bras": 0.6820789247972728,
+     "iou_ref": 0.6848699849265882,
+     "delta_pt": -0.27910601293154036,
+     "ci_lo_pt": -1.4093667477787233,
+     "ci_hi_pt": 0.7750675486866133,
+     "p_two_sided": 0.6226,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "car",
+     "iou_bras": 0.9562552166016695,
+     "iou_ref": 0.9545697696501653,
+     "delta_pt": 0.1685446951504188,
+     "ci_lo_pt": -0.030375210930921045,
+     "ci_hi_pt": 0.44350780098993897,
+     "p_two_sided": 0.1306,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "truck",
+     "iou_bras": 0.8402917339102812,
+     "iou_ref": 0.802433217677989,
+     "delta_pt": 3.7858516232292194,
+     "ci_lo_pt": -0.004802236180374006,
+     "ci_hi_pt": 8.304124762550982,
+     "p_two_sided": 0.0516,
+     "p_holm_arm": 0.9288,
+     "significant": false
+    },
+    {
+     "classe": "bus",
+     "iou_bras": 0.896546875028018,
+     "iou_ref": 0.8975163169762631,
+     "delta_pt": -0.09694419482451089,
+     "ci_lo_pt": -1.59877062665332,
+     "ci_hi_pt": 1.603026031607001,
+     "p_two_sided": 0.857,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "train",
+     "iou_bras": 0.8179891678202664,
+     "iou_ref": 0.8373623037066179,
+     "delta_pt": -1.9373135886351478,
+     "ci_lo_pt": -4.784276137732793,
+     "ci_hi_pt": 0.4856787380136767,
+     "p_two_sided": 0.114,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "motorcycle",
+     "iou_bras": 0.7184610082971226,
+     "iou_ref": 0.7069579449907172,
+     "delta_pt": 1.150306330640538,
+     "ci_lo_pt": 0.0694390091191627,
+     "ci_hi_pt": 2.2789934251995994,
+     "p_two_sided": 0.0352,
+     "p_holm_arm": 0.6688000000000001,
+     "significant": true
+    },
+    {
+     "classe": "bicycle",
+     "iou_bras": 0.7998878249111375,
+     "iou_ref": 0.7981283488678949,
+     "delta_pt": 0.17594760432426693,
+     "ci_lo_pt": -0.036265314265413184,
+     "ci_hi_pt": 0.46242240819269137,
+     "p_two_sided": 0.1338,
+     "p_holm_arm": 1.0,
+     "significant": false
+    }
+   ]
+  },
+  "fused_CpvetoB": {
+   "miou_point": 0.810142027411992,
+   "miou_delta_pt": -0.07886105233452234,
+   "miou_delta_ci_pt": [
+    -0.44951095022522974,
+    0.27447547401690003
+   ],
+   "per_class": [
+    {
+     "classe": "road",
+     "iou_bras": 0.9844094811454394,
+     "iou_ref": 0.984422793671122,
+     "delta_pt": -0.001331252568259611,
+     "ci_lo_pt": -0.06191668538868683,
+     "ci_hi_pt": 0.06332901027776586,
+     "p_two_sided": 0.9588,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sidewalk",
+     "iou_bras": 0.869614009228335,
+     "iou_ref": 0.870665174387331,
+     "delta_pt": -0.10511651589960591,
+     "ci_lo_pt": -0.5186833882919095,
+     "ci_hi_pt": 0.3539700669033923,
+     "p_two_sided": 0.6276,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "building",
+     "iou_bras": 0.9330336117871668,
+     "iou_ref": 0.9327475780869916,
+     "delta_pt": 0.028603370017521446,
+     "ci_lo_pt": -0.14310685012611846,
+     "ci_hi_pt": 0.193435653874086,
+     "p_two_sided": 0.721,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "wall",
+     "iou_bras": 0.5709143207307658,
+     "iou_ref": 0.5791536040022421,
+     "delta_pt": -0.8239283271476383,
+     "ci_lo_pt": -5.546412472757288,
+     "ci_hi_pt": 3.8631406394621384,
+     "p_two_sided": 0.7302,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "fence",
+     "iou_bras": 0.6584772973882141,
+     "iou_ref": 0.6607197474267152,
+     "delta_pt": -0.22424500385010981,
+     "ci_lo_pt": -1.213026837190342,
+     "ci_hi_pt": 0.7450671613764114,
+     "p_two_sided": 0.638,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "pole",
+     "iou_bras": 0.6985918032392195,
+     "iou_ref": 0.6975511884757898,
+     "delta_pt": 0.10406147634297591,
+     "ci_lo_pt": -0.0731539335375994,
+     "ci_hi_pt": 0.2811624442192648,
+     "p_two_sided": 0.2456,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "traffic light",
+     "iou_bras": 0.7717497289288549,
+     "iou_ref": 0.7685205293111276,
+     "delta_pt": 0.3229199617727274,
+     "ci_lo_pt": 0.028006783028588503,
+     "ci_hi_pt": 0.6029127578636272,
+     "p_two_sided": 0.0332,
+     "p_holm_arm": 0.6308,
+     "significant": true
+    },
+    {
+     "classe": "traffic sign",
+     "iou_bras": 0.8376885632926703,
+     "iou_ref": 0.8351866368834199,
+     "delta_pt": 0.2501926409250399,
+     "ci_lo_pt": -0.0779006050415515,
+     "ci_hi_pt": 0.6409559792863108,
+     "p_two_sided": 0.1574,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "vegetation",
+     "iou_bras": 0.9314496318169357,
+     "iou_ref": 0.9309391564041277,
+     "delta_pt": 0.05104754128080202,
+     "ci_lo_pt": -0.003470090410111203,
+     "ci_hi_pt": 0.10979073672425066,
+     "p_two_sided": 0.0708,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "terrain",
+     "iou_bras": 0.6655268136088067,
+     "iou_ref": 0.6609935654468938,
+     "delta_pt": 0.4533248161912917,
+     "ci_lo_pt": -0.1721106590928231,
+     "ci_hi_pt": 1.1074998304258565,
+     "p_two_sided": 0.1628,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sky",
+     "iou_bras": 0.9552728384759708,
+     "iou_ref": 0.9559800860360351,
+     "delta_pt": -0.07072475600643502,
+     "ci_lo_pt": -0.15043935251175283,
+     "ci_hi_pt": 0.0053239801229712225,
+     "p_two_sided": 0.0692,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "person",
+     "iou_bras": 0.8502562187562935,
+     "iou_ref": 0.8489641738433762,
+     "delta_pt": 0.1292044912917345,
+     "ci_lo_pt": -0.07647923863881105,
+     "ci_hi_pt": 0.3005425541401298,
+     "p_two_sided": 0.1968,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "rider",
+     "iou_bras": 0.6796521701279442,
+     "iou_ref": 0.6848699849265882,
+     "delta_pt": -0.5217814798644027,
+     "ci_lo_pt": -1.569819454182923,
+     "ci_hi_pt": 0.32978735886577504,
+     "p_two_sided": 0.2866,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "car",
+     "iou_bras": 0.9554247612326942,
+     "iou_ref": 0.9545697696501653,
+     "delta_pt": 0.08549915825288856,
+     "ci_lo_pt": -0.09237379376848959,
+     "ci_hi_pt": 0.31337310716694156,
+     "p_two_sided": 0.4212,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "truck",
+     "iou_bras": 0.8223283096194093,
+     "iou_ref": 0.802433217677989,
+     "delta_pt": 1.989509194142025,
+     "ci_lo_pt": -1.0658892260456365,
+     "ci_hi_pt": 5.428569117795588,
+     "p_two_sided": 0.3116,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bus",
+     "iou_bras": 0.8877017525987299,
+     "iou_ref": 0.8975163169762631,
+     "delta_pt": -0.9814564377533253,
+     "ci_lo_pt": -2.6726778496581645,
+     "ci_hi_pt": 0.39164235451198637,
+     "p_two_sided": 0.1752,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "train",
+     "iou_bras": 0.8168077135957638,
+     "iou_ref": 0.8373623037066179,
+     "delta_pt": -2.0554590110854143,
+     "ci_lo_pt": -4.586986374584317,
+     "ci_hi_pt": 0.042364328804556636,
+     "p_two_sided": 0.0582,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "motorcycle",
+     "iou_bras": 0.7040754875025441,
+     "iou_ref": 0.7069579449907172,
+     "delta_pt": -0.28824574881730625,
+     "ci_lo_pt": -0.9598625261127061,
+     "ci_hi_pt": 0.6095339355103153,
+     "p_two_sided": 0.4804,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bicycle",
+     "iou_bras": 0.7997240077520885,
+     "iou_ref": 0.7981283488678949,
+     "delta_pt": 0.15956588841936625,
+     "ci_lo_pt": -0.01626215766865474,
+     "ci_hi_pt": 0.3344061664113637,
+     "p_two_sided": 0.073,
+     "p_holm_arm": 1.0,
+     "significant": false
+    }
+   ]
+  },
+  "fused_DvetoB": {
+   "miou_point": 0.8165231923756029,
+   "miou_delta_pt": 0.5592554440265629,
+   "miou_delta_ci_pt": [
+    0.1563721947956051,
+    0.9846714033387027
+   ],
+   "per_class": [
+    {
+     "classe": "road",
+     "iou_bras": 0.9845876380867766,
+     "iou_ref": 0.984422793671122,
+     "delta_pt": 0.016484441565467467,
+     "ci_lo_pt": -0.02775030906287529,
+     "ci_hi_pt": 0.06329540919245007,
+     "p_two_sided": 0.4656,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sidewalk",
+     "iou_bras": 0.8746663197151202,
+     "iou_ref": 0.870665174387331,
+     "delta_pt": 0.40011453277891684,
+     "ci_lo_pt": 0.0858119855724468,
+     "ci_hi_pt": 0.7391644254807515,
+     "p_two_sided": 0.0132,
+     "p_holm_arm": 0.1848,
+     "significant": true
+    },
+    {
+     "classe": "building",
+     "iou_bras": 0.9348244352249928,
+     "iou_ref": 0.9327475780869916,
+     "delta_pt": 0.2076857138001209,
+     "ci_lo_pt": 0.031965919399187526,
+     "ci_hi_pt": 0.4187549052788166,
+     "p_two_sided": 0.0186,
+     "p_holm_arm": 0.2288,
+     "significant": true
+    },
+    {
+     "classe": "wall",
+     "iou_bras": 0.6109101859396117,
+     "iou_ref": 0.5791536040022421,
+     "delta_pt": 3.175658193736952,
+     "ci_lo_pt": -2.0508306010438018,
+     "ci_hi_pt": 8.990655143080533,
+     "p_two_sided": 0.2644,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "fence",
+     "iou_bras": 0.6718382481304062,
+     "iou_ref": 0.6607197474267152,
+     "delta_pt": 1.1118500703690914,
+     "ci_lo_pt": -0.14685529357662203,
+     "ci_hi_pt": 2.5117889078858924,
+     "p_two_sided": 0.0846,
+     "p_holm_arm": 0.6768,
+     "significant": false
+    },
+    {
+     "classe": "pole",
+     "iou_bras": 0.7015137302504953,
+     "iou_ref": 0.6975511884757898,
+     "delta_pt": 0.39625417747055636,
+     "ci_lo_pt": 0.12439496004773731,
+     "ci_hi_pt": 0.7073128648182853,
+     "p_two_sided": 0.0028,
+     "p_holm_arm": 0.0448,
+     "significant": true
+    },
+    {
+     "classe": "traffic light",
+     "iou_bras": 0.747431399417218,
+     "iou_ref": 0.7685205293111276,
+     "delta_pt": -2.108912989390954,
+     "ci_lo_pt": -2.5522322731049574,
+     "ci_hi_pt": -1.6674519564743144,
+     "p_two_sided": 0.0,
+     "p_holm_arm": 0.0,
+     "significant": true
+    },
+    {
+     "classe": "traffic sign",
+     "iou_bras": 0.8265980187164322,
+     "iou_ref": 0.8351866368834199,
+     "delta_pt": -0.8588618166987638,
+     "ci_lo_pt": -1.4389619023398326,
+     "ci_hi_pt": -0.05288309950840366,
+     "p_two_sided": 0.0414,
+     "p_holm_arm": 0.3726,
+     "significant": true
+    },
+    {
+     "classe": "vegetation",
+     "iou_bras": 0.9317028303275167,
+     "iou_ref": 0.9309391564041277,
+     "delta_pt": 0.07636739233889411,
+     "ci_lo_pt": 0.012219375410853217,
+     "ci_hi_pt": 0.14506046988548071,
+     "p_two_sided": 0.0176,
+     "p_holm_arm": 0.2288,
+     "significant": true
+    },
+    {
+     "classe": "terrain",
+     "iou_bras": 0.6750177085936647,
+     "iou_ref": 0.6609935654468938,
+     "delta_pt": 1.4024143146770918,
+     "ci_lo_pt": 0.2136518679695546,
+     "ci_hi_pt": 2.714031244078461,
+     "p_two_sided": 0.0208,
+     "p_holm_arm": 0.2288,
+     "significant": true
+    },
+    {
+     "classe": "sky",
+     "iou_bras": 0.954559837887789,
+     "iou_ref": 0.9559800860360351,
+     "delta_pt": -0.14202481482461504,
+     "ci_lo_pt": -0.23839718278277272,
+     "ci_hi_pt": -0.05917918899580934,
+     "p_two_sided": 0.0004,
+     "p_holm_arm": 0.007200000000000001,
+     "significant": true
+    },
+    {
+     "classe": "person",
+     "iou_bras": 0.8501808295393055,
+     "iou_ref": 0.8489641738433762,
+     "delta_pt": 0.12166556959293251,
+     "ci_lo_pt": -0.06427631135413751,
+     "ci_hi_pt": 0.3091969557170518,
+     "p_two_sided": 0.1992,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "rider",
+     "iou_bras": 0.6875888492594465,
+     "iou_ref": 0.6848699849265882,
+     "delta_pt": 0.2718864332858284,
+     "ci_lo_pt": -0.6418264717599395,
+     "ci_hi_pt": 1.1827846411424128,
+     "p_two_sided": 0.5818,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "car",
+     "iou_bras": 0.9572760900964908,
+     "iou_ref": 0.9545697696501653,
+     "delta_pt": 0.2706320446325572,
+     "ci_lo_pt": 0.05990015706471396,
+     "ci_hi_pt": 0.523231349329019,
+     "p_two_sided": 0.007,
+     "p_holm_arm": 0.105,
+     "significant": true
+    },
+    {
+     "classe": "truck",
+     "iou_bras": 0.8401666958882075,
+     "iou_ref": 0.802433217677989,
+     "delta_pt": 3.773347821021844,
+     "ci_lo_pt": 0.3440565591286718,
+     "ci_hi_pt": 7.672612460636562,
+     "p_two_sided": 0.0246,
+     "p_holm_arm": 0.246,
+     "significant": true
+    },
+    {
+     "classe": "bus",
+     "iou_bras": 0.9201695583193336,
+     "iou_ref": 0.8975163169762631,
+     "delta_pt": 2.265324134307045,
+     "ci_lo_pt": 0.34031816576659274,
+     "ci_hi_pt": 5.121640547454472,
+     "p_two_sided": 0.0008,
+     "p_holm_arm": 0.013600000000000001,
+     "significant": true
+    },
+    {
+     "classe": "train",
+     "iou_bras": 0.8322519435221002,
+     "iou_ref": 0.8373623037066179,
+     "delta_pt": -0.5110360184517715,
+     "ci_lo_pt": -1.7075555568746563,
+     "ci_hi_pt": 0.7305873113878417,
+     "p_two_sided": 0.4566,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "motorcycle",
+     "iou_bras": 0.7157057288033698,
+     "iou_ref": 0.7069579449907172,
+     "delta_pt": 0.8747783812652621,
+     "ci_lo_pt": -0.4822539042378196,
+     "ci_hi_pt": 2.102173923199555,
+     "p_two_sided": 0.2094,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bicycle",
+     "iou_bras": 0.796950607418176,
+     "iou_ref": 0.7981283488678949,
+     "delta_pt": -0.11777414497188277,
+     "ci_lo_pt": -0.4724678910331131,
+     "ci_hi_pt": 0.2975088311665372,
+     "p_two_sided": 0.5248,
+     "p_holm_arm": 1.0,
+     "significant": false
+    }
+   ]
+  },
+  "fused_DpvetoB": {
+   "miou_point": 0.8164721081626896,
+   "miou_delta_pt": 0.5541470227352296,
+   "miou_delta_ci_pt": [
+    0.12422675524683957,
+    0.9846424860378082
+   ],
+   "per_class": [
+    {
+     "classe": "road",
+     "iou_bras": 0.9847375555762748,
+     "iou_ref": 0.984422793671122,
+     "delta_pt": 0.03147619051528938,
+     "ci_lo_pt": -0.01539298578796283,
+     "ci_hi_pt": 0.07595208371757367,
+     "p_two_sided": 0.1748,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sidewalk",
+     "iou_bras": 0.8736783079809601,
+     "iou_ref": 0.870665174387331,
+     "delta_pt": 0.30131335936290915,
+     "ci_lo_pt": -0.008068040882321931,
+     "ci_hi_pt": 0.5922993535972678,
+     "p_two_sided": 0.0564,
+     "p_holm_arm": 0.564,
+     "significant": false
+    },
+    {
+     "classe": "building",
+     "iou_bras": 0.9341694814363515,
+     "iou_ref": 0.9327475780869916,
+     "delta_pt": 0.14219033493598765,
+     "ci_lo_pt": 0.010467672724441551,
+     "ci_hi_pt": 0.25178554244790124,
+     "p_two_sided": 0.0354,
+     "p_holm_arm": 0.3894,
+     "significant": true
+    },
+    {
+     "classe": "wall",
+     "iou_bras": 0.5860078099170146,
+     "iou_ref": 0.5791536040022421,
+     "delta_pt": 0.6854205914772482,
+     "ci_lo_pt": -2.6703573173181385,
+     "ci_hi_pt": 3.5026132221690016,
+     "p_two_sided": 0.6144,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "fence",
+     "iou_bras": 0.6705372409223672,
+     "iou_ref": 0.6607197474267152,
+     "delta_pt": 0.9817493495651974,
+     "ci_lo_pt": -0.14359203798516906,
+     "ci_hi_pt": 2.051468305941278,
+     "p_two_sided": 0.083,
+     "p_holm_arm": 0.664,
+     "significant": false
+    },
+    {
+     "classe": "pole",
+     "iou_bras": 0.7012501564191878,
+     "iou_ref": 0.6975511884757898,
+     "delta_pt": 0.36989679433979683,
+     "ci_lo_pt": 0.13447727175020574,
+     "ci_hi_pt": 0.6297153934859047,
+     "p_two_sided": 0.0026,
+     "p_holm_arm": 0.0416,
+     "significant": true
+    },
+    {
+     "classe": "traffic light",
+     "iou_bras": 0.75003719075771,
+     "iou_ref": 0.7685205293111276,
+     "delta_pt": -1.848333855341755,
+     "ci_lo_pt": -2.204994316319133,
+     "ci_hi_pt": -1.5047539569067063,
+     "p_two_sided": 0.0,
+     "p_holm_arm": 0.0,
+     "significant": true
+    },
+    {
+     "classe": "traffic sign",
+     "iou_bras": 0.8270425994761504,
+     "iou_ref": 0.8351866368834199,
+     "delta_pt": -0.8144037407269433,
+     "ci_lo_pt": -1.2468274826090193,
+     "ci_hi_pt": -0.22316850798488147,
+     "p_two_sided": 0.0118,
+     "p_holm_arm": 0.1534,
+     "significant": true
+    },
+    {
+     "classe": "vegetation",
+     "iou_bras": 0.931801869065422,
+     "iou_ref": 0.9309391564041277,
+     "delta_pt": 0.08627126612942293,
+     "ci_lo_pt": 0.033743604348649425,
+     "ci_hi_pt": 0.1414942257994228,
+     "p_two_sided": 0.0008,
+     "p_holm_arm": 0.014400000000000001,
+     "significant": true
+    },
+    {
+     "classe": "terrain",
+     "iou_bras": 0.6679859620853548,
+     "iou_ref": 0.6609935654468938,
+     "delta_pt": 0.6992396638460963,
+     "ci_lo_pt": -0.059310785306664324,
+     "ci_hi_pt": 1.4740193791859952,
+     "p_two_sided": 0.0696,
+     "p_holm_arm": 0.6264,
+     "significant": false
+    },
+    {
+     "classe": "sky",
+     "iou_bras": 0.9544523238301866,
+     "iou_ref": 0.9559800860360351,
+     "delta_pt": -0.1527762205848493,
+     "ci_lo_pt": -0.27619809826656266,
+     "ci_hi_pt": -0.050199102935365454,
+     "p_two_sided": 0.003,
+     "p_holm_arm": 0.045,
+     "significant": true
+    },
+    {
+     "classe": "person",
+     "iou_bras": 0.8501710306908113,
+     "iou_ref": 0.8489641738433762,
+     "delta_pt": 0.1206856847435156,
+     "ci_lo_pt": -0.15019839689495829,
+     "ci_hi_pt": 0.3985071190911551,
+     "p_two_sided": 0.3898,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "rider",
+     "iou_bras": 0.6922457074131164,
+     "iou_ref": 0.6848699849265882,
+     "delta_pt": 0.737572248652818,
+     "ci_lo_pt": -0.6941519810149936,
+     "ci_hi_pt": 2.257254086479503,
+     "p_two_sided": 0.35,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "car",
+     "iou_bras": 0.9581816236113151,
+     "iou_ref": 0.9545697696501653,
+     "delta_pt": 0.36118539611498246,
+     "ci_lo_pt": 0.08370834147989309,
+     "ci_hi_pt": 0.7178569581096681,
+     "p_two_sided": 0.0024,
+     "p_holm_arm": 0.040799999999999996,
+     "significant": true
+    },
+    {
+     "classe": "truck",
+     "iou_bras": 0.849754971846154,
+     "iou_ref": 0.802433217677989,
+     "delta_pt": 4.732175416816498,
+     "ci_lo_pt": 0.3553069640221665,
+     "ci_hi_pt": 9.595126393348377,
+     "p_two_sided": 0.0248,
+     "p_holm_arm": 0.2976,
+     "significant": true
+    },
+    {
+     "classe": "bus",
+     "iou_bras": 0.921518954694256,
+     "iou_ref": 0.8975163169762631,
+     "delta_pt": 2.4002637717992936,
+     "ci_lo_pt": 0.2238619905625372,
+     "ci_hi_pt": 5.989564372557634,
+     "p_two_sided": 0.0038,
+     "p_holm_arm": 0.0532,
+     "significant": true
+    },
+    {
+     "classe": "train",
+     "iou_bras": 0.832206136112656,
+     "iou_ref": 0.8373623037066179,
+     "delta_pt": -0.5156167593961869,
+     "ci_lo_pt": -1.7852449105826496,
+     "ci_hi_pt": 0.8677766665265642,
+     "p_two_sided": 0.4818,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "motorcycle",
+     "iou_bras": 0.7285183627217764,
+     "iou_ref": 0.7069579449907172,
+     "delta_pt": 2.156041773105921,
+     "ci_lo_pt": -1.0039657862058662,
+     "ci_hi_pt": 5.7279371624055875,
+     "p_two_sided": 0.3214,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bicycle",
+     "iou_bras": 0.7986727705340352,
+     "iou_ref": 0.7981283488678949,
+     "delta_pt": 0.05444216661403267,
+     "ci_lo_pt": -0.34340614666168834,
+     "ci_hi_pt": 0.5538718297414875,
+     "p_two_sided": 0.9076,
+     "p_holm_arm": 1.0,
+     "significant": false
+    }
+   ]
+  },
+  "moe_v3cs": {
+   "miou_point": 0.8161757521422855,
+   "miou_delta_pt": 0.5245114206948287,
+   "miou_delta_ci_pt": [
+    0.10421630763529338,
+    0.9661878304627622
+   ],
+   "per_class": [
+    {
+     "classe": "road",
+     "iou_bras": 0.9846785401487742,
+     "iou_ref": 0.984422793671122,
+     "delta_pt": 0.025574647765225222,
+     "ci_lo_pt": -0.020893381184291793,
+     "ci_hi_pt": 0.08793358744258015,
+     "p_two_sided": 0.3648,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sidewalk",
+     "iou_bras": 0.8729621042676841,
+     "iou_ref": 0.870665174387331,
+     "delta_pt": 0.22969298803530158,
+     "ci_lo_pt": -0.09217063895991279,
+     "ci_hi_pt": 0.6572847801070553,
+     "p_two_sided": 0.2092,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "building",
+     "iou_bras": 0.9334734556876426,
+     "iou_ref": 0.9327475780869916,
+     "delta_pt": 0.07258776006510148,
+     "ci_lo_pt": -0.1032335150219063,
+     "ci_hi_pt": 0.23419561764529084,
+     "p_two_sided": 0.3832,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "wall",
+     "iou_bras": 0.5869771996658717,
+     "iou_ref": 0.5791536040022421,
+     "delta_pt": 0.7823595663629557,
+     "ci_lo_pt": -4.044946428341607,
+     "ci_hi_pt": 5.769692215291784,
+     "p_two_sided": 0.7098,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "fence",
+     "iou_bras": 0.6668291531771251,
+     "iou_ref": 0.6607197474267152,
+     "delta_pt": 0.6109405750409858,
+     "ci_lo_pt": -0.2092423497786444,
+     "ci_hi_pt": 1.4894610605005614,
+     "p_two_sided": 0.1474,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "pole",
+     "iou_bras": 0.6993482091218257,
+     "iou_ref": 0.6975511884757898,
+     "delta_pt": 0.17970206460359295,
+     "ci_lo_pt": 0.002111237111216136,
+     "ci_hi_pt": 0.36833933010122555,
+     "p_two_sided": 0.0472,
+     "p_holm_arm": 0.708,
+     "significant": true
+    },
+    {
+     "classe": "traffic light",
+     "iou_bras": 0.7727884981650314,
+     "iou_ref": 0.7685205293111276,
+     "delta_pt": 0.4267968853903792,
+     "ci_lo_pt": 0.277611833631759,
+     "ci_hi_pt": 0.5833656366605205,
+     "p_two_sided": 0.0,
+     "p_holm_arm": 0.0,
+     "significant": true
+    },
+    {
+     "classe": "traffic sign",
+     "iou_bras": 0.8383445534050088,
+     "iou_ref": 0.8351866368834199,
+     "delta_pt": 0.31579165215889216,
+     "ci_lo_pt": -0.03464604631305101,
+     "ci_hi_pt": 0.8051118991292578,
+     "p_two_sided": 0.0958,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "vegetation",
+     "iou_bras": 0.9312368186197032,
+     "iou_ref": 0.9309391564041277,
+     "delta_pt": 0.029766221557547823,
+     "ci_lo_pt": -0.026981996047416853,
+     "ci_hi_pt": 0.08829461965459334,
+     "p_two_sided": 0.3148,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "terrain",
+     "iou_bras": 0.6659917218520386,
+     "iou_ref": 0.6609935654468938,
+     "delta_pt": 0.49981564051447824,
+     "ci_lo_pt": -0.08143381927198794,
+     "ci_hi_pt": 1.117092745222789,
+     "p_two_sided": 0.0914,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sky",
+     "iou_bras": 0.955149252118061,
+     "iou_ref": 0.9559800860360351,
+     "delta_pt": -0.08308339179741164,
+     "ci_lo_pt": -0.14722460867464704,
+     "ci_hi_pt": -0.023058327300437574,
+     "p_two_sided": 0.0064,
+     "p_holm_arm": 0.11520000000000001,
+     "significant": true
+    },
+    {
+     "classe": "person",
+     "iou_bras": 0.8490954259600811,
+     "iou_ref": 0.8489641738433762,
+     "delta_pt": 0.013125211670494963,
+     "ci_lo_pt": -0.1810522116128943,
+     "ci_hi_pt": 0.18851883351615056,
+     "p_two_sided": 0.8612,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "rider",
+     "iou_bras": 0.6855596343295259,
+     "iou_ref": 0.6848699849265882,
+     "delta_pt": 0.06896494029376976,
+     "ci_lo_pt": -0.9314562085019606,
+     "ci_hi_pt": 0.950990731543295,
+     "p_two_sided": 0.8552,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "car",
+     "iou_bras": 0.9569770308845214,
+     "iou_ref": 0.9545697696501653,
+     "delta_pt": 0.2407261234356084,
+     "ci_lo_pt": -0.013640619736608184,
+     "ci_hi_pt": 0.559580435839547,
+     "p_two_sided": 0.0712,
+     "p_holm_arm": 0.9968,
+     "significant": false
+    },
+    {
+     "classe": "truck",
+     "iou_bras": 0.8483406831501553,
+     "iou_ref": 0.802433217677989,
+     "delta_pt": 4.590746547216629,
+     "ci_lo_pt": 0.2617776562258925,
+     "ci_hi_pt": 9.494092977512867,
+     "p_two_sided": 0.0186,
+     "p_holm_arm": 0.2976,
+     "significant": true
+    },
+    {
+     "classe": "bus",
+     "iou_bras": 0.9165307612527264,
+     "iou_ref": 0.8975163169762631,
+     "delta_pt": 1.901444427646326,
+     "ci_lo_pt": -0.4329292746133445,
+     "ci_hi_pt": 5.577977722527174,
+     "p_two_sided": 0.1872,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "train",
+     "iou_bras": 0.8346252356942406,
+     "iou_ref": 0.8373623037066179,
+     "delta_pt": -0.2737068012377275,
+     "ci_lo_pt": -2.0764877736374063,
+     "ci_hi_pt": 0.5153697028677909,
+     "p_two_sided": 0.5646,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "motorcycle",
+     "iou_bras": 0.707750030562591,
+     "iou_ref": 0.7069579449907172,
+     "delta_pt": 0.0792085571873824,
+     "ci_lo_pt": -1.2456558175895347,
+     "ci_hi_pt": 1.959016681320977,
+     "p_two_sided": 0.8816,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bicycle",
+     "iou_bras": 0.8006809826408166,
+     "iou_ref": 0.7981283488678949,
+     "delta_pt": 0.25526337729216975,
+     "ci_lo_pt": 0.047935931152399414,
+     "ci_hi_pt": 0.47157989740012696,
+     "p_two_sided": 0.0172,
+     "p_holm_arm": 0.2924,
+     "significant": true
+    }
+   ]
+  },
+  "controle": {
+   "miou_point": 0.811682148576339,
+   "miou_delta_pt": 0.07515106410017625,
+   "miou_delta_ci_pt": [
+    -0.2808214538590695,
+    0.4465660912073177
+   ],
+   "per_class": [
+    {
+     "classe": "road",
+     "iou_bras": 0.9841075096797653,
+     "iou_ref": 0.984422793671122,
+     "delta_pt": -0.031528399135660745,
+     "ci_lo_pt": -0.08870552333221204,
+     "ci_hi_pt": 0.015220250302493379,
+     "p_two_sided": 0.2166,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sidewalk",
+     "iou_bras": 0.8697546600542244,
+     "iou_ref": 0.870665174387331,
+     "delta_pt": -0.09105143331066268,
+     "ci_lo_pt": -0.4588548856731137,
+     "ci_hi_pt": 0.23033193947699887,
+     "p_two_sided": 0.6212,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "building",
+     "iou_bras": 0.9325064675021957,
+     "iou_ref": 0.9327475780869916,
+     "delta_pt": -0.024111058479592273,
+     "ci_lo_pt": -0.1726887976471428,
+     "ci_hi_pt": 0.10185060914955218,
+     "p_two_sided": 0.7672,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "wall",
+     "iou_bras": 0.561467564289662,
+     "iou_ref": 0.5791536040022421,
+     "delta_pt": -1.7686039712580093,
+     "ci_lo_pt": -5.763973208230473,
+     "ci_hi_pt": 1.8306923643295199,
+     "p_two_sided": 0.402,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "fence",
+     "iou_bras": 0.6580748358552949,
+     "iou_ref": 0.6607197474267152,
+     "delta_pt": -0.26449115714203275,
+     "ci_lo_pt": -1.6343974987710772,
+     "ci_hi_pt": 0.8478132395677443,
+     "p_two_sided": 0.7332,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "pole",
+     "iou_bras": 0.7004580010205704,
+     "iou_ref": 0.6975511884757898,
+     "delta_pt": 0.2906812544780646,
+     "ci_lo_pt": 0.11704685344574972,
+     "ci_hi_pt": 0.4713984366220383,
+     "p_two_sided": 0.0016,
+     "p_holm_arm": 0.0256,
+     "significant": true
+    },
+    {
+     "classe": "traffic light",
+     "iou_bras": 0.7735985292455015,
+     "iou_ref": 0.7685205293111276,
+     "delta_pt": 0.5077999934373967,
+     "ci_lo_pt": 0.33173607022272206,
+     "ci_hi_pt": 0.6815904589103088,
+     "p_two_sided": 0.0,
+     "p_holm_arm": 0.0,
+     "significant": true
+    },
+    {
+     "classe": "traffic sign",
+     "iou_bras": 0.8370322630283243,
+     "iou_ref": 0.8351866368834199,
+     "delta_pt": 0.18456261449044664,
+     "ci_lo_pt": -0.036534270231676214,
+     "ci_hi_pt": 0.4194114176229168,
+     "p_two_sided": 0.1042,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "vegetation",
+     "iou_bras": 0.9313412297474888,
+     "iou_ref": 0.9309391564041277,
+     "delta_pt": 0.04020733433610646,
+     "ci_lo_pt": -0.00653171728615648,
+     "ci_hi_pt": 0.09499568319247448,
+     "p_two_sided": 0.0996,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "terrain",
+     "iou_bras": 0.6639584632628052,
+     "iou_ref": 0.6609935654468938,
+     "delta_pt": 0.29648978159113604,
+     "ci_lo_pt": -0.2115103389421791,
+     "ci_hi_pt": 0.7934083724305121,
+     "p_two_sided": 0.2446,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "sky",
+     "iou_bras": 0.9553018840031399,
+     "iou_ref": 0.9559800860360351,
+     "delta_pt": -0.06782020328952587,
+     "ci_lo_pt": -0.1376518986589767,
+     "ci_hi_pt": 0.0025970950068912543,
+     "p_two_sided": 0.0584,
+     "p_holm_arm": 0.8176,
+     "significant": false
+    },
+    {
+     "classe": "person",
+     "iou_bras": 0.8515318970504895,
+     "iou_ref": 0.8489641738433762,
+     "delta_pt": 0.25677232071132927,
+     "ci_lo_pt": 0.12287484282296895,
+     "ci_hi_pt": 0.38996020079472893,
+     "p_two_sided": 0.0004,
+     "p_holm_arm": 0.0068000000000000005,
+     "significant": true
+    },
+    {
+     "classe": "rider",
+     "iou_bras": 0.6892534614004401,
+     "iou_ref": 0.6848699849265882,
+     "delta_pt": 0.4383476473851844,
+     "ci_lo_pt": -0.15678145145136987,
+     "ci_hi_pt": 1.0296914026259305,
+     "p_two_sided": 0.149,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "car",
+     "iou_bras": 0.9556320533803547,
+     "iou_ref": 0.9545697696501653,
+     "delta_pt": 0.10622837301894617,
+     "ci_lo_pt": -0.06370205327571765,
+     "ci_hi_pt": 0.3562142991468407,
+     "p_two_sided": 0.3204,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "truck",
+     "iou_bras": 0.8059314926090214,
+     "iou_ref": 0.802433217677989,
+     "delta_pt": 0.3498274931032386,
+     "ci_lo_pt": -1.083456987487418,
+     "ci_hi_pt": 3.2523481900394593,
+     "p_two_sided": 0.8418,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bus",
+     "iou_bras": 0.9154991327444502,
+     "iou_ref": 0.8975163169762631,
+     "delta_pt": 1.7982815768187055,
+     "ci_lo_pt": -0.6169553761594972,
+     "ci_hi_pt": 5.635396751350991,
+     "p_two_sided": 0.2604,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "train",
+     "iou_bras": 0.8223368542795678,
+     "iou_ref": 0.8373623037066179,
+     "delta_pt": -1.5025449427050086,
+     "ci_lo_pt": -4.446850693913771,
+     "ci_hi_pt": -0.19214977502082245,
+     "p_two_sided": 0.0196,
+     "p_holm_arm": 0.294,
+     "significant": true
+    },
+    {
+     "classe": "motorcycle",
+     "iou_bras": 0.7108449730754322,
+     "iou_ref": 0.7069579449907172,
+     "delta_pt": 0.3887028084714972,
+     "ci_lo_pt": -1.6472722965599338,
+     "ci_hi_pt": 2.7545983895290305,
+     "p_two_sided": 0.661,
+     "p_holm_arm": 1.0,
+     "significant": false
+    },
+    {
+     "classe": "bicycle",
+     "iou_bras": 0.8033295507217154,
+     "iou_ref": 0.7981283488678949,
+     "delta_pt": 0.5201201853820558,
+     "ci_lo_pt": 0.3365657749840595,
+     "ci_hi_pt": 0.7071236716099507,
+     "p_two_sided": 0.0,
+     "p_holm_arm": 0.0,
+     "significant": true
+    }
+   ]
+  }
+ }
+}

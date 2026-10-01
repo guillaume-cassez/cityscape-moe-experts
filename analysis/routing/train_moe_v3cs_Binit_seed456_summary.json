@@ -1,0 +1,84 @@
+{
+  "run": "moe_v3cs_Binit_seed456",
+  "seed": 456,
+  "epochs": 80,
+  "elapsed_s": 61228.74760842323,
+  "final_epoch_stats": {
+    "entropy_norm": 0.999966414165561,
+    "entropy_token": 0.9998210438883537,
+    "entropy_token_clean": 0.9998210438883537,
+    "top_expert_share": 0.5969513667535685,
+    "gamma_absmean": 0.018153079823611484,
+    "aux_loss_weighted": 0.001999971808498649,
+    "noise_std": 0.0,
+    "n_experts": 4.0,
+    "frac": [
+      0.49940223331489897,
+      0.49973848113375535,
+      0.4989912650712641,
+      0.5018680491099521
+    ],
+    "part_max": 0.5018680491099521
+  },
+  "provenance": {
+    "backbone": {
+      "method": "B",
+      "seed": 456,
+      "path": "/home/ser/Bureau/City_Scape/reeval_slim/pilot_fullres_B_baseline_seed456__epoch_160.pth",
+      "epoch": 160
+    },
+    "experts": [
+      {
+        "expert": 0,
+        "method": "B",
+        "label": "Baseline(B)",
+        "seed": 456,
+        "path": "/home/ser/Bureau/City_Scape/reeval_slim/pilot_fullres_B_baseline_seed456__epoch_160.pth",
+        "max_ecart": 0.0
+      },
+      {
+        "expert": 1,
+        "method": "D",
+        "label": "Kervadec(D)",
+        "seed": 456,
+        "path": "/home/ser/Bureau/City_Scape/reeval_slim/pilot_fullres_D_ce_boundary_seed456__epoch_160.pth",
+        "max_ecart": 0.0
+      },
+      {
+        "expert": 2,
+        "method": "Dp",
+        "label": "DistMap(D')",
+        "seed": 456,
+        "path": "/home/ser/Bureau/City_Scape/checkpoints/pilot_fullres_DM_distmap_seed456/epoch_160.pth",
+        "max_ecart": 0.0
+      },
+      {
+        "expert": 3,
+        "method": "G",
+        "label": "Blob(G)",
+        "seed": 456,
+        "path": "/home/ser/Bureau/City_Scape/checkpoints/pilot_fullres_G_blob_seed456/epoch_160.pth",
+        "max_ecart": 0.0
+      }
+    ],
+    "gate": "random",
+    "source_block": "head.fpn_convs.0",
+    "seed": 456,
+    "moe_kwargs": {
+      "n_experts": 4,
+      "top_k": 2,
+      "grid": [
+        3,
+        3
+      ],
+      "kernel_size": 3,
+      "balance": "switch",
+      "balance_weight": 0.001,
+      "noise_std": 1.0,
+      "noise_anneal": 40,
+      "residual_scale": 0.0
+    }
+  },
+  "routing_jsonl": "results/moe_v3_cs/routing_moe_v3cs_Binit_seed456.jsonl",
+  "smoke_max_batches": null
+}

@@ -1,0 +1,65 @@
+# @package _global_
+# P3.12 — Run MoE-V3-CS (plan §3.4/§7, sprint #75), APPARIÉ au contrôle P3.11.
+#
+# Le MODÈLE n'est PAS construit depuis cette config : scripts/train_moe_v3cs.py
+# passe par src/moe/moe_model.build_moe_model_from_baseline, qui reconstruit
+# l'architecture depuis la config EMBARQUÉE du checkpoint B (garantie de
+# correspondance des clés), attache PatchMoE2D après head.fpn_bottleneck
+# (recette MOE_V3_CS_INIT : 4 experts top-2 grille 3×3 switch 1e-3 bruit 1.0/40 ép
+# + garde-fou γ ReZero) et initialise seed-apparié :
+#   backbone+head ← B seed s, experts 0-3 ← head.fpn_convs.0 de B/D/Dp/C seed s,
+#   gate ← aléatoire (thèse « la porte ne choisit pas »).
+# La section model: ci-dessous n'est donc PAS lue par le trainer (gardée pour
+# l'hygiène hydra et documenter l'architecture cible).
+#
+# APPARIEMENT (la seule différence avec le contrôle = la présence de la couche MoE) :
+# la section training: DOIT rester IDENTIQUE à configs/experiment/control_nomoe_Binit.yaml
+# (N=80 = 40 ép de recuit du bruit Shazeer + 40 ép d'observation post-recuit,
+# AdamW 6e-5, Poly(80), BF16, batch 2 × accum 4, full-res). Toute modification ici
+# DOIT être répercutée là-bas (et inversement), sinon la comparaison Δ perd son sens.
+#
+# Lancement (par scripts/launch_p3_queue_when_gpu_free.sh, seed par seed) :
+#   taskset -c 0-15 python scripts/train_moe_v3cs.py \
+#     +experiment=moe_v3cs_Binit experiment.seeds="[42]"
+# Checkpoints du run : checkpoints/moe_v3cs_Binit_seed{seed}/ (last.pth + epoch_NNN.pth)
+# Journal de routage : results/moe_v3_cs/routing_moe_v3cs_Binit_seed{seed}.jsonl
+
+defaults:
+  - override /model: convnextv2_upernet
+  - override /loss: ce_dice
+  - override /augmentation: full_res
+  - override /dataset: cityscapes_fine
+
+experiment:
+  name: moe_v3cs_Binit
+  seeds: [42]
+  wandb_project: city-scape
+  wandb_tags: [p312, moe, v3cs, binit, expert-init, fullres, refinement80]
+
+model:
+  backbone:
+    pretrained: none
+
+training:
+  epochs: 80
+  batch_size: 2
+  gradient_accumulation_steps: 4   # effective batch = 8 (identique à la recette B)
+  optimizer:
+    type: AdamW
+    lr: 6.0e-5
+    weight_decay: 0.01
+    betas: [0.9, 0.999]
+  scheduler:
+    type: poly
+    power: 1.0
+    warmup_epochs: 1
+  mixed_precision: bf16
+  gradient_checkpointing: false    # have 96GB, no need
+  channels_last: true              # Blackwell tensor cores
+  deterministic: false             # cudnn.benchmark requires non-deterministic
+  smoke_max_batches: null          # entier = tronque chaque époque (smoke GPU uniquement)
+
+evaluation:
+  checkpoint_every_epochs: 10
+  metrics: [miou, per_class_iou, boundary_f1]
+  tta: false

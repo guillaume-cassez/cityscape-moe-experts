@@ -1,0 +1,63 @@
+# @package _global_
+# P3.11 — Contrôle SANS MoE, apparié au run MoE-V3-CS (plan §3.4, sprint #75).
+#
+# Architecture = recette B (convnextv2_upernet + ce_dice, full-res 1024x2048, BF16),
+# mais les POIDS partent du checkpoint B ep160 du MÊME seed (convention
+# src/moe/experts.py : reeval_slim/pilot_fullres_B_baseline_seed{s}__epoch_160.pth)
+# via `training.init_from` (poids seuls ; optimizer AdamW, scheduler Poly(80) et RNG
+# neufs de `seed`). N=80 époques de raffinement — décision 2026-09-16, plan §7 :
+#   - recuit du bruit Shazeer = 40 époques (recette MOE_V3_CS) → 40 époques restent
+#     pour observer le routage SANS bruit (diagnostic part_max/entropies du plan §4) ;
+#   - budget mesuré : pilote B full-res = 655 s/époque, pic VRAM 32.2 GB
+#     (results/train_full_Cprime.log) → 80 époques ≈ 8.9 h/run sur la PRO 6000 ;
+#   - les deux bras (ce contrôle et le V3-CS P3.12) partent des poids ép-160 et sont
+#     appariés seed-à-seed : seul la présence de la couche MoE diffère.
+# `model.backbone.pretrained: none` : les poids sont intégralement écrasés par
+# init_from — jamais de download timm au montage (comme P3.08).
+#
+# Lancement (par scripts/launch_p3_queue_when_gpu_free.sh, seed par seed) :
+#   taskset -c 0-15 python scripts/train.py \
+#     +experiment=control_nomoe_Binit \
+#     experiment.seeds="[42]" \
+#     training.init_from=reeval_slim/pilot_fullres_B_baseline_seed42__epoch_160.pth
+# Checkpoints du run : checkpoints/control_nomoe_Binit_seed{seed}/epoch_080.pth
+
+defaults:
+  - override /model: convnextv2_upernet
+  - override /loss: ce_dice
+  - override /augmentation: full_res
+  - override /dataset: cityscapes_fine
+
+experiment:
+  name: control_nomoe_Binit
+  seeds: [42]
+  wandb_project: city-scape
+  wandb_tags: [p311, control, nomoe, binit, fullres, refinement80]
+
+model:
+  backbone:
+    pretrained: none
+
+training:
+  init_from: null   # TOUJOURS surchargé au lancement (chemin seed apparié) — null = garde-fou
+  epochs: 80
+  batch_size: 2
+  gradient_accumulation_steps: 4   # effective batch = 8 (identique à la recette B)
+  optimizer:
+    type: AdamW
+    lr: 6.0e-5
+    weight_decay: 0.01
+    betas: [0.9, 0.999]
+  scheduler:
+    type: poly
+    power: 1.0
+    warmup_epochs: 1
+  mixed_precision: bf16
+  gradient_checkpointing: false    # have 96GB, no need
+  channels_last: true              # Blackwell tensor cores
+  deterministic: false             # cudnn.benchmark requires non-deterministic
+
+evaluation:
+  checkpoint_every_epochs: 10
+  metrics: [miou, per_class_iou, boundary_f1]
+  tta: false
