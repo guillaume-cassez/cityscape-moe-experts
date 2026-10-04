@@ -3,8 +3,7 @@
 **An expert-initialised mixture-of-experts beats its matched control and is the only all-rounder
 arm under full-resolution Cityscapes metrics.**
 
-Guillaume Cassez — independent researcher · ORCID [0009-0007-0987-3931](https://orcid.org/0009-0007-0987-3931) ·
-[guillaume-cassez.fr](https://guillaume-cassez.fr/voiture-autonome/)
+**Guillaume Cassez** · **Stanislas Larnier** — independent research · ORCID [0009-0007-0987-3931](https://orcid.org/0009-0007-0987-3931) (G.C.) · [HAL stanislas-larnier](https://cv.hal.science/stanislas-larnier) (S.L.) · [guillaume-cassez.fr](https://guillaume-cassez.fr/voiture-autonome/)
 
 Preprint, CC-BY-4.0. Read [`paper.pdf`](paper.pdf) (EN, 16 p.) or
 [`paper_fr.pdf`](paper_fr.pdf) (FR, 16 p.).
@@ -171,5 +170,4 @@ remains under its own licence.
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). Author: Guillaume Cassez, independent researcher
-(ORCID [0009-0007-0987-3931](https://orcid.org/0009-0007-0987-3931)).
+See [`CITATION.cff`](CITATION.cff). Authors: Guillaume Cassez, Stanislas Larnier, independent researchers (ORCID [0009-0007-0987-3931](https://orcid.org/0009-0007-0987-3931) for Guillaume Cassez).

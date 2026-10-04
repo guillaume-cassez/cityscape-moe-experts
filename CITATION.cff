@@ -68,8 +68,8 @@ abstract: >-
   epoch 0) and absent there. (6) Public release of code, configs, tables,
   figures and regeneration scripts. ---
 type: dataset
-version: v1.0.0
-date-released: "2026-10-01"
+version: v1.1.0
+date-released: "2026-10-04"
 license: CC-BY-4.0
 doi: 10.5281/zenodo.23090081
 authors:
@@ -77,13 +77,16 @@ authors:
     given-names: Guillaume
     affiliation: Independent researcher
     orcid: "https://orcid.org/0009-0007-0987-3931"
+  - family-names: Larnier
+    given-names: Stanislas
+    affiliation: Independent researcher
 identifiers:
   - type: doi
     value: 10.5281/zenodo.23090081
     description: Concept DOI (resolves to all versions)
   - type: doi
-    value: 10.5281/zenodo.23090082
-    description: Version DOI (v1.0.0)
+    value: 10.5281/zenodo.23146586
+    description: Version DOI (v1.1.0)
 repository-code: "https://github.com/guillaume-cassez/cityscape-moe-experts"
 url: "https://guillaume-cassez.fr/voiture-autonome/"
 keywords:

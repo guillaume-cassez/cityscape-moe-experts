@@ -44,6 +44,19 @@ RE_PREREG = re.compile(
     re.IGNORECASE,
 )
 
+# --- présence du bloc d'auteurs (révision du 2026-10-04, voir SPEC ## Forbidden) --
+# La regex interdisant « Auteurs : … Larnier » a été RETIRÉE du SPEC sur instruction
+# de Guillaume : les papiers 3 et 4 portent deux auteurs, alignés sur les papiers BRATS.
+# Le garde-fou devient POSITIF — le bloc d'auteurs et la section de contributions
+# doivent être présents dans les DEUX langues, sinon un manuscrit pourrait repartir
+# en mono-auteur sans que rien ne le voie.
+RE_BLOC_AUTEURS = re.compile(r"\*\*Guillaume Cassez · Stanislas Larnier\*\*")
+RE_CONTRIB = {
+    "paper.md": re.compile(r"^##\s+Author contributions\s*$", re.M),
+    "paper_fr.md": re.compile(r"^##\s+Contributions des auteurs\s*$", re.M),
+}
+RE_LARNIER_ID = re.compile(r"stanislas-larnier")
+
 MANUSCRIPTS = ("paper.md", "paper_fr.md")
 
 
@@ -96,6 +109,19 @@ def main(argv: list[str]) -> int:
         primary_total += n_primary
         hits = [(raw, len(rx.findall(txt))) for raw, rx in forb if rx.search(txt)]
 
+        if not RE_BLOC_AUTEURS.search(txt):
+            statut = "FAIL"
+            failures += 1
+            print(f"[FAIL] {name} : bloc d'auteurs « Guillaume Cassez · Stanislas Larnier » absent")
+        if not RE_CONTRIB[name].search(txt):
+            statut = "FAIL"
+            failures += 1
+            print(f"[FAIL] {name} : section de contributions des auteurs absente")
+        if not RE_LARNIER_ID.search(txt):
+            statut = "FAIL"
+            failures += 1
+            print(f"[FAIL] {name} : identifiant HAL de S. Larnier absent du bloc d'auteurs")
+
         statut = "PASS"
         if marks:
             statut = "FAIL"
@@ -107,7 +133,8 @@ def main(argv: list[str]) -> int:
                 failures += n
                 print(f"[FAIL] {name} : regex Forbidden {raw!r} -> {n} occurrence(s)")
         print(f"[{statut}] {name} : {len(txt)} car. | marqueurs {len(marks)} | "
-              f"primary {n_primary} | pre-reg {n_prereg} | Forbidden {sum(n for _, n in hits)}")
+              f"primary {n_primary} | pre-reg {n_prereg} | Forbidden {sum(n for _, n in hits)} | "
+              f"auteurs {'2 ✓' if RE_BLOC_AUTEURS.search(txt) else 'ABSENTS'}")
 
     # Le critère primaire pré-enregistré doit être nommé dans la langue du manuscrit qui
     # part en DOI (EN) ; le gate global exige la co-occurrence primary + pre-registration.

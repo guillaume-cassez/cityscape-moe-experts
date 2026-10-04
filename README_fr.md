@@ -3,8 +3,7 @@
 **Un mélange d'experts initialisé depuis des spécialistes de loss bat son contrôle apparié et
 reste le seul bras polyvalent sous les métriques Cityscapes pleine résolution.**
 
-Guillaume Cassez — chercheur indépendant · ORCID [0009-0007-0987-3931](https://orcid.org/0009-0007-0987-3931) ·
-[guillaume-cassez.fr](https://guillaume-cassez.fr/voiture-autonome/)
+**Guillaume Cassez** · **Stanislas Larnier** — recherche indépendante · ORCID [0009-0007-0987-3931](https://orcid.org/0009-0007-0987-3931) (G.C.) · [HAL stanislas-larnier](https://cv.hal.science/stanislas-larnier) (S.L.) · [guillaume-cassez.fr](https://guillaume-cassez.fr/voiture-autonome/)
 
 Preprint, CC-BY-4.0. À lire : [`paper_fr.pdf`](paper_fr.pdf) (FR, 16 p.) ou
 [`paper.pdf`](paper.pdf) (EN, 16 p.).
@@ -173,5 +172,4 @@ restent soumises à leur propre licence.
 
 ## Citer
 
-Voir [`CITATION.cff`](CITATION.cff). Auteur : Guillaume Cassez, chercheur indépendant
-(ORCID [0009-0007-0987-3931](https://orcid.org/0009-0007-0987-3931)).
+Voir [`CITATION.cff`](CITATION.cff). Auteurs : Guillaume Cassez, Stanislas Larnier, chercheurs indépendants (ORCID [0009-0007-0987-3931](https://orcid.org/0009-0007-0987-3931) pour Guillaume Cassez).

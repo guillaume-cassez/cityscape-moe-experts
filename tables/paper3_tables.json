@@ -3096,11 +3096,45 @@
   ]
  },
  "figures_autocontrole": {
-  "date": "2026-10-01T20:30:08",
+  "date": "2026-10-04T20:33:22",
   "script": "scripts/p3_moe_figures.py",
-  "n_autocontroles": 9,
-  "n_ok": 9,
+  "langues": [
+   "en",
+   "fr"
+  ],
+  "n_autocontroles": 19,
+  "n_ok": 19,
   "autocontroles": [
+   {
+    "figure": "encre_F1_delta_13bras",
+    "ok": true,
+    "detail": "0 superposition d'encre mesurée (texte×texte, ligne×texte, hors-canvas)"
+   },
+   {
+    "figure": "encre_F2_routage",
+    "ok": true,
+    "detail": "0 superposition d'encre mesurée (texte×texte, ligne×texte, hors-canvas)"
+   },
+   {
+    "figure": "encre_F3_forest_metiers",
+    "ok": true,
+    "detail": "0 superposition d'encre mesurée (texte×texte, ligne×texte, hors-canvas)"
+   },
+   {
+    "figure": "encre_F4_polyvalence",
+    "ok": true,
+    "detail": "0 superposition d'encre mesurée (texte×texte, ligne×texte, hors-canvas)"
+   },
+   {
+    "figure": "encre_F5_perclass",
+    "ok": true,
+    "detail": "0 superposition d'encre mesurée (texte×texte, ligne×texte, hors-canvas)"
+   },
+   {
+    "figure": "encre_F1_delta_13bras_fr",
+    "ok": true,
+    "detail": "0 superposition d'encre mesurée (texte×texte, ligne×texte, hors-canvas)"
+   },
    {
     "figure": "F1_delta_13bras",
     "ok": true,
@@ -3110,6 +3144,11 @@
     "figure": "F2 sources",
     "ok": true,
     "detail": "240 lignes CSV = 80 époques × 3 seeds"
+   },
+   {
+    "figure": "encre_F2_routage_fr",
+    "ok": true,
+    "detail": "0 superposition d'encre mesurée (texte×texte, ligne×texte, hors-canvas)"
    },
    {
     "figure": "F2_routage",
@@ -3132,14 +3171,29 @@
     "detail": "1 pleins (Holm) côté points + 1 côté fragments = 2 au total ; 3 IC excluant 0 sans Holm"
    },
    {
+    "figure": "encre_F3_forest_metiers_fr",
+    "ok": true,
+    "detail": "0 superposition d'encre mesurée (texte×texte, ligne×texte, hors-canvas)"
+   },
+   {
     "figure": "F3_forest_metiers",
     "ok": true,
     "detail": "19 lignes côté points + 1 côté fragments ; 2 panneaux"
    },
    {
+    "figure": "encre_F4_polyvalence_fr",
+    "ok": true,
+    "detail": "0 superposition d'encre mesurée (texte×texte, ligne×texte, hors-canvas)"
+   },
+   {
     "figure": "F4_polyvalence",
     "ok": true,
     "detail": "11 bras à couverture complète tracés (le contrôle est la référence, A en couverture partielle) ; 5 bras avec un prix calculable ; 3 panneaux"
+   },
+   {
+    "figure": "encre_F5_perclass_fr",
+    "ok": true,
+    "detail": "0 superposition d'encre mesurée (texte×texte, ligne×texte, hors-canvas)"
    },
    {
     "figure": "F5_perclass",
@@ -3149,79 +3203,174 @@
   ],
   "figures": {
    "F1": {
-    "png": {
-     "chemin": "papers/paper3/figures/F1_delta_13bras.png",
-     "octets": 142311
+    "en": {
+     "lang": "en",
+     "png": {
+      "chemin": "papers/paper3/figures/F1_delta_13bras.png",
+      "octets": 99844
+     },
+     "pdf": {
+      "chemin": "papers/paper3/figures/F1_delta_13bras.pdf",
+      "octets": 23001
+     },
+     "dims_px": [
+      1201,
+      908
+     ],
+     "discord_out": "discord_out/paper3_F1_delta_13bras.png"
     },
-    "pdf": {
-     "chemin": "papers/paper3/figures/F1_delta_13bras.pdf",
-     "octets": 22911
-    },
-    "dims_px": [
-     1762,
-     1286
-    ],
-    "discord_out": "discord_out/paper3_F1_delta_13bras.png"
+    "fr": {
+     "lang": "fr",
+     "png": {
+      "chemin": "papers/paper3/figures/F1_delta_13bras_fr.png",
+      "octets": 104305
+     },
+     "pdf": {
+      "chemin": "papers/paper3/figures/F1_delta_13bras_fr.pdf",
+      "octets": 22845
+     },
+     "dims_px": [
+      1200,
+      908
+     ],
+     "discord_out": "discord_out/paper3_F1_delta_13bras_fr.png"
+    }
    },
    "F2": {
-    "png": {
-     "chemin": "papers/paper3/figures/F2_routage.png",
-     "octets": 388184
+    "en": {
+     "lang": "en",
+     "png": {
+      "chemin": "papers/paper3/figures/F2_routage.png",
+      "octets": 138840
+     },
+     "pdf": {
+      "chemin": "papers/paper3/figures/F2_routage.pdf",
+      "octets": 32250
+     },
+     "dims_px": [
+      1200,
+      858
+     ],
+     "discord_out": "discord_out/paper3_F2_routage.png"
     },
-    "pdf": {
-     "chemin": "papers/paper3/figures/F2_routage.pdf",
-     "octets": 35561
-    },
-    "dims_px": [
-     2626,
-     1359
-    ],
-    "discord_out": "discord_out/paper3_F2_routage.png"
+    "fr": {
+     "lang": "fr",
+     "png": {
+      "chemin": "papers/paper3/figures/F2_routage_fr.png",
+      "octets": 136362
+     },
+     "pdf": {
+      "chemin": "papers/paper3/figures/F2_routage_fr.pdf",
+      "octets": 31774
+     },
+     "dims_px": [
+      1200,
+      858
+     ],
+     "discord_out": "discord_out/paper3_F2_routage_fr.png"
+    }
    },
    "F3": {
-    "png": {
-     "chemin": "papers/paper3/figures/F3_forest_metiers.png",
-     "octets": 225993
+    "en": {
+     "lang": "en",
+     "png": {
+      "chemin": "papers/paper3/figures/F3_forest_metiers.png",
+      "octets": 169228
+     },
+     "pdf": {
+      "chemin": "papers/paper3/figures/F3_forest_metiers.pdf",
+      "octets": 36010
+     },
+     "dims_px": [
+      1203,
+      1049
+     ],
+     "discord_out": "discord_out/paper3_F3_forest_metiers.png"
     },
-    "pdf": {
-     "chemin": "papers/paper3/figures/F3_forest_metiers.pdf",
-     "octets": 36776
-    },
-    "dims_px": [
-     2260,
-     1733
-    ],
-    "discord_out": "discord_out/paper3_F3_forest_metiers.png"
+    "fr": {
+     "lang": "fr",
+     "png": {
+      "chemin": "papers/paper3/figures/F3_forest_metiers_fr.png",
+      "octets": 171172
+     },
+     "pdf": {
+      "chemin": "papers/paper3/figures/F3_forest_metiers_fr.pdf",
+      "octets": 36780
+     },
+     "dims_px": [
+      1199,
+      1048
+     ],
+     "discord_out": "discord_out/paper3_F3_forest_metiers_fr.png"
+    }
    },
    "F4": {
-    "png": {
-     "chemin": "papers/paper3/figures/F4_polyvalence.png",
-     "octets": 260856
+    "en": {
+     "lang": "en",
+     "png": {
+      "chemin": "papers/paper3/figures/F4_polyvalence.png",
+      "octets": 184405
+     },
+     "pdf": {
+      "chemin": "papers/paper3/figures/F4_polyvalence.pdf",
+      "octets": 25648
+     },
+     "dims_px": [
+      1237,
+      927
+     ],
+     "discord_out": "discord_out/paper3_F4_polyvalence.png"
     },
-    "pdf": {
-     "chemin": "papers/paper3/figures/F4_polyvalence.pdf",
-     "octets": 26836
-    },
-    "dims_px": [
-     3847,
-     1143
-    ],
-    "discord_out": "discord_out/paper3_F4_polyvalence.png"
+    "fr": {
+     "lang": "fr",
+     "png": {
+      "chemin": "papers/paper3/figures/F4_polyvalence_fr.png",
+      "octets": 185392
+     },
+     "pdf": {
+      "chemin": "papers/paper3/figures/F4_polyvalence_fr.pdf",
+      "octets": 26739
+     },
+     "dims_px": [
+      1237,
+      927
+     ],
+     "discord_out": "discord_out/paper3_F4_polyvalence_fr.png"
+    }
    },
    "F5": {
-    "png": {
-     "chemin": "papers/paper3/figures/F5_perclass.png",
-     "octets": 209608
+    "en": {
+     "lang": "en",
+     "png": {
+      "chemin": "papers/paper3/figures/F5_perclass.png",
+      "octets": 143187
+     },
+     "pdf": {
+      "chemin": "papers/paper3/figures/F5_perclass.pdf",
+      "octets": 28042
+     },
+     "dims_px": [
+      1201,
+      990
+     ],
+     "discord_out": "discord_out/paper3_F5_perclass.png"
     },
-    "pdf": {
-     "chemin": "papers/paper3/figures/F5_perclass.pdf",
-     "octets": 28482
-    },
-    "dims_px": [
-     2964,
-     1795
-    ],
-    "discord_out": "discord_out/paper3_F5_perclass.png"
+    "fr": {
+     "lang": "fr",
+     "png": {
+      "chemin": "papers/paper3/figures/F5_perclass_fr.png",
+      "octets": 147961
+     },
+     "pdf": {
+      "chemin": "papers/paper3/figures/F5_perclass_fr.pdf",
+      "octets": 28436
+     },
+     "dims_px": [
+      1201,
+      990
+     ],
+     "discord_out": "discord_out/paper3_F5_perclass_fr.png"
+    }
    }
   }
  }

@@ -7,6 +7,15 @@ header-includes:
 
 # La porte ne choisit toujours pas : un mélange d'experts initialisé depuis des spécialistes de loss bat son contrôle apparié et reste le seul bras polyvalent sous les métriques Cityscapes pleine résolution
 
+**Guillaume Cassez · Stanislas Larnier**
+
+Recherche indépendante
+
+*Guillaume Cassez* — [ORCID 0009-0007-0987-3931](https://orcid.org/0009-0007-0987-3931) · `cassez.guillaume@gmail.com` · [guillaume-cassez.fr](https://guillaume-cassez.fr)  
+*Stanislas Larnier* — `stanislaslarnier@gmail.com` · [HAL stanislas-larnier](https://cv.hal.science/stanislas-larnier)
+
+*Liste d’auteurs établie le 2026-10-04 — Stanislas Larnier rejoint ce papier en deuxième position, par accord mutuel entre les deux auteurs, comme sur les quatre papiers BRATS du même programme. Les versions déposées sur Zenodo avant cette date portent Guillaume Cassez seul. Aucun chiffre du manuscrit n’est modifié.*
+
 *Cityscapes val · ConvNeXt-V2-Base + UPerNet · quatre experts initialisés depuis les spécialistes de loss B, D, Dp, G · porte top-2 par patch sur une grille 3×3 · 3 seeds × 80 époques à 1024×2048, contre un contrôle apparié en recette sans MoE*
 
 ---
@@ -118,7 +127,7 @@ Lecture honnête : le critère primaire est significatif au seuil brut (p = 0,00
 
 **Robustesse inter-forwards.** Un second forward GPU indépendant des mêmes checkpoints (chemin de régénération métier, §5.3) donne Δ = +0,450218 pt contre +0,449360 pt pour le harnais — un écart de **8,58×10⁻⁴ pt** (6,07×10⁻⁴ pt sur la mIoU du MoE, 2,51×10⁻⁴ pt sur celle du contrôle), soit le non-déterminisme cuDNN/BF16. Même verdict dans les deux sources.
 
-![F1 — Δ mIoU des 13 bras contre le contrôle apparié, avec IC95](figures/F1_delta_13bras.png)
+![F1 — Δ mIoU des 13 bras contre le contrôle apparié, avec IC95](figures/F1_delta_13bras_fr.png)
 
 *Figure 1 : Δ mIoU vs le contrôle apparié pour les 13 bras du programme (bootstrap apparié, B = 10 000). MoE-V3-CS est 5^e^ par amplitude ; les deux familles de Holm sont toutes deux rapportées dans la table T3.*
 
@@ -160,7 +169,7 @@ Relevé dans `routing_moe_v3cs_Binit_seed*.jsonl` (80 époques × 3 seeds), croi
 
 **Ce n'est pas un artefact du bruit de Shazeer — et la preuve n'est pas celle qu'on croit.** À l'époque finale le bruit est recuit à 0, donc `entropy_token_clean` est *identique par construction* à `entropy_token` : cette égalité-là ne prouve rien (c'est une tautologie). La comparaison **probante** porte sur les **40 époques où le bruit est actif** (std 1,0 × std des logits) : l'écart maximal entre les deux entropies y est de **1,45×10⁻³** (seed 42 9,54×10⁻⁴, seed 123 9,95×10⁻⁴, seed 456 1,45×10⁻³), tandis que la distribution **sans bruit** y reste plate à **≥ 0,99821** d'entropie normalisée et `part_max` y reste entre **[0,50011 ; 0,50217]** de l'équirépartition 0,5000. Autrement dit : la platitude du routage est une propriété de la *porte*, pas du bruit qu'on lui injecte.
 
-![F2 — Routage sur 80 époques × 3 seeds : frac, entropies, γ](figures/F2_routage.png)
+![F2 — Routage sur 80 époques × 3 seeds : frac, entropies, γ](figures/F2_routage_fr.png)
 
 *Figure 2 : diagnostics de routage au fil de l'entraînement. Haut : le `frac` par expert reste collé à 0,5000 (équirépartition) sans expert mort. Milieu : l'entropie sans bruit reste ≥ 0,99821 pendant les 40 époques à bruit actif. Bas : γ croît de 0,00024 à ≈ 0,020 — le mélange sert, mais comme moyenne.*
 
@@ -189,9 +198,7 @@ Holdout `first:500`, seeds moyennés dans chaque réplicat, bootstrap apparié B
 
 (table complète des 20 métriques dans `tables/T5_metiers.md`). Sur les 20 métriques métier, **2 survivent au Holm** sur la famille 15 paires — `instances_taille_T3_rappel` (+0,26 pt, rappel des plus grandes instances) et `fragments` (−31,2 composantes par image), toutes deux avec p = 0 — et **5 ont un IC excluant zéro**. Il serait faux de n'en nommer qu'une : les **deux** survivantes sont `fragments` et `instances_taille_T3_rappel`, et la seconde va *dans le sens de la thèse* : le seul gain métier qui résiste à la multiplicité porte sur les **grandes** instances (T3), tandis que le gain sur les **petites** (T1 +0,80) n'y résiste pas (Holm 0,198). Le mélange améliore ce qui est déjà bien vu et réduit la fragmentation ; il ne répare pas les plus petites instances.
 
-![F3 — Forest plot des métriques métier, deux panneaux à unités distinctes](figures/F3_forest_metiers.png)
-
-*Figure 3 : Δ(MoE − contrôle) des métriques métier avec IC95. Les deux panneaux portent des unités distinctes — les 19 métriques en points sur un axe, `fragments` (Δ −31,2 composantes par image) sur le sien — car les tracer ensemble compresserait les métriques en points d'un facteur ≈ 39 en une bande illisible.*
+![F3 — Forest plot des métriques métier, deux panneaux à unités distinctes. Δ(MoE − contrôle) des métriques métier avec IC95 : les deux panneaux portent des unités distinctes — les 19 métriques en points sur un axe, *fragments* (Δ −31,2 composantes par image) sur le sien — car les tracer ensemble compresserait les métriques en points d'un facteur ≈ 39 en une bande illisible.](figures/F3_forest_metiers_fr.png)
 
 **Ce que le mélange capte des experts, et ce qu'il n'hérite pas** (Δ vs contrôle, même artefact) :
 
@@ -229,7 +236,7 @@ Lecture calculée : le MoE-V3-CS capte une partie du gain d'instances de D/Dp (T
 
 C'est le point d'honnêteté central de cette table : le gain le plus spectaculaire (truck +4,24 pt) a un IC qui exclut zéro mais **ne survit pas** au Holm des 19 classes (0,1188), parce que son IC est large ([+0,44 ; +8,75]) sur une classe rare. Le seul effet par classe qui résiste à la correction multiple est un **coût** (bicycle), pas un gain. Les coûts sont faibles et distribués : bicycle −0,26, motorcycle −0,31, rider −0,37.
 
-![F5 — Heatmap IoU par classe, MoE vs contrôle et vs les quatre spécialistes](figures/F5_perclass.png)
+![F5 — Heatmap IoU par classe, MoE vs contrôle et vs les quatre spécialistes](figures/F5_perclass_fr.png)
 
 *Figure 5 : Δ IoU par classe. Le mélange retrouve 82 % du meilleur gain spécialiste sur truck (Dp +5,19) et 82 % sur train (où le meilleur expert est **B** +1,50, pas D ni Dp — un dénominateur limité à D/Dp aurait fait écrire « 186 % du meilleur gain spécialiste », ce qui ne veut rien dire), tout en gardant la perte traffic light à 3 % de celle de D et la perte piéton à 95 % de celle de B.*
 
@@ -264,7 +271,7 @@ Le critère de polyvalence pré-enregistré du programme : **36 endpoints** (19 
 
 **Deux compteurs, à ne pas confondre** (tous deux calculés) : **22 des 36 endpoints sont au-dessus du contrôle** (Δ > 0 ; 14 en dessous, aucun nul) et **28 sont dans la moitié haute du classement** parmi les 12 bras (8 dans la moitié basse). Le second ne mesure pas un signe mais une **position relative** : un bras peut être dans la moitié haute tout en restant sous le contrôle, et inversement.
 
-![F4 — Polyvalence : 4 panneaux (dommage, percentile, stabilité seed, familles)](figures/F4_polyvalence.png)
+![F4 — Polyvalence : 3 panneaux (dommage maximal, prix payé par point de mIoU, gagner sans casser)](figures/F4_polyvalence_fr.png)
 
 *Figure 4 : le verdict de polyvalence. Le mélange est premier en dommage maximal (−0,53 pt, marge 1,37 pt) mais 5^e^ en percentile moyen (60,4) et premier sur 0 des 36 endpoints — le polyvalent n'est pas le meilleur.*
 
@@ -311,6 +318,12 @@ Deux bras de consensus sans entraînement (D⊘B +0,484, Dp⊘B +0,479) atteigne
 Insérer un mélange par patch dans un segmenteur Cityscapes pleine résolution, initialiser ses quatre experts bit à bit depuis quatre spécialistes de loss du même seed, entraîner la porte et une échelle résiduelle initialisée à zéro pendant 80 époques, et le résultat est : **le mélange bat son contrôle apparié en recette** (ΔmIoU +0,449 pt [+0,109 ; +0,820], p = 0,0066, Holm = 0,0066 dans la famille pré-enregistrée à 1 paire ; il ne survit pas à la famille exploratoire 15 paires, Holm = 0,0924, où aucun bras du plateau ne survit), **et sa porte ne choisit pas** — routage plat à l'époque finale (entropie normalisée minimale 0,99771, `part_max` à 0,0030 de l'équirépartition 0,5000, zéro expert mort), une platitude qui est une propriété de la porte et non du bruit recuit (sur les 40 époques à bruit actif la distribution sans bruit reste ≥ 0,99821), pendant que γ croît de 0,00024 à ≈ 0,020. Le gain vient de la **moyenne d'experts**, pas de la sélection — la réplication, sur un second dataset, une seconde architecture et un second point d'accroche, du résultat BRATS *The Gate Does Not Choose* [DOI 10.5281/zenodo.22903668], dont ce papier ne reprend aucun chiffre. Sur le critère de polyvalence à 36 endpoints du programme, le mélange est le **seul polyvalent** (dommage maximal −0,53 pt, marge 1,37 pt, prix −1,2 pt par point de mIoU contre −43,1 pour D) tout en étant **premier sur aucun** des 36 endpoints et 5^e^ en percentile moyen : bon partout n'est pas meilleur partout. La porte ne choisit toujours pas — et c'est exactement pourquoi le mélange est le seul bras qui n'est cassé nulle part.
 
 Code, configs, pointeurs d'artefacts par bras, tables, figures et scripts de régénération : **github.com/guillaume-cassez/cityscape-moe-experts** (bundle de publication de ce papier). Compagnons de programme : Cityscapes distmap [DOI 10.5281/zenodo.21006236], ablation boundary Cityscapes [DOI 10.5281/zenodo.21006393], blob loss Cityscapes [DOI 10.5281/zenodo.23083560], MoE-V3 BRATS (antériorité) [DOI 10.5281/zenodo.22903668 ; concept 10.5281/zenodo.22776410].
+
+---
+
+## Contributions des auteurs
+
+**Guillaume Cassez** (auteur principal) : conception de l'étude, entraînement des modèles, évaluations et analyses, rédaction du manuscrit. **Stanislas Larnier** : formulation des questions de recherche, conseils méthodologiques, relectures attentives des versions successives du papier. Les deux auteurs ont approuvé la version finale et l'ordre des auteurs.
 
 ---
 

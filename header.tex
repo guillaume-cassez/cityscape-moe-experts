@@ -3,6 +3,11 @@
 \usepackage{float}
 \floatplacement{figure}{H}
 \usepackage{booktabs}
+% Tableaux d'un seul bloc : \needspace{h} pousse le tabular entier à la page
+% suivante quand le reste de page est trop court, au lieu de le laisser se faire
+% scier par un longtable (tables coupées p5->p6, p6->p7, p9->p10, mesuré le 2026-10-03).
+\usepackage{needspace}
+\usepackage{array}   % colonnes >{...} du post-processeur de tableaux
 
 % Robust rendering of the inline Unicode superscripts used in the Markdown
 % (e.g. "6×10⁻⁵"): map them to LaTeX so the build does not depend on the main
@@ -27,6 +32,24 @@
 % Parity notation "naive↔precomputed" uses U+2194 (LEFT RIGHT ARROW), absent
 % from Liberation Serif — map it to the math \leftrightarrow.
 \newunicodechar{↔}{\ensuremath{\leftrightarrow}}
+
+% --- Code-spans cassables (mesure 2026-10-01 sur les PDF publics) : un chemin
+% monospace non cassable produit un overfull hbox qui SORT de la page (mots
+% mesurés à x2 = 612-617 pt sur une page de 612 pt) : le lecteur perd la fin du
+% chemin. On autorise la coupe après / . et _ dans tout \texttt (prose ET
+% cellules de tableaux pandoc). Le \lowercase fabrique les caractères ACTIFS au
+% moment du préambule : un \catcode changé plus tard ne retokenise pas ce bloc.
+\makeatletter
+\newcommand{\cs@brk}{\discretionary{}{}{}}
+\begingroup\lccode`\~=`\/
+\lowercase{\endgroup\def\cs@activesA{\catcode`\/=\active\def~{/\cs@brk}}}
+\begingroup\lccode`\~=`\.
+\lowercase{\endgroup\def\cs@activesB{\catcode`\.=\active\def~{.\cs@brk}}}
+\newcommand{\cs@setup}{\cs@activesA\cs@activesB\def\_{\char95\cs@brk}}
+\let\cs@texttt\texttt
+\renewcommand{\texttt}{\begingroup\cs@setup\cs@texttt@i}
+\newcommand{\cs@texttt@i}[1]{\cs@texttt{#1}\endgroup}
+\makeatother
 
 % --- Glyphes propres au paper3 (absents de Liberation Serif OU du lmmono des
 % code-spans) — mappés vers des symboles LaTeX pour un build à 0 glyphe manquant.

@@ -7,6 +7,15 @@ header-includes:
 
 # The Gate Still Does Not Choose: An Expert-Initialised Mixture-of-Experts Beats Its Matched Control and Is the Only All-Rounder Arm under Full-Resolution Cityscapes Metrics
 
+**Guillaume Cassez · Stanislas Larnier**
+
+Independent research
+
+*Guillaume Cassez* — [ORCID 0009-0007-0987-3931](https://orcid.org/0009-0007-0987-3931) · `cassez.guillaume@gmail.com` · [guillaume-cassez.fr](https://guillaume-cassez.fr)  
+*Stanislas Larnier* — `stanislaslarnier@gmail.com` · [HAL stanislas-larnier](https://cv.hal.science/stanislas-larnier)
+
+*Author list established 2026-10-04 — Stanislas Larnier joins this paper in second position, by mutual agreement between the two authors, as on the four BRATS papers of the same programme. Versions deposited on Zenodo before that date carry Guillaume Cassez alone. No number in the manuscript is modified.*
+
 *Cityscapes val · ConvNeXt-V2-Base + UPerNet · four experts initialised from the loss specialists B, D, Dp, G · top-2 patch-wise gate over 3×3 patches · 3 seeds × 80 epochs at 1024×2048, against a recipe-matched no-MoE control*
 
 ---
@@ -189,9 +198,7 @@ Holdout `first:500`, seeds averaged within each replicate, paired bootstrap B = 
 
 (full 20-metric table in `tables/T5_metiers.md`). Over the 20 business metrics, **2 survive the Holm** on the 15-pair family — `instances_taille_T3_rappel` (+0.26 pt, largest-instance recall) and `fragments` (−31.2 components per image), both with p = 0 — and **5 have a CI excluding zero**. It is tempting to write that only the fragments survive; that is false, and the second survivor goes *in the direction of the thesis*: the only business gain that resists multiplicity is on the **large** instances (T3), while the gain on the **small** ones (T1 +0.80) does not resist (Holm 0.198). The mixture improves what is already well seen and reduces fragmentation; it does not repair the smallest instances.
 
-![F3 — Business-metric forest plot, two panels at distinct units](figures/F3_forest_metiers.png)
-
-*Figure 3: business-metric Δ(MoE − control) with 95 % CI. The two panels carry distinct units — the 19 point-valued metrics on one axis, `fragments` (Δ −31.2 components per image) on its own — because plotting them together would compress the point metrics by a factor of ≈ 39 into an unreadable band.*
+![F3 — Business-metric forest plot, two panels at distinct units. Business-metric Δ(MoE − control) with 95 % CI: the two panels carry distinct units — the 19 point-valued metrics on one axis, *fragments* (Δ −31.2 components per image) on its own — because plotting them together would compress the point metrics by a factor of ≈ 39 into an unreadable band.](figures/F3_forest_metiers.png)
 
 **What the mixture captures from the experts, and what it does not inherit** (Δ vs control, same artifact):
 
@@ -264,7 +271,7 @@ The program's pre-registered versatility criterion: **36 endpoints** (19 per-cla
 
 **Two counters, not to be confused** (both computed): **22 of the 36 endpoints are above the control** (Δ > 0; 14 below, none null) and **28 are in the upper half of the ranking** among the 12 arms (8 in the lower half). The second measures not a sign but a **relative position**: an arm can be in the upper half while staying below the control, and vice versa.
 
-![F4 — Versatility: 4 panels (damage, percentile, seed stability, families)](figures/F4_polyvalence.png)
+![F4 — Versatility: 3 panels (maximal damage, price paid per mIoU point, winning without breaking)](figures/F4_polyvalence.png)
 
 *Figure 4: the versatility verdict. The mixture is first in maximal damage (−0.53 pt, margin 1.37 pt) yet 5th in mean percentile (60.4) and first on 0 of 36 endpoints — the all-rounder is not the best.*
 
@@ -311,6 +318,12 @@ Two training-free consensus arms (D⊘B +0.484, Dp⊘B +0.479) reach a slightly 
 Insert a patch-wise mixture into a full-resolution Cityscapes segmenter, initialise its four experts bit-for-bit from four loss specialists of the same seed, train the gate and a zero-initialised residual scale for 80 epochs, and the result is: **the mixture beats its recipe-matched control** (ΔmIoU +0.449 pt [+0.109 ; +0.820], p = 0.0066, Holm = 0.0066 in the pre-registered 1-pair family; it does not survive the exploratory 15-pair family, Holm = 0.0924, where no arm of the plateau survives), **and its gate does not choose** — flat routing at the final epoch (minimal normalised entropy 0.99771, `part_max` within 0.0030 of the 0.5000 equidistribution, zero dead experts), a flatness that is a property of the gate and not of the annealed noise (over the 40 active-noise epochs the noise-free distribution stays ≥ 0.99821), while γ grows from 0.00024 to ≈ 0.020. The gain comes from the **average of experts**, not from selection — the replication, on a second dataset, a second architecture and a second attach point, of the BRATS result *The Gate Does Not Choose* [DOI 10.5281/zenodo.22903668], of which this paper reuses no number. On the program's 36-endpoint versatility criterion the mixture is the **only all-rounder** (maximal damage −0.53 pt, margin 1.37 pt, price −1.2 pt per mIoU point against −43.1 for D) while being **first on none** of the 36 endpoints and 5th in mean percentile: good everywhere is not best everywhere. The gate still does not choose — and that is exactly why the mixture is the only arm that is nowhere broken.
 
 Code, configs, per-arm artifact pointers, tables, figures and regeneration scripts: **github.com/guillaume-cassez/cityscape-moe-experts** (release bundle of this paper). Program companions: Cityscapes distmap [DOI 10.5281/zenodo.21006236], Cityscapes boundary ablation [DOI 10.5281/zenodo.21006393], Cityscapes blob loss [DOI 10.5281/zenodo.23083560], BRATS MoE-V3 (anteriority) [DOI 10.5281/zenodo.22903668; concept 10.5281/zenodo.22776410].
+
+---
+
+## Author contributions
+
+**Guillaume Cassez** (lead author): study design, model training, evaluations and analyses, manuscript writing. **Stanislas Larnier**: formulation of the research questions, methodological guidance, careful reviews of successive drafts of the paper. Both authors approved the final version and the author order.
 
 ---
 
