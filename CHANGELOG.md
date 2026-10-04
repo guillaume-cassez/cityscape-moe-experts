@@ -1,5 +1,47 @@
 # CHANGELOG
 
+## v1.1.1 — 2026-10-05
+
+**Métadonnée seule : la description du record passe en HTML. Aucun fichier, aucun chiffre,
+aucun auteur ne change par rapport à la v1.1.0.**
+
+- **Défaut, mesuré sur l'API publique avant de corriger.** Zenodo rend le champ
+  `description` comme du **HTML**. Le payload envoyait l'abstract Markdown du manuscrit tel
+  quel : `GET /api/records/23146586` rendait donc **4 499 caractères contenant 50 « ** »
+  littéraux et 0 balise**, et la page publique affichait `**MoE-V3-CS**`,
+  `**mixture-of-experts**`, `**initialised bit-for-bit**` — le premier texte que lit un
+  visiteur du record, avant les fichiers. Le record BRATS de référence que ces mêmes
+  scripts citent comme modèle d'un dépôt correct (22903668, v0.13) est, lui, balisé :
+  **0 « ** », 2 `<p>`**. Les deux records Cityscapes de ce programme (23090082 v1.0.0 et
+  23085640/23146634 pour le papier 4) portent le même défaut : il vient de `abstract()`,
+  qui renvoie le texte brut du manuscrit, posé tel quel dans `payload()`.
+- **Second défaut du même champ, mesuré en même temps.** L'extraction de l'abstract laisse
+  traîner le séparateur `---` qui ferme la section dans le manuscrit : la description
+  publique se terminait par « …and regeneration scripts. **---** ». Retiré à la source.
+- **Correctif à la cause, pas au symptôme.** Nouveau module `zenodo_description.py` :
+  conversion par **pandoc** (déjà l'outil de la chaîne de build de ces manuscrits), avec
+  `-smart` désactivé — mesuré, l'extension smart réécrivait les apostrophes ASCII en
+  U+2019 (« program's » → « program’s »), une substitution de texte non demandée dans un
+  record public. Repli sans dépendance si pandoc manque. Puis **assertion du résultat
+  AVANT tout appel réseau** : 0 « ** » brut, 0 astérisque d'italique brut, 0 backtick, au
+  moins une balise `<p>`, pas de `---` final, et **la liste des mots du texte rendu est
+  identique à celle de la source** (713 mots pour cet abstract) — une conversion qui
+  perdrait du contenu échoue au lieu de publier. Trois contrôles négatifs probants joués
+  (Markdown non converti, séparateur conservé, mot perdu : chacun détecté, exit 1 ; cas
+  sain accepté).
+- **Pourquoi une nouvelle version plutôt que laisser courir.** Un record Zenodo publié est
+  immuable : sa description ne se corrige qu'en déposant une version. Le précédent de ce
+  dépôt va dans ce sens — l'erratum v1.1.0 du papier 4 a été frappé pour une simple
+  ÉTIQUETTE de famille de Holm, bien moins visible que 50 astérisques dans le résumé. Le
+  DOI de concept **10.5281/zenodo.23090081 ne change pas** et résout désormais sur cette
+  version : aucune citation n'est cassée. La v1.1.0 reste en ligne, immuable, avec son
+  défaut — cette entrée le dit plutôt que de le laisser découvrir.
+- Rendu mesuré après conversion : **4 958 caractères** d'HTML, 1 `<p>`, **25 `<strong>`**,
+  3 `<em>`, 10 `<code>`, **0 « ** »**, les 713 mots de la source tous présents.
+  Pagination inchangée et relue par `pdfinfo` : **16 pages EN, 16 pages FR**.
+  Les 3 fichiers déposés sont **les mêmes octets** qu'en v1.1.0 (paper.pdf 749 211 o
+  md5 `9af4450e…`, paper_fr.pdf 760 058 o md5 `a06f79a2…`).
+
 ## v1.1.0 — 2026-10-04
 
 **Premier dépôt public depuis la v1.0.0** (record Zenodo 23090082, 2026-10-01). Cette
